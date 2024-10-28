@@ -1,0 +1,202 @@
+﻿@page
+@model ManoTourism.Areas.Admin.Pages.ManageOffers.EditOfferModel
+@{
+    ViewBag.Title = @sharedResource["Edit Offer"];
+    ViewBag.pTitle = @sharedResource["Edit Offer"];
+    ViewBag.pageTitle = @sharedResource["Offers"];
+
+
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header align-items-center d-flex">
+                <h4 class="card-title mb-0 flex-grow-1">@sharedResource["Edit Offer"]</h4>
+
+            </div><!-- end card header -->
+            <div class="card-body">
+                <div class="live-preview">
+                    <div class="row gy-4">
+
+                        <!--end col-->
+                        <input type="text" asp-for="@Model.url" value="@Model.url" hidden id="UrlId" />
+
+                        <form asp-area="admin" method="post" enctype="multipart/form-data" >
+                            <input asp-for="EditOffer.OfferId" name="OfferId" id="HiddenId" hidden>
+                           
+                            <div class="modal-body">
+                               
+                                <div class="row g-3">
+                                  
+                                    <div class="col-lg-6">
+                                        <div>
+                                            <label asp-for="EditOffer.OfferTitleAr" class="form-label">@sharedResource["Arabic Title"]</label>
+
+                                            <input type="text" asp-for="EditOffer.OfferTitleAr" class="form-control" placeholder="@sharedResource["Enter Arabic Title"]" required />
+
+                                            <span asp-validation-for="EditOffer.OfferTitleAr" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div>
+                                            <label for="EditOffer.OfferTitleEn" class="form-label">@sharedResource["English Title"]</label>
+                                            <input type="text" asp-for="EditOffer.OfferTitleEn" class="form-control" placeholder="@sharedResource["Enter English Title"]" required />
+                                            <span asp-validation-for="EditOffer.OfferTitleEn" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                        
+
+
+
+
+
+
+                                    <div class="col-lg-6" style="padding-top: 2rem;">
+                                        <div class="form-check">
+                                            <input asp-for="EditOffer.IsActive" class="form-check-input" type="checkbox" id="checkboxId">
+                                            <label for="EditOffer.IsActive" class="form-check-label">@sharedResource["Is Active?"]</label>
+                                            <span asp-validation-for="EditOffer.IsActive" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                 
+
+                                    <div class="col-md-6 form-group">
+                                        <label for="formFile" class="form-label">@sharedResource["Adding Offer Images"]</label>
+                                        <input class="form-control" multiple name="MorePhoto" type="file">
+                                    </div>
+                                    <div class="row  mt-2" id="images_container">
+                                        <div class="col-12">
+                                            <h3 class="mx-2"> @sharedResource["Offer Images"] </h3>
+                                            <hr />
+                                            <div id="item_images" class="d-flex justify-content-center align-items-center" style="flex-wrap:wrap">
+                                                <div class="loader">@sharedResource["Loading..."]</div>
+                                                <div class="message d-none">@sharedResource["No Images"]  </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="modal-footer pt-2">
+                                <div class="hstack gap-2 justify-content-end">
+                                    <button class="btn btn-success" id="add-btn">@sharedResource["Edit Offer"]</button>
+                                </div>
+                            </div>
+                        </form>
+
+
+
+                    </div>
+                    <!--end row-->
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--end col-->
+</div>
+<!--end row-->
+<!--datatable js-->
+@*<partial name="_AddPopup" model="@Model.addSubProduct" view-data="ViewData" />*@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+@section scripts{
+    <!-- list.js min js -->
+    <script src="~/assets/libs/list.js/list.min.js"></script>
+    <script src="~/assets/libs/list.pagination.js/list.pagination.min.js"></script>
+    <!-- crm leads init -->
+    <script src="~/assets/js/pages/crm-leads.init.js"></script>
+
+    <script>
+     
+
+
+       
+        window.addEventListener('load', (event) => {
+            console.log('page is fully loaded');
+            console.log(event);
+           
+            var domainUrl = document.getElementById("UrlId").value;
+            var ItemId = document.getElementById("HiddenId").value;
+           
+            console.log("ItemId = " + ItemId);
+            console.log("ItemId = " + domainUrl);
+            fetch(domainUrl + '/Api/Lists/GetImagesForOffers?id=' + ItemId)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    var item_images = document.getElementById("item_images");
+                    document.getElementsByClassName("loader")[0].remove();
+
+
+                    for (const property in data) {
+                        console.log(data[property]);
+                        var img = document.createElement("img");
+                        img.src = "/" + data[property].Image;
+                        img.width = 150;
+                        img.classList.add("m-3");
+                        var div = document.createElement("div");
+                        div.classList.add("position-relative");
+                        div.classList.add(data[property].OfferImageId);
+                        div.appendChild(img);
+                        var x = document.createElement("div");
+                        x.style.right = 0;
+                        x.style.top = 0;
+                        x.style.cursor = "pointer";
+                        x.addEventListener("click", (e) => removePic(e))
+
+                        x.classList.add("fas");
+                        x.classList.add("fa-times");
+                        x.classList.add("position-absolute")
+                        x.innerHTML = "x";
+
+                        x.id = data[property].OfferImageId;
+                        div.appendChild(x);
+
+                        item_images.appendChild(div);
+
+                    }
+
+                    if (data.length <= 0) {
+                        document.getElementsByClassName("message")[0].classList.remove("d-none");
+                    }
+
+                });
+
+        });
+
+
+
+        function removePic(e) {
+            console.log("remove pic")
+            console.log(e);
+            console.log(e.target.id);
+            var domainUrl = document.getElementById("UrlId").value;
+            fetch(domainUrl + `/Api/Lists/RemoveOfferImageById?id=${e.target.id}`, {
+                method: 'POST'
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log("remove from dom");
+                    console.log(data);
+                    var myobj = document.getElementsByClassName(data)[0];
+                    myobj.remove();
+
+                }).catch(err => {
+                    console.log("error")
+                })
+        }
+
+       
+
+
+    </script>
+
+}
+

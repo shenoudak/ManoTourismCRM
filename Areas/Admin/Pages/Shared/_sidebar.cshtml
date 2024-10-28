@@ -1,0 +1,552 @@
+﻿@using ManoTourism.Data
+@using ManoTourism.Models
+@inject ManoContext _context
+@inject UserManager<ManoTourism.Data.ApplicationUser> UserManager
+@using Microsoft.AspNetCore.Identity;
+@inject IStringLocalizer<SharedResource> sharedResource
+@{
+    var locale = Context.Request.HttpContext.Features.Get<IRequestCultureFeature>();
+    var BrowserCulture = locale.RequestCulture.UICulture.ToString();
+    var currUser = await UserManager.GetUserAsync(User);
+}
+
+
+<!-- ========== App Menu ========== -->
+<div class="app-menu navbar-menu">
+    <!-- LOGO -->
+    <div class="navbar-brand-box">
+        <!-- Dark Logo-->
+        <a asp-area="Admin" asp-page="/index" class="logo logo-dark">
+            <span class="logo-sm">
+                <img src="~/public/Img/logo_new.jpg" alt="Mano Tourism Logo" class="img-fluid w-100" style="height: 105px;padding-top: 20px" height="22">
+            </span>
+            <span class="logo-lg">
+                <img src="~/public/Img/logo_new.jpg" alt="Mano Tourism Logo" class="img-fluid w-100" style="height: 105px;padding-top: 20px" height="17">
+            </span>
+        </a>
+        <!-- Light Logo-->
+        <a asp-area="Admin" asp-page="/index" class="logo logo-light">
+            <span class="logo-sm">
+                <img src="~/public/Img/logo_new.jpg" alt="Mano Tourism Logo" class="img-fluid w-100" style="height: 105px;padding-top: 20px" height="22">
+            </span>
+            <span class="logo-lg">
+                <img src="~/public/Img/logo_new.jpg" alt="Mano Tourism Logo" class="img-fluid w-100" style="height: 105px;padding-top: 20px" height="17">
+            </span>
+        </a>
+        <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover" id="vertical-hover">
+            <i class="ri-record-circle-line"></i>
+        </button>
+    </div>
+
+    <div id="scrollbar">
+        <div class="container-fluid">
+
+            <div id="two-column-menu">
+            </div>
+            <ul class="navbar-nav" id="navbar-nav">
+                @{
+                    if ((User.Identity.IsAuthenticated && (User.IsInRole("admin"))))
+                    {
+                        <li class="menu-title"><span>@sharedResource["Dashboard"]</span></li>
+                        <li class="nav-item">
+                            <a asp-area="Admin" asp-page="/index" class="nav-link menu-link" aria-expanded="false"><i class="mdi mdi-airplane-cog"></i> <span>@sharedResource["Statistics Dashboard"]</span> </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#sidebarLayouts" data-bs-toggle="collapse" role="button"
+                               aria-expanded="false" aria-controls="sidebarLayouts">
+                                <i class="mdi mdi-brightness-7"></i> <span>@sharedResource["Configurations"]</span>
+                            </a>
+                            <div class="collapse menu-dropdown" id="sidebarLayouts">
+                                <ul class="nav nav-sm flex-column">
+
+                                    <li class="nav-item">
+                                        <a asp-area="Admin" asp-page="/ManageVisa/index" class="nav-link">@sharedResource["Manage Visa In UAE"]</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-area="Admin" asp-page="/ManageVisaOutUAE/index" class="nav-link">@sharedResource["Manage Visa Out UAE"]</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-area="Admin" asp-page="/ManageTrip/index" class="nav-link">@sharedResource["Manage Tours In UAE"]</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-area="Admin" asp-page="/ManageToursOutUAE/index" class="nav-link">@sharedResource["Manage Tours Out UAE"]</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-area="Admin" asp-page="/ManageInsurance/index" class="nav-link">@sharedResource["Manage Insurance"]</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-area="Admin" asp-page="/ManageTickets/index" class="nav-link">@sharedResource["Manage Tickets"]</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-area="Admin" asp-page="/ManageHotel/index" class="nav-link">@sharedResource["Manage Hotels"]</a>
+                                    </li>
+                                    @* <li class="nav-item">
+                                        <a asp-area="Admin" asp-page="/ManageEstablishCompanies/index" class="nav-link">@sharedResource["Manage Establishing companies"]</a>
+                                    </li>*@
+                                    <li class="nav-item">
+                                        <a asp-area="Admin" asp-page="/ManageCompleteTransaction/index" class="nav-link">@sharedResource["Manage Complete Transactions"]</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-area="Admin" asp-page="/ManageEmployee/index" class="nav-link">@sharedResource["Manage Employees"]</a>
+                                    <li class="nav-item">
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-area="Admin" asp-page="/ManageLead/index" class="nav-link">@sharedResource["Manage Affiliates"]</a>
+
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-area="Admin" asp-page="/ManageRejectReason/Index" class="nav-link">@sharedResource["Manage Reject Reasons"]</a>
+                                    </li>
+                                       
+
+
+                                </ul>
+                            </div>
+                        </li> <!-- end Dashboard Menu -->
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#ReportsLayouts" data-bs-toggle="collapse" role="button"
+                               aria-expanded="false" aria-controls="sidebarLayouts">
+                                <i class="mdi mdi-wrench"></i> <span>@sharedResource["System Configurations"]</span>
+                            </a>
+                            <div class="collapse menu-dropdown" id="ReportsLayouts">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a asp-area="Admin" asp-page="/ManagePublicSlider/index" class="nav-link">@sharedResource["Manage Public Slider"]</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-area="Admin" asp-page="/ManageAboutSection/index" class="nav-link">@sharedResource["Manage About Section"]</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-area="Admin" asp-page="/ManageSocialContact/index" class="nav-link">@sharedResource["Manage Social Contacts"]</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-area="Admin" asp-page="/ManageTestimonial/index" class="nav-link">@sharedResource["Manage User Reviews"]</a>
+                                        <a asp-area="Admin" asp-page="/ManageOffers/index" class="nav-link">@sharedResource["Manage Offers"]</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-area="Admin" asp-page="/ManagePageContent/index" class="nav-link"> @sharedResource["Manage Page Content"]</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-area="Admin" asp-page="/ManageUserMessages/index" class="nav-link">@sharedResource["Manage User Messages"]</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-area="Admin" asp-page="/ManageUserSubscriptionNewsLetters/index" class="nav-link">@sharedResource["Manage User Subscription News Letters"]</a>
+                                    </li>
+
+
+
+
+                                </ul>
+                            </div>
+                        </li> <!-- end Dashboard Menu -->
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#RquestLayouts" data-bs-toggle="collapse" role="button"
+                               aria-expanded="false" aria-controls="RquestLayouts">
+                                <i class="mdi mdi-web-plus"></i> <span>@sharedResource["Requests Management"]</span>
+                            </a>
+                            <div class="collapse menu-dropdown" id="RquestLayouts">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a asp-area="Admin" asp-page="/ManageRequests/index" class="nav-link">@sharedResource["All Requests"]</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-area="Admin" asp-page="/ManageRequests/NewRequests" class="nav-link">@sharedResource["New Requests"]</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-area="Admin" asp-page="/ManageRequests/ProcessingRequest" class="nav-link">@sharedResource["Processing Requests"]</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-area="Admin" asp-page="/ManageRequests/RejectRequests" class="nav-link"> @sharedResource["Rejected Requests"]</a>
+                                        <a asp-area="Admin" asp-page="/ManageRequests/CanceledRequests" class="nav-link"> @sharedResource["Canceled Requests"]</a>
+                                        <a asp-area="Admin" asp-page="/ManageRequests/FinishedRequests" class="nav-link">@sharedResource["Finished Requests"]</a>
+                                    </li>
+
+
+
+
+
+                                </ul>
+                            </div>
+                        </li> <!-- end Dashboard Menu -->
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#reportsLayout" data-bs-toggle="collapse" role="button"
+                               aria-expanded="false" aria-controls="reportsLayout">
+                                <i class="mdi mdi-apple-keyboard-command"></i> <span>@sharedResource["Reports"]</span>
+                            </a>
+                            <div class="collapse menu-dropdown" id="reportsLayout">
+                                <ul class="nav nav-sm flex-column">
+
+                                    <li class="nav-item">
+                                        <a asp-area="Admin" asp-page="/Reports/EmployeeReport" class="nav-link">@sharedResource["Employees Report"]</a>
+                                        <a asp-area="Admin" asp-page="/Reports/LeadReport" class="nav-link">@sharedResource["Affiliate Report"]</a>
+                                    </li>
+                                    @* <li class="nav-item">
+                            <a asp-area="Admin" asp-page="/Configurations/ManageCity/index" class="nav-link">@sharedResource["Today Orders"]</a>
+                            </li>*@
+
+
+                                </ul>
+                            </div>
+                        </li> <!-- end Dashboard Menu -->
+                        <li class="nav-item">
+                            <a asp-area="Admin" asp-page="/Profile/Index" class="nav-link menu-link" aria-expanded="false"><i class="ri-account-circle-line"></i> <span>@sharedResource["Profile"]</span> </a>
+                        </li>
+
+                    }
+                    else if ((User.Identity.IsAuthenticated && (User.IsInRole("employee"))))
+                    {
+                        var Emp = _context.Employees.Where(e => e.EmployeeEmail == currUser.Email).FirstOrDefault();
+
+                        <li class="menu-title"><span>@sharedResource["Dashboard"]</span></li>
+
+                        @if (Emp != null)
+                        {
+                            var RoleList = _context.AssignEmployeeRoles.Where(e => e.EmployeeId == Emp.EmployeeId).ToList();
+                            if (RoleList != null)
+                            {
+                                Boolean checkPublicSite = RoleList.Any(o => o.EmployeeRoleId == (int)EmpRoles.ManagePublicSite);
+                                Boolean checkConfig = RoleList.Any(o => o.EmployeeRoleId == (int)EmpRoles.TripsManagement || o.EmployeeRoleId == (int)EmpRoles.VisasManagement);
+                                Boolean checkRequest = RoleList.Any(o => o.EmployeeRoleId == (int)EmpRoles.NewRequests || o.EmployeeRoleId == (int)EmpRoles.ProcessingRequests);
+                                if (checkPublicSite)
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav-link menu-link" href="#ReportsLayouts" data-bs-toggle="collapse" role="button"
+                                           aria-expanded="false" aria-controls="sidebarLayouts">
+                                            <i class="mdi mdi-wrench"></i> <span>@sharedResource["System Configurations"]</span>
+                                        </a>
+                                        <div class="collapse menu-dropdown" id="ReportsLayouts">
+                                            <ul class="nav nav-sm flex-column">
+                                                <li class="nav-item">
+                                                    <a asp-area="Admin" asp-page="/ManagePublicSlider/index" class="nav-link">@sharedResource["Manage Public Slider"]</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a asp-area="Admin" asp-page="/ManageAboutSection/index" class="nav-link">@sharedResource["Manage About Section"]</a>
+                                                </li>
+                                                @* <li class="nav-item">
+                            <a asp-area="Admin" asp-page="/ManageSocialContact/index" class="nav-link">@sharedResource["Manage Social Contacts"]</a>
+                            </li> *@
+
+                                                <li class="nav-item">
+                                                    <a asp-area="Admin" asp-page="/ManageTestimonial/index" class="nav-link">@sharedResource["Manage User Reviews"]</a>
+                                                </li>
+                                                @*<li class="nav-item">
+                            <a asp-area="Admin" asp-page="/ManagePageContent/index" class="nav-link"> @sharedResource["Manage Page Content"]</a>
+                            </li>*@
+
+
+
+
+
+                                            </ul>
+                                        </div>
+                                    </li> <!-- end Dashboard Menu -->
+                                }
+                                if (checkConfig)
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav-link menu-link" href="#sidebarLayouts" data-bs-toggle="collapse" role="button"
+                                           aria-expanded="false" aria-controls="sidebarLayouts">
+                                            <i class="mdi mdi-brightness-7"></i> <span>@sharedResource["Configurations"]</span>
+                                        </a>
+                                        <div class="collapse menu-dropdown" id="sidebarLayouts">
+                                            <ul class="nav nav-sm flex-column">
+                                                @foreach (var item in RoleList)
+                                                {
+                                                    if (item.EmployeeRoleId == (int)EmpRoles.VisasManagement)
+                                                    {
+                                                        <li class="nav-item">
+                                                            <a asp-area="Admin" asp-page="/ManageVisa/index" class="nav-link">@sharedResource["Manage Visa In UAE"]</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a asp-area="Admin" asp-page="/ManageVisaOutUAE/index" class="nav-link">@sharedResource["Manage Visa Out UAE"]</a>
+                                                        </li>
+                                                    }
+                                                    if (item.EmployeeRoleId == (int)EmpRoles.TripsManagement)
+                                                    {
+                                                        <li class="nav-item">
+                                                            <a asp-area="Admin" asp-page="/ManageTrip/index" class="nav-link">@sharedResource["Manage Tours In UAE"]</a>
+
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a asp-area="Admin" asp-page="/ManageToursOutUAE/index" class="nav-link">@sharedResource["Manage Tours Out UAE"]</a>
+
+                                                        </li>
+                                                    }
+                                                    if (item.EmployeeRoleId == (int)EmpRoles.InsuranceManagement)
+                                                    {
+                                                        <li class="nav-item">
+                                                            <a asp-area="Admin" asp-page="/ManageInsurance/index" class="nav-link">@sharedResource["Manage Insurance"]</a>
+
+
+                                                        </li>
+                                                    }
+                                                    if (item.EmployeeRoleId == (int)EmpRoles.HotelsManagement)
+                                                    {
+                                                       
+                                                        <li class="nav-item">
+                                                            <a asp-area="Admin" asp-page="/ManageHotel/index" class="nav-link">@sharedResource["Manage Hotels"]</a>
+                                                        </li>
+                                                        
+                                                        
+                                                    }
+                                                    if (item.EmployeeRoleId == (int)EmpRoles.EstablishingCompanies)
+                                                    {
+                                                        //<li class="nav-item">
+                                                        //    <a asp-area="Admin" asp-page="/ManageEstablishCompanies/index" class="nav-link">@sharedResource["Manage Establishing companies"]</a>
+                                                        //</li>
+                                                    }
+                                                    if (item.EmployeeRoleId == (int)EmpRoles.TicketsManagement)
+                                                    {
+                                                        <li class="nav-item">
+                                                            <a asp-area="Admin" asp-page="/ManageTickets/index" class="nav-link">@sharedResource["Manage Tickets"]</a>
+                                                        </li>
+                                                    }
+                                                    if (item.EmployeeRoleId == (int)EmpRoles.CompleteTransactionsManagement)
+                                                    {
+                                                        <li class="nav-item">
+                                                            <a asp-area="Admin" asp-page="/ManageCompleteTransaction/index" class="nav-link">@sharedResource["Manage Complete Transactions"]</a>
+                                                        </li>
+                                                    }
+
+                                                }
+
+                                            </ul>
+                                        </div>
+                                    </li> <!-- end Dashboard Menu -->
+                                }
+                                if (checkRequest)
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav-link menu-link" href="#RquestLayouts" data-bs-toggle="collapse" role="button"
+                                           aria-expanded="false" aria-controls="RquestLayouts">
+                                            <i class="mdi mdi-web-plus"></i> <span>@sharedResource["Requests Management"]</span>
+                                        </a>
+                                        <div class="collapse menu-dropdown" id="RquestLayouts">
+                                            <ul class="nav nav-sm flex-column">
+                                                @foreach (var item in RoleList)
+                                                {
+                                                    if (item.EmployeeRoleId == (int)EmpRoles.NewRequests)
+                                                    {
+                                                        <li class="nav-item">
+                                                            <a asp-area="Admin" asp-page="/ManageRequests/NewRequests" class="nav-link">@sharedResource["New Requests"]</a>
+                                                        </li>
+                                                    }
+                                                    if (item.EmployeeRoleId == (int)EmpRoles.ProcessingRequests)
+                                                    {
+                                                        <li class="nav-item">
+                                                            <a asp-area="Admin" asp-page="/ManageRequests/ProcessingRequest" class="nav-link">@sharedResource["Processing Requests"]</a>
+                                                        </li>
+
+                                                    }
+                                                    if (item.EmployeeRoleId == (int)EmpRoles.CanceledRequests)
+                                                    {
+
+                                                        <li class="nav-item">
+                                                            <a asp-area="Admin" asp-page="/ManageRequests/CanceledRequests" class="nav-link"> @sharedResource["Canceled Requests"]</a>
+
+                                                        </li>
+                                                    }
+                                                    if (item.EmployeeRoleId == (int)EmpRoles.RejectRequests)
+                                                    {
+                                                        <li class="nav-item">
+                                                            <a asp-area="Admin" asp-page="/ManageRequests/RejectRequests" class="nav-link"> @sharedResource["Rejected Requests"]</a>
+                                                        </li>
+                                                    }
+
+                                                }
+                                            </ul>
+                                        </div>
+                                    </li> <!-- end Dashboard Menu -->
+                                }
+                                @* //foreach (var item in RoleList)
+                //{
+                //    if (item.EmployeeRoleId == (int)EmpRoles.ManagePublicSite)
+                //    {
+                //        <li class="nav-item">
+                //            <a class="nav-link menu-link" href="#ReportsLayouts" data-bs-toggle="collapse" role="button"
+                //               aria-expanded="false" aria-controls="sidebarLayouts">
+                //                <i class="mdi mdi-wrench"></i> <span>@sharedResource["System Configurations"]</span>
+                //            </a>
+                //            <div class="collapse menu-dropdown" id="ReportsLayouts">
+                //                <ul class="nav nav-sm flex-column">
+                //                    <li class="nav-item">
+                //                        <a asp-area="Admin" asp-page="/ManagePublicSlider/index" class="nav-link">@sharedResource["Manage Public Slider"]</a>
+                //                    </li>
+                //                    <li class="nav-item">
+                //                        <a asp-area="Admin" asp-page="/ManageAboutSection/index" class="nav-link">@sharedResource["Manage About Section"]</a>
+                //                    </li>
+                //                    <li class="nav-item">
+                //                        <a asp-area="Admin" asp-page="/ManageSocialContact/index" class="nav-link">@sharedResource["Manage Social Contacts"]</a>
+                //                    </li>
+                //                    <li class="nav-item">
+                //                        <a asp-area="Admin" asp-page="/ManageTestimonial/index" class="nav-link">@sharedResource["Manage User Reviews"]</a>
+                //                    </li>
+                //                    <li class="nav-item">
+                //                        <a asp-area="Admin" asp-page="/ManagePageContent/index" class="nav-link"> @sharedResource["Manage Page Content"]</a>
+                //                    </li>
+
+
+
+
+
+                //                </ul>
+                //            </div>
+                //        </li> <!-- end Dashboard Menu -->
+                //    }
+
+
+                //    else if (RoleList.Any(o => o.EmployeeRoleId == (int)EmpRoles.TripsManagement || o.EmployeeRoleId == (int)EmpRoles.VisasManagement))
+                //    {
+                //        <li class="nav-item">
+                //            <a class="nav-link menu-link" href="#sidebarLayouts" data-bs-toggle="collapse" role="button"
+                //               aria-expanded="false" aria-controls="sidebarLayouts">
+                //                <i class="mdi mdi-brightness-7"></i> <span>@sharedResource["Configurations"]</span>
+                //            </a>
+                //            <div class="collapse menu-dropdown" id="sidebarLayouts">
+                //                <ul class="nav nav-sm flex-column">
+
+                //                    <li class="nav-item">
+                //                        @if (item.EmployeeRoleId == (int)EmpRoles.VisasManagement)
+                //                        {
+                //                            <a asp-area="Admin" asp-page="/ManageVisa/index" class="nav-link">@sharedResource["Manage Visa In UAE"]</a>
+                //                            <a asp-area="Admin" asp-page="/ManageVisaOutUAE/index" class="nav-link">@sharedResource["Manage Visa Out UAE"]</a>
+
+                //                        }
+                //                        @if (item.EmployeeRoleId == (int)EmpRoles.TripsManagement)
+                //                        {
+                //                            <a asp-area="Admin" asp-page="/ManageEmployee/index" class="nav-link">@sharedResource["Manage Trip In UAE"]</a>
+                //                            <a asp-area="Admin" asp-page="/ManageLead/index" class="nav-link">@sharedResource["Manage Trip Out UAE"]</a>
+
+                //                        }
+                //                    </li>
+
+
+
+                //                </ul>
+                //            </div>
+                //        </li> <!-- end Dashboard Menu -->
+                //    }
+                //    else if (RoleList.Any(o => o.EmployeeRoleId == (int)EmpRoles.NewRequests || o.EmployeeRoleId == (int)EmpRoles.ProcessingRequests))
+                //    {
+                //        <li class="nav-item">
+                //            <a class="nav-link menu-link" href="#RquestLayouts" data-bs-toggle="collapse" role="button"
+                //               aria-expanded="false" aria-controls="RquestLayouts">
+                //                <i class="mdi mdi-web-plus"></i> <span>@sharedResource["Requests Management"]</span>
+                //            </a>
+                //            <div class="collapse menu-dropdown" id="RquestLayouts">
+                //                <ul class="nav nav-sm flex-column">
+                //                    @if (item.EmployeeRoleId == (int)EmpRoles.NewRequests)
+                //                    {
+                //                        <li class="nav-item">
+                //                            <a asp-area="Admin" asp-page="/ManageRequests/NewRequests" class="nav-link">@sharedResource["New Requests"]</a>
+                //                        </li>
+                //                    }
+                //                    @if (item.EmployeeRoleId == (int)EmpRoles.ProcessingRequests)
+                //                    {
+                //                        <li class="nav-item">
+                //                            <a asp-area="Admin" asp-page="/ManageRequests/ProcessingRequest" class="nav-link">@sharedResource["Processing Requests"]</a>
+                //                        </li>
+
+                //                    }
+
+
+
+
+
+
+
+
+                //                </ul>
+                //            </div>
+                //        </li> <!-- end Dashboard Menu -->
+                //    }
+                //    else
+                //    {
+
+                //    }
+                //}*@
+
+                            }
+
+
+                            <li class="nav-item">
+                                <a asp-area="Admin" asp-page="/ManageLeadRequests/index" class="nav-link menu-link" aria-expanded="false">
+
+                                    @*<i class="ri-rocket-line"></i>*@
+                                    <i class="mdi mdi-airplane-plus"></i>
+
+                                    <span>@sharedResource["Create Request"]</span>
+                                </a>
+
+                            </li>
+                            <li class="nav-item">
+                                <a asp-area="Admin" asp-page="/ManageEmployeeRequests/Index" class="nav-link menu-link" aria-expanded="false"><i class="ri-layout-3-line"></i> <span>@sharedResource["New Requests"]</span> </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-area="Admin" asp-page="/Profile/Index" class="nav-link menu-link" aria-expanded="false"><i class="ri-account-circle-line"></i> <span>@sharedResource["Profile"]</span> </a>
+                            </li>
+                        }
+                    }
+                    else if ((User.Identity.IsAuthenticated && (User.IsInRole("lead"))))
+                    {
+                        <li class="menu-title"><span>@sharedResource["Dashboard"]</span></li>
+                        <li class="nav-item">
+                            <a asp-area="Admin" asp-page="/ManageLeadRequests/index" class="nav-link menu-link" aria-expanded="false"> <i class="mdi mdi-airplane-plus"></i> <span>@sharedResource["Create Request"]</span> </a>
+
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="Admin" asp-page="/Profile/Index" class="nav-link menu-link" aria-expanded="false"><i class="ri-account-circle-line"></i> <span>@sharedResource["Profile"]</span> </a>
+                        </li>
+
+                    }
+                    else if ((User.Identity.IsAuthenticated && (User.IsInRole("accountant"))))
+                    {
+                        <li class="menu-title"><span>@sharedResource["Dashboard"]</span></li>
+                        <li class="nav-item">
+                            <a asp-area="Admin" asp-page="/ManageLeadRequests/index" class="nav-link menu-link" aria-expanded="false"> <i class="mdi mdi-airplane-plus"></i> <span>@sharedResource["Create Request"]</span> </a>
+
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="Admin" asp-page="/Profile/Index" class="nav-link menu-link" aria-expanded="false"><i class="ri-account-circle-line"></i> <span>@sharedResource["Profile"]</span> </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#reportsLayout" data-bs-toggle="collapse" role="button"
+                               aria-expanded="false" aria-controls="reportsLayout">
+                                <i class="mdi mdi-apple-keyboard-command"></i> <span>@sharedResource["Reports"]</span>
+                            </a>
+                            <div class="collapse menu-dropdown" id="reportsLayout">
+                                <ul class="nav nav-sm flex-column">
+
+                                    <li class="nav-item">
+                                        <a asp-area="Admin" asp-page="/Reports/EmployeeReport" class="nav-link">@sharedResource["Employees Report"]</a>
+                                        <a asp-area="Admin" asp-page="/Reports/LeadReport" class="nav-link">@sharedResource["Affiliate Report"]</a>
+                                    </li>
+                                    @* <li class="nav-item">
+                            <a asp-area="Admin" asp-page="/Configurations/ManageCity/index" class="nav-link">@sharedResource["Today Orders"]</a>
+                            </li>*@
+
+
+                                </ul>
+                            </div>
+                        </li> <!-- end Dashboard Menu -->
+                    }
+                    else
+                    {
+
+                    }
+                }
+
+
+
+
+
+            </ul>
+        </div>
+        <!-- Sidebar -->
+    </div>
+</div>
+<!-- Left Sidebar End -->
+<!-- Vertical Overlay-->
+<div class="vertical-overlay"></div>

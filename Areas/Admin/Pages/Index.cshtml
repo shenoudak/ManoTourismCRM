@@ -1,0 +1,759 @@
+﻿@page
+@model ManoTourism.Areas.Admin.Pages.IndexModel
+@{
+}
+
+@using Microsoft.AspNetCore.Identity
+@using ManoTourism.Data
+@inject UserManager<ManoTourism.Data.ApplicationUser> UserManager
+@{
+    ViewBag.Title = @sharedResource["ManoTourism Dashboard"];
+    ViewBag.pTitle = @sharedResource["ManoTourism Dashboard"];
+    ViewBag.pageTitle = @sharedResource["ManoTourism Dashboard"];
+    var user = await UserManager.GetUserAsync(User);
+}
+
+
+
+
+@section styles{
+    <!-- jsvectormap css -->
+    <link href="~/assets/libs/jsvectormap/css/jsvectormap.min.css" rel="stylesheet" type="text/css" />
+
+    <!--Swiper slider css-->
+    <link href="~/assets/libs/swiper/swiper-bundle.min.css" rel="stylesheet" type="text/css" />
+}
+<style>
+
+    th {
+        text-align: center !important;
+    }
+
+    td {
+        text-align: center !important;
+        padding-right: 1rem !important;
+    }
+
+</style>
+
+
+<div class="row">
+    <div class="col">
+
+        <div class="h-100">
+            <div class="row mb-3 pb-1">
+                <div class="col-12">
+                    <div class="d-flex align-items-lg-center flex-lg-row flex-column">
+                        <div class="flex-grow-1">
+                            <h4 class="fs-16 mb-1">@sharedResource["Welcome"], @user!</h4>
+                            <p class="text-muted mb-0">
+                                @sharedResource["Statistics"]
+
+                            </p>
+                        </div>
+
+                    </div><!-- end card header -->
+                </div>
+                <!--end col-->
+            </div>
+            <!--end row-->
+
+
+            <div class="row">
+                <div class="col-xl-4 col-md-6">
+                    <!-- card -->
+                    <div class="card card-animate">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <div class="flex-grow-1 overflow-hidden">
+                                    <p class="text-uppercase fw-medium text-muted text-truncate mb-0">
+                                        @sharedResource["Total Requests Count"]
+                                    </p>
+                                </div>
+
+                            </div>
+
+                            <div class="d-flex align-items-end justify-content-between mt-4">
+                                <div>
+                                    <h4 class="fs-22 fw-semibold ff-secondary mb-4">
+                                        <span class="counter-value" data-target="@Model.TotalRequestsCount">0</span>
+                                    </h4>
+
+                                </div>
+                                <div class="avatar-sm flex-shrink-0">
+                                    <span class="avatar-title bg-soft-success rounded fs-3">
+                                        <i class="bx bx-border-inner text-info"></i>
+
+                                    </span>
+                                </div>
+                            </div>
+                        </div><!-- end card body -->
+                    </div><!-- end card -->
+                </div><!-- end col -->
+
+                <div class="col-xl-4 col-md-6">
+                    <!-- card -->
+                    <div class="card card-animate">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <div class="flex-grow-1 overflow-hidden">
+                                    <p class="text-uppercase fw-medium text-muted text-truncate mb-0">
+                                        @sharedResource["New Total Requests Count"]
+                                    </p>
+                                </div>
+
+
+                            </div>
+                            <div class="d-flex align-items-end justify-content-between mt-4">
+                                <div>
+                                    <h4 class="fs-22 fw-semibold ff-secondary mb-4">
+                                        <span class="counter-value" data-target="@Model.NewRequestsCount">0</span>
+                                    </h4>
+
+                                </div>
+                                <div class="avatar-sm flex-shrink-0">
+                                    <span class="avatar-title bg-soft-info rounded fs-3">
+                                        <i data-feather="activity" class="icon-dual-clock text-info"></i>.
+                                    </span>
+                                </div>
+                            </div>
+                        </div><!-- end card body -->
+                    </div><!-- end card -->
+                </div><!-- end col -->
+                <div class="col-xl-4 col-md-6">
+                    <!-- card -->
+                    <div class="card card-animate">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <div class="flex-grow-1 overflow-hidden">
+                                    <p class="text-uppercase fw-medium text-muted text-truncate mb-0">
+                                        @sharedResource["Processing Requests Count"]
+                                    </p>
+                                </div>
+
+                            </div>
+                            <div class="d-flex align-items-end justify-content-between mt-4">
+                                <div>
+                                    <h4 class="fs-22 fw-semibold ff-secondary mb-4">
+                                        <span class="counter-value" data-target="@Model.ProcessingRequestsCount">0</span>
+                                    </h4>
+                                </div>
+                                <div class="avatar-sm flex-shrink-0">
+                                    <span class="avatar-title bg-soft-primary rounded fs-3">
+                                        <i class="bx bx-highlight text-success"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div><!-- end card body -->
+                    </div><!-- end card -->
+                </div><!-- end col -->
+            </div>
+            <div class="row">
+                <div class="col-xl-4 col-md-6">
+
+                    <!-- card -->
+                    <div class="card card-animate">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <div class="flex-grow-1 overflow-hidden">
+                                    <p class="text-uppercase fw-medium text-muted text-truncate mb-0">
+                                        @sharedResource["Rejected Requests Count"]
+                                    </p>
+                                </div>
+
+                            </div>
+                            <div class="d-flex align-items-end justify-content-between mt-4">
+                                <div>
+                                    <h4 class="fs-22 fw-semibold ff-secondary mb-4">
+                                        <span class="counter-value" data-target="@Model.RejectedRequestsCount">0</span>
+                                    </h4>
+                                </div>
+                                <div class="avatar-sm flex-shrink-0">
+                                    <span class="avatar-title bg-soft-warning rounded fs-3">
+                                        <i class="bx bx-task-x text-success"></i>
+
+
+                                    </span>
+                                </div>
+                            </div>
+                        </div><!-- end card body -->
+                    </div><!-- end card -->
+                </div><!-- end col -->
+                <div class="col-xl-4 col-md-6">
+
+                    <!-- card -->
+                    <div class="card card-animate">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <div class="flex-grow-1 overflow-hidden">
+                                    <p class="text-uppercase fw-medium text-muted text-truncate mb-0">
+                                        @sharedResource["Finished Requests Count"]
+                                    </p>
+                                </div>
+
+                            </div>
+                            <div class="d-flex align-items-end justify-content-between mt-4">
+                                <div>
+                                    <h4 class="fs-22 fw-semibold ff-secondary mb-4">
+                                        <span class="counter-value" data-target="@Model.FinishedRequestsCount">0</span>
+                                    </h4>
+                                </div>
+                                <div class="avatar-sm flex-shrink-0">
+                                    <span class="avatar-title bg-soft-warning rounded fs-3">
+                                        <i class="bx bxs-plane-take-off text-success"></i>
+
+                                    </span>
+                                </div>
+                            </div>
+                        </div><!-- end card body -->
+                    </div><!-- end card -->
+                </div><!-- end col -->
+
+                <div class="col-xl-4 col-md-6">
+
+                    <!-- card -->
+                    <div class="card card-animate">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <div class="flex-grow-1 overflow-hidden">
+                                    <p class="text-uppercase fw-medium text-muted text-truncate mb-0">
+                                        @sharedResource["Canceled Requests"]
+                                    </p>
+                                </div>
+
+                            </div>
+                            <div class="d-flex align-items-end justify-content-between mt-4">
+                                <div>
+                                    <h4 class="fs-22 fw-semibold ff-secondary mb-4">
+                                        <span class="counter-value" data-target="@Model.CanceledRequests">0</span>
+                                    </h4>
+                                </div>
+                                <div class="avatar-sm flex-shrink-0">
+                                    <span class="avatar-title bg-soft-warning rounded fs-3">
+                                        <i class="mdi mdi-gesture-tap-button text-success"></i>
+
+                                    </span>
+                                </div>
+                            </div>
+                        </div><!-- end card body -->
+                    </div><!-- end card -->
+                </div><!-- end col -->
+            </div> <!-- end row-->
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card">
+
+
+                        <div class="card-body p-0 pb-2">
+                            <div class="w-100">
+                                <div id="customer_impression_charts"
+                                     data-colors='["--vz-primary", "--vz-success", "--vz-danger"]'
+                                     class="apex-charts" dir="ltr"></div>
+                            </div>
+                        </div><!-- end card body -->
+                    </div><!-- end card -->
+                </div><!-- end col -->
+                <!-- end col -->
+            </div>
+            <div class="row">
+                <div class="col-xl-8">
+                    <div class="card">
+                        <div class="card-header border-0 align-items-center d-flex">
+                            <h4 class="card-title mb-0 flex-grow-1">@sharedResource["Request Per Types"]</h4>
+
+                        </div><!-- end card header -->
+
+                        <div class="card-header p-0 border-0 bg-soft-light">
+                            <div class="row g-0 text-center">
+                                <div class="col-6 col-sm-3">
+                                    <div class="p-3 border border-dashed border-start-0">
+                                        <h5 class="mb-1">
+                                            <span class="counter-value"
+                                                  data-target="@Model.VisaCount">0</span>
+                                        </h5>
+                                        <p class="text-muted mb-0">@sharedResource["Visas Requests Count"] </p>
+                                    </div>
+                                </div>
+                                <!--end col-->
+                                <div class="col-6 col-sm-3">
+                                    <div class="p-3 border border-dashed border-start-0">
+                                        <h5 class="mb-1">
+                                            <span class="counter-value"
+                                                  data-target="@Model.TripCount">0</span>
+                                        </h5>
+                                        <p class="text-muted mb-0">@sharedResource["Tours Requests Count"]</p>
+                                    </div>
+                                </div>
+                                <!--end col-->
+                                <div class="col-6 col-sm-3">
+                                    <div class="p-3 border border-dashed border-start-0">
+                                        <h5 class="mb-1">
+                                            <span class="counter-value"
+                                                  data-target="@Model.InsuranceCount">0</span>
+                                        </h5>
+                                        <p class="text-muted mb-0">@sharedResource["Insurances Requests Count"]</p>
+                                    </div>
+                                </div>
+                                <!--end col-->
+                                <div class="col-6 col-sm-3">
+                                    <div class="p-3 border border-dashed border-start-0 border-end-0">
+                                        <h5 class="mb-1 text-success">
+                                            <span class="counter-value"
+                                                  data-target="@Model.TicketCount">0</span>
+                                        </h5>
+                                        <p class="text-muted mb-0"> @sharedResource["Tickets Requests Count"]</p>
+                                    </div>
+                                </div>
+                                <!--end col-->
+                            </div>
+                        </div><!-- end card header -->
+
+                        <div class="card-body p-0 pb-2">
+                            <div class="w-100">
+                                <div id="Newcustomer_impression_charts"
+                                     data-colors='["--vz-primary", "--vz-success", "--vz-danger"]'
+                                     class="apex-charts" dir="ltr"></div>
+                            </div>
+                        </div><!-- end card body -->
+                    </div><!-- end card -->
+                </div><!-- end col -->
+                <div class="col-xl-4">
+                    <div class="card card-height-100">
+                        <div class="card-header align-items-center d-flex">
+                            <h4 class="card-title mb-0 flex-grow-1"> @sharedResource["Requests Per Status"]</h4>
+
+                        </div><!-- end card header -->
+
+                        <div class="card-body">
+                            <div id="store-visits-source"
+                                 data-colors='["--vz-primary", "--vz-success", "--vz-warning", "--vz-danger", "--vz-info"]'
+                                 class="apex-charts" dir="ltr"></div>
+                        </div>
+                    </div> <!-- .card-->
+                </div> <!-- .col-->
+
+
+            </div> <!-- end row-->
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<!--list pagination js-->
+<!-- apexcharts -->
+<script src="~/assets/libs/apexcharts/apexcharts.min.js"></script>
+
+<!-- Vector map-->
+<!--Swiper slider js-->
+<script src="~/assets/libs/swiper/swiper-bundle.min.js"></script>
+<!-- Dashboard init -->
+
+
+
+<script>
+    // get colors array from the string
+    jQuery(document).ready(function () {
+        var data = getData();
+        var Newdata = NewgetData();
+        AutoFollow(data);
+        NewAutoFollow(Newdata);
+        getSeries();
+
+
+    }
+    )
+
+    function getChartColorsArray(chartId) {
+        if (document.getElementById(chartId) !== null) {
+            var colors = document.getElementById(chartId).getAttribute("data-colors");
+            if (colors) {
+                colors = JSON.parse(colors);
+                return colors.map(function (value) {
+                    var newValue = value.replace(" ", "");
+                    if (newValue.indexOf(",") === -1) {
+                        var color = getComputedStyle(document.documentElement).getPropertyValue(
+                            newValue
+                        );
+                        if (color) return color;
+                        else return newValue;
+                    } else {
+                        var val = value.split(",");
+                        if (val.length == 2) {
+                            var rgbaColor = getComputedStyle(
+                                document.documentElement
+                            ).getPropertyValue(val[0]);
+                            rgbaColor = "rgba(" + rgbaColor + "," + val[1] + ")";
+                            return rgbaColor;
+                        } else {
+                            return newValue;
+                        }
+                    }
+                });
+            } else {
+                console.warn('data-colors atributes not found on', chartId);
+            }
+        }
+    }
+    function getData() {
+        var dateValue = [];
+        var countValue = [];
+        //var sumValue = [];
+        $.ajax({
+            type: "GET",
+            url: "/api/Statistics/GetRequestsPerMounth/",
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("XSRF-TOKEN",
+                    $('input:hidden[name="__RequestVerificationToken"]').val());
+            }
+            ,
+            dataType: 'json',
+            contentType: "application/json",
+
+            async: false
+        }).done(function (data) {
+            data.forEach(function (obj) {
+                dateValue.push(obj.Lable);
+                countValue.push(obj.Count);
+                // sumValue.push(obj.Sum);
+            });
+        });
+        return {
+            dateValue: dateValue,
+            countValue: countValue,
+            // sumValue: sumValue
+        };
+    }
+    function NewgetData() {
+        var dateValue = [];
+        var countValue = [];
+        //var sumValue = [];
+        $.ajax({
+            type: "GET",
+            url: "/api/Statistics/GetRequestsPerType/",
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("XSRF-TOKEN",
+                    $('input:hidden[name="__RequestVerificationToken"]').val());
+            }
+            ,
+            dataType: 'json',
+            contentType: "application/json",
+
+            async: false
+        }).done(function (data) {
+            data.forEach(function (obj) {
+                dateValue.push(obj.Lable);
+                countValue.push(obj.Count);
+                //sumValue.push(obj.Sum);
+            });
+        });
+        return {
+            dateValue: dateValue,
+            countValue: countValue,
+            //sumValue: sumValue
+        };
+    }
+
+    var linechartcustomerColors = getChartColorsArray("customer_impression_charts");
+    function AutoFollow(data) {
+        if (linechartcustomerColors) {
+            var options = {
+                series: [{
+                    name: "@sharedResource["Request Count"]",
+                    type: "area",
+                    data: data.countValue,
+                },
+                    //{
+                    //    name: "Amount",
+                    //    type: "bar",
+                    //    data: data.sumValue,
+                    //}
+
+                ],
+                chart: {
+                    height: 370,
+                    type: "area",
+                    zoom: {
+                        autoScaleYaxis: true
+                    },
+                    toolbar: {
+                        show: true,
+                    },
+                },
+                dataLabels: {
+                    enabled: true,
+                },
+                stroke: {
+                    curve: "straight",
+                    dashArray: [0, 0, 8, 8],
+                    width: [2, 0, 2.2],
+                },
+                fill: {
+                    opacity: [0.1, 0.9, 1],
+                },
+                markers: {
+
+                    size: [0, 0, 0],
+                    strokeWidth: 2,
+                    hover: {
+                        size: 4,
+                    },
+                },
+                xaxis: {
+
+
+                    categories: data.dateValue,
+                },
+
+
+                grid: {
+                    show: true,
+                    xaxis: {
+                        lines: {
+                            show: true,
+                        },
+                    },
+                    yaxis: {
+                        lines: {
+                            show: true,
+                        },
+                    },
+                    padding: {
+                        top: 0,
+                        right: -2,
+                        bottom: 15,
+                        left: 10,
+                    },
+                },
+                legend: {
+                    show: true,
+                    horizontalAlign: "center",
+                    offsetX: 0,
+                    offsetY: -5,
+                    markers: {
+                        width: 9,
+                        height: 9,
+                        radius: 6,
+                    },
+                    itemMargin: {
+                        horizontal: 10,
+                        vertical: 0,
+                    },
+                },
+                plotOptions: {
+                    bar: {
+                        columnWidth: "30%",
+                        barHeight: "70%",
+                    },
+                },
+                colors: linechartcustomerColors,
+                tooltip: {
+                    shared: true,
+
+
+                    y: [{
+                        formatter: function (y) {
+                            if (typeof y !== "undefined") {
+                                return y.toFixed(0);
+                            }
+                            return y;
+                        },
+                    },
+
+                    ],
+                },
+            };
+            var chart = new ApexCharts(
+                document.querySelector("#customer_impression_charts"),
+                options
+            );
+            chart.render();
+
+
+        }
+    }
+    ///////////////////////////////////
+    var NewlinechartcustomerColors = getChartColorsArray("Newcustomer_impression_charts");
+    function NewAutoFollow(data) {
+        if (NewlinechartcustomerColors) {
+            var options = {
+                series: [{
+                    name: "@sharedResource["Request Count"]",
+                    type: "area",
+                    data: data.countValue,
+                },
+                    //{
+                    //    name: "Amount",
+                    //    type: "bar",
+                    //    data: data.sumValue,
+                    //}
+
+                ],
+                chart: {
+                    height: 370,
+                    type: "line",
+                    toolbar: {
+                        show: true,
+                    },
+                },
+                stroke: {
+                    curve: "straight",
+                    dashArray: [0, 0, 8],
+                    width: [2, 0, 2.2],
+                },
+                fill: {
+                    opacity: [0.1, 0.9, 1],
+                },
+                markers: {
+                    size: [0, 0, 0],
+                    strokeWidth: 2,
+                    hover: {
+                        size: 4,
+                    },
+                },
+                xaxis: {
+                    categories: data.dateValue
+
+                    ,
+                    axisTicks: {
+                        show: true,
+                    },
+                    axisBorder: {
+                        show: true,
+                    },
+                },
+                grid: {
+                    show: true,
+                    xaxis: {
+                        lines: {
+                            show: true,
+                        },
+                    },
+                    yaxis: {
+                        lines: {
+                            show: true,
+                        },
+                    },
+                    padding: {
+                        top: 0,
+                        right: -2,
+                        bottom: 15,
+                        left: 10,
+                    },
+                },
+                legend: {
+                    show: true,
+                    horizontalAlign: "center",
+                    offsetX: 0,
+                    offsetY: -5,
+                    markers: {
+                        width: 9,
+                        height: 9,
+                        radius: 6,
+                    },
+                    itemMargin: {
+                        horizontal: 10,
+                        vertical: 0,
+                    },
+                },
+                plotOptions: {
+                    bar: {
+                        columnWidth: "30%",
+                        barHeight: "70%",
+                    },
+                },
+                colors: NewlinechartcustomerColors,
+                tooltip: {
+                    shared: true,
+
+
+                    y: [{
+                        formatter: function (y) {
+                            if (typeof y !== "undefined") {
+                                return y.toFixed(0);
+                            }
+                            return y;
+                        },
+                    },
+
+                    ],
+                },
+            };
+            var chart = new ApexCharts(
+                document.querySelector("#Newcustomer_impression_charts"),
+                options
+            );
+            chart.render();
+
+
+        }
+    }
+
+
+
+    let dountchart;
+    function getSeries() {
+
+        $.ajax({
+            type: "GET",
+            url: "/api/Statistics/GetDountChart/",
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("XSRF-TOKEN",
+                    $('input:hidden[name="__RequestVerificationToken"]').val());
+            }
+            ,
+            dataType: 'json',
+            contentType: "application/json",
+
+            async: false
+        }).done(function (dataDount) {
+            var _data = dataDount;
+            var _chartLabels = _data[0];
+            var _chartData = _data[1];
+            var chartDonutBasicColors = getChartColorsArray("store-visits-source");
+            if (chartDonutBasicColors) {
+                var options = {
+                    series: _chartData,
+                    labels: _chartLabels,
+                    chart: {
+                        height: 333,
+                        type: "donut",
+                        toolbar: {
+                            show: true,
+                        },
+                    },
+
+                    legend: {
+                        position: "bottom",
+                    },
+                    stroke: {
+                        show: false
+                    },
+                    dataLabels: {
+                        enabled: true,
+                        dropShadow: {
+                            enabled: true,
+                        },
+                    },
+                    colors: chartDonutBasicColors,
+                };
+
+                dountchart = new ApexCharts(
+                    document.querySelector("#store-visits-source"),
+                    options
+                );
+                dountchart.render();
+
+            }
+
+        });
+
+    }
+
+
+</script>

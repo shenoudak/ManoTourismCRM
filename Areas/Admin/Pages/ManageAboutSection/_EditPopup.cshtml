@@ -1,0 +1,90 @@
+﻿@{
+}
+@model ManoTourism.Models.AboutSection
+
+<div class="modal fade" id="showEditModal" tabindex="-1"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-light p-3">
+                <h5 class="modal-title" id="exampleModalLabel">@sharedResource["Edit About Section"]</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close" id="close-modal"></button>
+            </div>
+
+            <form asp-area="Admin" asp-page="/ManageAboutSection/Index" asp-page-handler="EditAboutSection" enctype="multipart/form-data">
+                <div class="modal-body">
+                    <input type="hidden" id="AboutSectionHiddenId" asp-for="@Model.AboutSectionId" />
+                    <input type="hidden" id="AboutVideoHiddenId" asp-for="@Model.AboutVideo" />
+                    <div class="row g-3">
+
+                        <div class="col-lg-6">
+                            <div>
+                                <label asp-for="@Model.HeaderTLAR" class="form-label">@sharedResource["Header Arabic Title"]</label>
+
+                                <input type="text" asp-for="@Model.HeaderTLAR" class="form-control" id="HeaderTLARId" placeholder="@sharedResource["Enter Header Arabic Title"]" />
+
+                                <span asp-validation-for="@Model.HeaderTLAR" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div>
+                                <label for="@Model.HeaderTLEn" class="form-label">@sharedResource["Header English Title"]</label>
+                                <input type="text" asp-for="@Model.HeaderTLEn" class="form-control" id="HeaderTLEnId" placeholder="@sharedResource["Enter Header English Title"]" />
+                                <span asp-validation-for="@Model.HeaderTLEn" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div>
+                                <label for="@Model.MissionCaptionAr" class="form-label">@sharedResource["Mission Caption Arabic"]</label>
+                                <textarea asp-for="@Model.MissionCaptionAr" class="form-control" id="MissionCaptionArId" placeholder="@sharedResource["Enter Mission Caption Arabic"]"></textarea>
+                                <span asp-validation-for="@Model.MissionCaptionAr" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div>
+                                <label for="@Model.MissionCaptionEn" class="form-label">@sharedResource["Mission Caption English"]</label>
+                                <textarea asp-for="@Model.MissionCaptionEn" class="form-control" id="MissionCaptionEnId" placeholder="@sharedResource["Enter Mission Caption English"]"></textarea>
+                                <span asp-validation-for="@Model.MissionCaptionEn" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div>
+                                <label for="@Model.CustomerFocusCaptionAr" class="form-label">@sharedResource["Customer Focus Caption Arabic"]</label>
+                                <textarea asp-for="@Model.CustomerFocusCaptionAr" class="form-control" id="CustomerFocusCaptionArId" placeholder="@sharedResource["Enter Customer Focus Caption Arabic"]"></textarea>
+                                <span asp-validation-for="@Model.CustomerFocusCaptionAr" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div>
+                                <label for="@Model.CustomerFocusCaptionEn" class="form-label">@sharedResource["Customer Focus Caption English"]</label>
+                                <textarea asp-for="@Model.CustomerFocusCaptionEn" class="form-control" id="CustomerFocusCaptionEnId" placeholder="@sharedResource["Enter Customer Focus Caption English"]"></textarea>
+                                <span asp-validation-for="@Model.CustomerFocusCaptionEn" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 form-group">
+                            <label for="formFile" class="form-label">@sharedResource["Edit Video"]</label>
+                            <input class="form-control" accept="video/mp4,video/x-m4v,video/*" name="Editfile" type="file">
+                        </div>
+
+
+                    </div>
+                    <!--end row-->
+                </div>
+                <div class="modal-footer">
+                    <div class="hstack gap-2 justify-content-end">
+                        <button type="button" class="btn btn-light"
+                                data-bs-dismiss="modal">
+                            @sharedResource["Close"]
+                        </button>
+                        <button type="submit" class="btn btn-success"
+                                id="add-btn">
+                            @sharedResource["Edit"]
+                        </button>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

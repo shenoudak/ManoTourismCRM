@@ -1,0 +1,150 @@
+﻿@page
+@model ManoTourism.Areas.Admin.Pages.ManageLead.AddAffiliateModel
+
+@{
+    ViewBag.Title = @sharedResource["Add Affiliate"];
+    ViewBag.pTitle = @sharedResource["Add Affiliate"];
+    ViewBag.pageTitle = @sharedResource["Affiliates"];
+   
+
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header align-items-center d-flex">
+                <h4 class="card-title mb-0 flex-grow-1">@sharedResource["Add Affiliate"]</h4>
+
+            </div><!-- end card header -->
+            <div class="card-body">
+                <div class="live-preview">
+                    <div class="row gy-4">
+                       
+                        <!--end col-->
+                        <input type="text" asp-for="@Model.url" value="@Model.url" hidden id="UrlId" />
+
+                        <form  method="post" enctype="multipart/form-data" onsubmit="return validateMyForm();">
+                            <div class="modal-body">
+                                <input type="hidden" id="id-field" />
+                                <div class="row g-3">
+                                    <div class="col-lg-12">
+                                        <div class="text-center col-lg-12">
+                                            <div class="position-relative d-inline-block">
+                                                <div class="position-absolute bottom-0 end-0">
+                                                    <label for="file" class="mb-0" data-bs-toggle="tooltip" data-bs-placement="right" title=@sharedResource["Select Affiliate Image"]>
+                                                        <div class="avatar-xs cursor-pointer">
+                                                            <div class="avatar-title bg-light border rounded-circle text-muted">
+                                                                <i class="ri-image-fill"></i>
+                                                            </div>
+                                                        </div>
+                                                    </label>
+                                                    <input class="form-control d-none hidefromHere" name="file" id="file" type="file"
+                                                           accept="image/*" required>
+                                                </div>
+                                                <div class="avatar-lg p-1">
+                                                    <div class="avatar-title bg-light rounded-circle">
+                                                        <img src="~/assets/images/users/user-dummy-img.jpg" id="lead-img" class="avatar-md rounded-circle object-cover removeFromHere" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <h5 class="fs-13 mt-3">@sharedResource["Image"] </h5>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div>
+                                            <label asp-for="AddLead.AffiliateName" class="form-label">@sharedResource["Full Name"]</label>
+
+                                            <input type="text" asp-for="AddLead.AffiliateName" class="form-control" placeholder="@sharedResource["Enter Full Name"]" required />
+
+                                            <span asp-validation-for="AddLead.AffiliateName" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                   @* <div class="col-lg-6">
+                                        <div>
+                                            <label for="AddEmployee.EmployeePhoneNumber" class="form-label">@sharedResource["Phone Number"]</label>
+                                            <input type="text" asp-for="AddEmployee.EmployeePhoneNumber" class="form-control" placeholder="@sharedResource["Enter Phone Number"]" required />
+                                            <span asp-validation-for="AddEmployee.EmployeePhoneNumber" class="text-danger"></span>
+                                        </div>
+                                    </div>*@
+
+                                    <div class="col-lg-6">
+                                        <div>
+                                            <label for="AddLead.AffiliateEmail" class="form-label">@sharedResource["Email"]</label>
+                                            <input type="email" asp-for="AddLead.AffiliateEmail" id="company_name-field" class="form-control" placeholder="@sharedResource["Enter Email"]" required />
+                                            <span asp-validation-for="AddLead.AffiliateEmail" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div>
+                                            <label for="AddLead.AffiliatePassword" class="form-label">@sharedResource["Password"]</label>
+                                            <input type="password" asp-for="AddLead.AffiliatePassword" id="company_name-field" class="form-control" placeholder="@sharedResource["Enter Password"]" required />
+                                            <span asp-validation-for="AddLead.AffiliatePassword" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                   
+                                   
+                                   
+
+
+
+                                    
+                                    
+                                    <div class="col-lg-6" style="padding-top: 2rem;">
+                                        <div class="form-check">
+                                            <input asp-for="AddLead.IsActive" class="form-check-input" type="checkbox" id="checkboxId">
+                                            <label for="AddLead.IsActive" class="form-check-label">@sharedResource["Is Active?"]</label>
+                                            <span asp-validation-for="AddLead.IsActive" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                            
+                                  
+                                </div>
+                               
+                            </div>
+
+                            <div class="modal-footer pt-2">
+                                <div class="hstack gap-2 justify-content-end">
+                                    <button class="btn btn-success" id="add-btn">@sharedResource["Add Affiliate"]</button>
+                                </div>
+                            </div>
+                        </form>
+
+
+                    </div>
+                    <!--end row-->
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--end col-->
+</div>
+<!--end row-->
+<!--datatable js-->
+@*<partial name="_AddPopup" model="@Model.addSubProduct" view-data="ViewData" />*@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+@section scripts{
+    <!-- list.js min js -->
+    <script src="~/assets/libs/list.js/list.min.js"></script>
+    <script src="~/assets/libs/list.pagination.js/list.pagination.min.js"></script>
+    <!-- crm leads init -->
+    <script src="~/assets/js/pages/crm-leads.init.js"></script>
+
+    <script>
+    
+
+        function validateMyForm() {
+
+
+            if (document.getElementById("file").files.length == 0) {
+                alert("You Must Select Image");
+                return false;
+            }
+            return true;
+        }
+    
+    </script>
+
+}
+

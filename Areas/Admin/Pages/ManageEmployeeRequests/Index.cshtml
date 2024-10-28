@@ -1,0 +1,399 @@
+﻿@page
+@model ManoTourism.Areas.Admin.Pages.ManageEmployeeRequests.IndexModel
+@Html.AntiForgeryToken()
+@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Xsrf
+@using Microsoft.AspNetCore.Identity
+@using ManoTourism.Data
+@inject UserManager<ManoTourism.Data.ApplicationUser> UserManager
+@{
+    ViewBag.Title = @sharedResource["Requests"];
+    ViewBag.pTitle = @sharedResource["Requests"];
+    ViewBag.pageTitle = @sharedResource["Requests"];
+    var user = await UserManager.GetUserAsync(User);
+}
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css" />
+<!--datatable responsive css-->
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap.min.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
+
+<style>
+    .dataTables_filter {
+        display: none;
+    }
+</style>
+
+<div class="row">
+    <div class="col">
+
+        <div class="h-100">
+            <div class="row mb-3 pb-1">
+                <div class="col-12">
+                    <div class="d-flex align-items-lg-center flex-lg-row flex-column">
+                        <div class="flex-grow-1">
+                            @if (user != null)
+                            {
+                                <h4 class="fs-16 mb-1">@sharedResource["Welcome"], @user.FullName!</h4>
+                            }
+
+                            <p class="text-muted mb-0">
+                                @sharedResource["New Requests"]
+
+                            </p>
+                        </div>
+
+                    </div><!-- end card header -->
+                </div>
+                <!--end col-->
+            </div>
+            <!--end row-->
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card" id="List">
+            <div class="card-header border-0">
+                <input type="text" asp-for="@Model.url" value="@Model.url" hidden id="UrlId" />
+
+                <div class="row g-4 align-items-center">
+                    <div class="col-sm-3">
+                        <div class="search-box">
+                            <input type="text" class="form-control search" id="txtSearch"
+                                   placeholder="@sharedResource["Search for..."]">
+                            <i class="ri-search-line search-icon"></i>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="card-body">
+                <div>
+                    <div class="table-responsive table-card">
+                        <table id="myTable" class="table  dt-responsive nowrap  align-middle" style="width:100%">
+                            <thead class="table-light">
+                                <tr>
+
+
+                                    <th data-ordering="false">@sharedResource["Full Name"]</th>
+                                    <th data-ordering="false">@sharedResource["Phone Number"]</th>
+                                    @*<th data-ordering="false">@sharedResource["Email"]</th>*@
+                                    @*<th data-ordering="false">@sharedResource["Current Country"]</th>*@
+                                    <th data-ordering="false">@sharedResource["Request Service"]</th>
+                                    <th data-ordering="false">@sharedResource["Status"]</th>
+                                    <th data-ordering="false">@sharedResource["Added By"]</th>
+                                    <th data-ordering="false">@sharedResource["Request Date"]</th>
+                                    <th data-ordering="false">@sharedResource["Responsible Employee"]</th>
+                                    <th data-ordering="false">@sharedResource["Assignment Date of Request"]</th>
+                                    <th data-ordering="false">@sharedResource["Actions"]</th>
+                                </tr>
+                            </thead>
+
+
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!--end modal-->
+        </div>
+    </div>
+    <!--end col-->
+</div>
+
+<partial name="_ViewPopup" view-data="ViewData" />
+<partial name="_UpdateRequestFromEmployee" model="@Model.updateRequestStatusVM" view-data="ViewData" />
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+@section scripts{
+    <!-- list.js min js -->
+    <script src="~/assets/libs/list.js/list.min.js"></script>
+    <script src="~/assets/libs/list.pagination.js/list.pagination.min.js"></script>
+    <!-- crm leads init -->
+    <script src="~/assets/js/pages/crm-leads.init.js"></script>
+
+
+}
+
+<script>
+
+
+
+
+    $(document).ready(function () {
+        $("#myTable").DataTable({
+            "proccessing": true,
+            "serverSide": true,
+            "ajax": {
+
+                url: "/Admin/ManageEmployeeRequests/Index",
+                type: 'POST',
+                headers: { 'XSRF-TOKEN': $('@Html.AntiForgeryToken()').val() }
+            },
+            "columnDefs": [
+                {
+                    "targets": -1,
+                    "data": null,
+                    "render": function (data, type, row, meta) {
+
+
+                        let linkHtml = `<ul class="list-inline hstack gap-2 mb-0">
+
+                                             <li class="list-inline-item" data-bs-toggle="tooltip"
+                                                                                            data-bs-trigger="hover" data-bs-placement="top"
+                                                                                                title=@sharedResource["View"]>
+                                                                                            <a href="javascript:void(0)" data-bs-toggle="modal">
+                                                                                                        <i class="ri-eye-fill align-bottom text-muted" onclick="ShowViewPopUp(${row.RequestId})"></i>
+                                                                                            </a>
+                                                                                        </li>
+                                                                                                 <li class="list-inline-item" data-bs-toggle="tooltip"
+                                                                                                data-bs-trigger="hover" data-bs-placement="top" >
+
+                                                                    <a class="btn btn-success btn-sm" href="javascript:void(0)" data-bs-toggle="modal" onclick="AssignToEmplyee(${row.RequestId})">@sharedResource["Update Request Status"] </a></li>
+
+                                                   </ul>`
+
+                        return linkHtml;
+
+
+                    },
+                    "sortable": false
+                },
+
+
+                { "name": "FullName", "data": "FullName", "targets": 0, "visible": true },
+                { "name": "PhoneNumber", "data": "PhoneNumber", "targets": 1 },
+                {
+                    "name": "ManoEntityTitleEn", "data": "ManoEntityTitleEn", "targets": 2,
+
+                    "render": function (data, type, row, meta) {
+                        if (row.BrowserCulture == "en-US") {
+
+                            return `<span ><strong>${row.ManoEntityTitleEn}</strong></span>`;
+                        } else {
+                            return `<span ><strong>${row.ManoEntityTitleAr}</strong></span>`;
+                        }
+                    }
+                },
+                {
+                    "name": "StatusTitleEn", "data": "StatusTitleEn", "targets": 3,
+                    "render": function (data, type, row, meta) {
+
+                        return `<span class="badge badge-soft-primary text-uppercase">@sharedResource["Processing"]</span>`;
+
+                    }
+
+
+
+                },
+                { "name": "AffiliateName", "data": "AffiliateName", "targets": 4 },
+                { "name": "RequestDate", "data": "RequestDate", "targets": 5 },
+                { "name": "EmployeeName", "data": "EmployeeName", "targets": 6 },
+                { "name": "AssignedDateToEmployee", "data": "AssignedDateToEmployee", "targets": 7 },
+
+
+
+
+
+
+            ],
+            "order": [[1, "desc"]],
+            "language": {
+                "lengthMenu": "Show _MENU_",
+            },
+            "dom":
+                "<'row'" +
+                "<'col-sm-6 d-flex align-items-center justify-conten-start'l>" +
+                "<'col-sm-6 d-flex align-items-center justify-content-end'f>" +
+                ">" +
+
+                "<'table-responsive'tr>" +
+
+                "<'row'" +
+                "<'col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start'i>" +
+                "<'col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end'p>" +
+                ">",
+            "createdRow": function (row, data, dataIndex) {
+                var tdElements = $(row).find('td');
+                $(tdElements[tdElements.length - 1]).addClass('text-end');
+            }
+        });
+    });
+    $('#txtSearch').keyup(function () {
+        var table = $('#myTable').DataTable();
+        table.search($(this).val()).draw();
+    });
+
+
+    function ShowViewPopUp(RequestId) {
+
+        $.ajax({
+            type: "GET",
+            url: "/Admin/ManageEmployeeRequests/Index?handler=SingleRequestDetailsForView",
+            data: { "RequestId": RequestId },
+            contentType: "application/json",
+            dataType: "json",
+            success: function (response) {
+
+                if (response.BrowserCulture == "en-US") {
+                    document.getElementById("DEntityTitleId").innerHTML = response.EntityTitleEn
+                    document.getElementById("DFullNameId").innerHTML = response.FullName
+                    document.getElementById("DPhoneNumberId").innerHTML = response.PhoneNumber
+                    document.getElementById("DEmailId").innerHTML = response.Email
+                    document.getElementById("DManoEntityTitle").innerHTML = response.ManoEntityTitleEn
+                    document.getElementById("DRequestDateId").innerHTML = response.RequestDate
+                    document.getElementById("DAffiliateNameId").innerHTML = response.AffiliateName
+                    document.getElementById("DCountryTLId").innerHTML = response.CountryTLEN
+                    document.getElementById("DNationalityTLId").innerHTML = response.NationalityTLEN
+                    document.getElementById("DCompanyMarktingTitle").innerHTML = response.CompanyMarktingTitleEn
+                    document.getElementById("DMessageId").innerHTML = response.Message
+                    document.getElementById("DActivityTypeId").innerHTML = response.ActivityType
+                    document.getElementById("DHotelArrivedDateId").innerHTML = response.HotelArrivedDate
+                    document.getElementById("DHotelDepartureDateId").innerHTML = response.HotelDepartureDate
+                    document.getElementById("DOneWayDateId").innerHTML = response.OneWayDate
+                    document.getElementById("DBeturnedDateId").innerHTML = response.BeturnedDate
+                    if (response.ManoEntityTypeId == 4) {
+                        document.getElementById("DisplayActivityTypeId").style.display = "block";
+                    }
+                    else {
+                        document.getElementById("DisplayActivityTypeId").style.display = "none";
+                    }
+                    if (response.ManoEntityTypeId == 5) {
+                        document.getElementById("DisplayHotelArrivedDateId").style.display = "block";
+                        document.getElementById("DisplayHotelDepartureDateId").style.display = "block";
+                    }
+                    else {
+                        document.getElementById("DisplayHotelArrivedDateId").style.display = "none";
+                        document.getElementById("DisplayHotelDepartureDateId").style.display = "none";
+                    }
+                    if (response.ManoEntityTypeId == 6) {
+                        if (response.OneWay==true) 
+                        {
+                            document.getElementById("DisplayOneWayId").style.display = "revert";
+                            document.getElementById("DOneWayId").innerHTML = "One-Way"
+                            document.getElementById("DisplayOneWayDateId").style.display = "revert";
+                            document.getElementById("DisplayBeturnedDateId").style.display = "none";
+                        }
+                        else
+                        {
+                            document.getElementById("DisplayOneWayId").style.display = "revert";
+                            document.getElementById("DOneWayId").innerHTML = "Going and Coming back"
+                            document.getElementById("DisplayOneWayDateId").style.display = "revert";
+                            document.getElementById("DisplayBeturnedDateId").style.display = "revert";
+                        }
+                        
+                    }
+                    else {
+                        document.getElementById("DisplayOneWayDateId").style.display = "none";
+                        document.getElementById("DisplayBeturnedDateId").style.display = "none";
+                    }
+
+                }
+                else {
+                    document.getElementById("DEntityTitleId").innerHTML = response.EntityTitleAr
+                    document.getElementById("DFullNameId").innerHTML = response.FullName
+                    document.getElementById("DPhoneNumberId").innerHTML = response.PhoneNumber
+                    document.getElementById("DEmailId").innerHTML = response.Email
+                    document.getElementById("DManoEntityTitle").innerHTML = response.ManoEntityTitleAr
+                    document.getElementById("DRequestDateId").innerHTML = response.RequestDate
+                    document.getElementById("DAffiliateNameId").innerHTML = response.AffiliateName
+                    document.getElementById("DCountryTLId").innerHTML = response.CountryTLAR
+                    document.getElementById("DNationalityTLId").innerHTML = response.NationalityTLAR
+                    document.getElementById("DCompanyMarktingTitle").innerHTML = response.CompanyMarktingTitleAr
+                    document.getElementById("DMessageId").innerHTML = response.Message
+                    document.getElementById("DActivityTypeId").innerHTML = response.ActivityType
+                    document.getElementById("DHotelArrivedDateId").innerHTML = response.HotelArrivedDate
+                    document.getElementById("DHotelDepartureDateId").innerHTML = response.HotelDepartureDate
+                    document.getElementById("DOneWayDateId").innerHTML = response.OneWayDate
+                    document.getElementById("DBeturnedDateId").innerHTML = response.BeturnedDate
+                    if (response.ManoEntityTypeId == 4) {
+                        document.getElementById("DisplayActivityTypeId").style.display = "revert";
+                    }
+                    else {
+                        document.getElementById("DisplayActivityTypeId").style.display = "none";
+                    }
+                    if (response.ManoEntityTypeId == 5) {
+                        document.getElementById("DisplayHotelArrivedDateId").style.display = "revert";
+                        document.getElementById("DisplayHotelDepartureDateId").style.display = "revert";
+                    }
+                    else {
+                        document.getElementById("DisplayHotelArrivedDateId").style.display = "none";
+                        document.getElementById("DisplayHotelDepartureDateId").style.display = "none";
+                    }
+                    if (response.ManoEntityTypeId == 6) {
+                        if (response.OneWay == true) {
+                            
+                            document.getElementById("DisplayOneWayId").style.display = "revert";
+                            document.getElementById("DOneWayId").innerHTML = "ذهاب فقط"
+                            document.getElementById("DisplayOneWayDateId").style.display = "revert";
+                            document.getElementById("DisplayBeturnedDateId").style.display = "none";
+                        }
+                        else {
+                            document.getElementById("DisplayOneWayId").style.display = "revert";
+                           
+                           document.getElementById("DOneWayId").innerHTML = "ذهاب وعوده"
+                            document.getElementById("DisplayOneWayDateId").style.display = "revert";
+                            document.getElementById("DisplayBeturnedDateId").style.display = "revert";
+                        }
+
+                    }
+                    else {
+                        document.getElementById("DisplayOneWayDateId").style.display = "none";
+                        document.getElementById("DisplayBeturnedDateId").style.display = "none";
+                    }
+
+                }
+
+                $('#QuickViewPoup').modal('show');
+
+            },
+            failure: function (response) {
+                alert(response);
+            }
+        });
+
+    }
+    function AssignToEmplyee(RequestId) {
+
+        $.ajax({
+            type: "GET",
+            url: "/Admin/ManageEmployeeRequests/Index?handler=SingleRequestForUpdateStatus",
+            data: { "RequestId": RequestId },
+            contentType: "application/json",
+            dataType: "json",
+            success: function (response) {
+
+                console.log(response);
+                document.getElementById("DRequestIdId").value = response.RequestId
+
+                $('#showEditModal').modal('show');
+
+
+            },
+            failure: function (response) {
+                alert(response);
+            }
+        });
+
+    }
+
+
+
+
+
+</script>      

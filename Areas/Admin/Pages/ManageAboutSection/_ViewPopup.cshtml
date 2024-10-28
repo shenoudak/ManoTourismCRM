@@ -1,0 +1,78 @@
+﻿@{
+}
+
+
+@model ManoTourism.Models.AboutSection
+
+<div class="modal fade" id="QuickViewPoup" tabindex="-1"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-light p-3">
+                <h5 class="modal-title" id="exampleModalLabel">@sharedResource["About Section Details"]</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close" id="close-modal"></button>
+            </div>
+            <div class="card mb-3">
+                <div class="card-body">
+
+                    <br />
+                    <div class="table-card">
+                        <table class="table mb-0">
+                            <tbody>
+                              
+                                <tr>
+                                    <td class="fw-medium">@sharedResource["Header Arabic Title"]</td>
+                                    <td id="DHeaderTLARId"></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-medium">@sharedResource["Header English Title"]</td>
+                                    <td id="DHeaderTLEnId"></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-medium">@sharedResource["Mission Caption Arabic"]</td>
+                                    <td id="DMissionCaptionArId"></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-medium">@sharedResource["Mission Caption English"]</td>
+                                    <td id="DMissionCaptionEnId"></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-medium">@sharedResource["Customer Focus Caption Arabic"]</td>
+                                    <td id="DCustomerFocusCaptionArId"></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-medium">@sharedResource["Customer Focus Caption English"]</td>
+                                    <td id="DCustomerFocusCaptionEnId"></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-medium">@sharedResource["Video"]</td>
+                                    <td >
+
+                                        <iframe id="DAboutVideoId" src="frontsite/img/Affiliate.mp4" width="300" frameborder="0"> </iframe>
+
+                                    </td>
+                                </tr>
+
+
+
+                               
+
+                            </tbody>
+                        </table><!--end table-->
+                    </div>
+                </div>
+            </div><!--end card-->
+            <div class="modal-footer">
+                <div class="hstack gap-2 justify-content-end">
+                    <button type="button" class="btn btn-light"
+                            data-bs-dismiss="modal">
+                        @sharedResource["Close"]
+                    </button>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

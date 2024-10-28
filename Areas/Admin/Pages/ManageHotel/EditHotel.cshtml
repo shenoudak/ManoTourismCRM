@@ -1,0 +1,280 @@
+﻿@page
+@model ManoTourism.Areas.Admin.Pages.ManageHotel.EditHotelModel
+@{
+    ViewBag.Title = @sharedResource["Edit Hotel"];
+    ViewBag.pTitle = @sharedResource["Edit Hotel"];
+    ViewBag.pageTitle = @sharedResource["Hotels"];
+
+
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header align-items-center d-flex">
+                <h4 class="card-title mb-0 flex-grow-1">@sharedResource["Edit Hotel"]</h4>
+
+            </div><!-- end card header -->
+            <div class="card-body">
+                <div class="live-preview">
+                    <div class="row gy-4">
+
+                        <!--end col-->
+                        <input type="text" asp-for="@Model.url" value="@Model.url" hidden id="UrlId" />
+
+                        <form method="post" enctype="multipart/form-data" onsubmit="return validateMyForm();">
+                            <input asp-for="EditHotel.HotelId" id="HiddenId" hidden>
+                            <input asp-for="EditHotel.HotelMainImage" id="PicHiddenId" hidden>
+                            <div class="modal-body">
+                                <input type="hidden" id="id-field" />
+                                <div class="row g-3">
+                                    <div class="col-lg-12">
+                                        <div class="text-center col-lg-12">
+                                            <div class="position-relative d-inline-block">
+                                                <div class="position-absolute bottom-0 end-0">
+                                                    <label for="file" class="mb-0" data-bs-toggle="tooltip" data-bs-placement="right" title=@sharedResource["Select Hotel Image"]>
+                                                        <div class="avatar-xs cursor-pointer">
+                                                            <div class="avatar-title bg-light border rounded-circle text-muted">
+                                                                <i class="ri-image-fill"></i>
+                                                            </div>
+                                                        </div>
+                                                    </label>
+                                                    <input class="form-control d-none hidefromHere" name="file" id="file" type="file"
+                                                           accept="image/*" required>
+                                                </div>
+                                                <div class="avatar-lg p-1">
+                                                    <div class="avatar-title bg-light rounded-circle">
+                                                        <img src="~/assets/images/users/user-dummy-img.jpg" id="lead-img" class="avatar-md rounded-circle object-cover itemImgCla" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <h5 class="fs-13 mt-3">@sharedResource["Image"] </h5>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div>
+                                            <label asp-for="EditHotel.HotelTitleAr" class="form-label">@sharedResource["Arabic Title"]</label>
+
+                                            <input type="text" asp-for="EditHotel.HotelTitleAr" class="form-control" placeholder="@sharedResource["Enter Arabic Title"]" required />
+
+                                            <span asp-validation-for="EditHotel.HotelTitleAr" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div>
+                                            <label for="EditHotel.HotelTitleEn" class="form-label">@sharedResource["English Title"]</label>
+                                            <input type="text" asp-for="EditHotel.HotelTitleEn" class="form-control" placeholder="@sharedResource["Enter English Title"]" required />
+                                            <span asp-validation-for="EditHotel.HotelTitleEn" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div>
+                                            <label for="EditHotel.Review" class="form-label">@sharedResource["Evaluation"]</label>
+                                            <input type="number" min="1" asp-for="EditHotel.Review" id="company_name-field" class="form-control" placeholder="@sharedResource["Enter Hotel Evaluation"]" required />
+                                            <span asp-validation-for="EditHotel.Review" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-lg-6">
+                                        <div>
+                                            <label for="EditHotel.ReviewCount" class="form-label">@sharedResource["Review Count"]</label>
+                                            <input type="number" min="1" asp-for="EditHotel.ReviewCount" class="form-control" placeholder="@sharedResource["Enter Review Count"]" required />
+                                            <span asp-validation-for="EditHotel.ReviewCount" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div>
+                                            <label for="EditHotel.DescriptionAr" class="form-label">@sharedResource["Arabic Description"]</label>
+                                            <textarea id="textareacontent" asp-for="EditHotel.DescriptionAr" class="form-control textAreaCl" placeholder="@sharedResource["Enter Arabic Description"]"></textarea>
+                                            <span asp-validation-for="EditHotel.DescriptionAr" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-lg-6">
+                                        <div>
+                                            <label for="EditHotel.DescriptionEn" class="form-label">@sharedResource["English Description"]</label>
+                                            <textarea id="textareacontent" asp-for="EditHotel.DescriptionEn" class="form-control textAreaCl" placeholder="@sharedResource["Enter English Description"]"></textarea>
+                                            <span asp-validation-for="EditHotel.DescriptionEn" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+                                    <div class="col-lg-6">
+                                        <div>
+                                            <label asp-for="EditHotel.Location" class="form-label">@sharedResource["Hotel Location"]</label>
+
+                                            <input type="text" asp-for="EditHotel.Location" class="form-control" placeholder="@sharedResource["Enter Hotel Location"]" required />
+
+                                            <span asp-validation-for="EditHotel.Location" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                  
+                                    <div class="col-lg-6">
+                                        <div>
+                                            <label asp-for="EditHotel.VideoUrl" class="form-label">@sharedResource["Video URL"]</label>
+
+                                            <input type="url" asp-for="EditHotel.VideoUrl" class="form-control" placeholder="@sharedResource["Enter Video URL"]" required />
+
+                                            <span asp-validation-for="EditHotel.VideoUrl" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 form-group">
+                                        <label for="formFile" class="form-label">@sharedResource["Adding Others Images For Hotel"]</label>
+                                        <input class="form-control" multiple name="MorePhoto" id="MorePhoto" type="file">
+                                    </div>
+                                    <div class="col-lg-6" style="padding-top: 2rem;">
+                                        <div class="form-check">
+                                            <input asp-for="EditHotel.IsActive" class="form-check-input" type="checkbox" id="checkboxId">
+                                            <label for="EditHotel.IsActive" class="form-check-label">@sharedResource["Is Active?"]</label>
+                                            <span asp-validation-for="EditHotel.IsActive" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row  mt-2" id="images_container">
+                                        <div class="col-12">
+                                            <h3 class="mx-2"> @sharedResource["Hotel Images"] </h3>
+                                            <hr />
+                                            <div id="item_images" class="d-flex justify-content-center align-items-center" style="flex-wrap:wrap">
+                                                <div class="loader">@sharedResource["Loading..."]</div>
+                                                <div class="message d-none">@sharedResource["No Images"]  </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="modal-footer pt-2">
+                                <div class="hstack gap-2 justify-content-end">
+                                    <button class="btn btn-success" id="add-btn">@sharedResource["Edit Hotel"]</button>
+                                </div>
+                            </div>
+                        </form>
+
+
+                    </div>
+                    <!--end row-->
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--end col-->
+</div>
+<!--end row-->
+<!--datatable js-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+@section scripts{
+    <!-- list.js min js -->
+    <script src="~/assets/libs/list.js/list.min.js"></script>
+    <script src="~/assets/libs/list.pagination.js/list.pagination.min.js"></script>
+    <!-- crm leads init -->
+    <script src="~/assets/js/pages/crm-leads.init.js"></script>
+    <script src="~/js/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
+
+    <script>
+        tinymce.init({
+            selector: '.textAreaCl',
+            statusbar: false,
+            promotion: false,
+            branding: false,
+
+        });
+
+
+     
+        window.addEventListener('load', (event) => {
+            console.log('page is fully loaded');
+            console.log(event);
+            var ProdPic = document.getElementById("PicHiddenId").value;
+            document.getElementsByClassName('itemImgCla')[0].src = "/" + ProdPic
+            var domainUrl = document.getElementById("UrlId").value;
+            var ItemId = document.getElementById("HiddenId").value;
+        
+            console.log("ItemId = " + ItemId);
+            console.log("ItemId = " + domainUrl);
+            fetch(domainUrl + '/Api/Lists/GetImagesForHotel?id=' + ItemId)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    var item_images = document.getElementById("item_images");
+                    document.getElementsByClassName("loader")[0].remove();
+
+
+                    for (const property in data) {
+                        console.log(data[property]);
+                        var img = document.createElement("img");
+                        img.src = "/" + data[property].Image;
+                        img.width = 150;
+                        img.classList.add("m-3");
+                        var div = document.createElement("div");
+                        div.classList.add("position-relative");
+                        div.classList.add(data[property].HotelImageId);
+                        div.appendChild(img);
+                        var x = document.createElement("div");
+                        x.style.right = 0;
+                        x.style.top = 0;
+                        x.style.cursor = "pointer";
+                        x.addEventListener("click", (e) => removePic(e))
+
+                        x.classList.add("fas");
+                        x.classList.add("fa-times");
+                        x.classList.add("position-absolute")
+                        x.innerHTML = "x";
+
+                        x.id = data[property].HotelImageId;
+                        div.appendChild(x);
+
+                        item_images.appendChild(div);
+
+                    }
+
+                    if (data.length <= 0) {
+                        document.getElementsByClassName("message")[0].classList.remove("d-none");
+                    }
+
+                });
+
+        });
+
+
+
+        function removePic(e) {
+            console.log("remove pic")
+            console.log(e);
+            console.log(e.target.id);
+            var domainUrl = document.getElementById("UrlId").value;
+            fetch(domainUrl + `/Api/Lists/RemoveHotelImageById?id=${e.target.id}`, {
+                method: 'POST'
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log("remove from dom");
+                    console.log(data);
+                    var myobj = document.getElementsByClassName(data)[0];
+                    myobj.remove();
+
+                }).catch(err => {
+                    console.log("error")
+                })
+        }
+
+
+
+
+    </script>
+
+}
+
+

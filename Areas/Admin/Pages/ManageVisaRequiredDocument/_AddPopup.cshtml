@@ -1,0 +1,53 @@
+﻿@{
+}
+@model ManoTourism.Models.VisaCountryDocument
+
+<div class="modal fade" id="AddModal" tabindex="-1" aria-labelledby="AddModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-header bg-light p-3">
+                <h5 class="modal-title" id="exampleModalLabel">@sharedResource["Add Visa Required Document"]</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
+            </div>
+
+            <form asp-area="Admin" asp-page="/ManageVisaRequiredDocument/Index" asp-page-handler="AddVisaCountryDocument" enctype="multipart/form-data">
+                <div class="modal-body">
+                   
+                    <div class="row g-3">
+                        <input type="text" asp-for="@Model.VisaId" hidden value="@Model.VisaId" />
+                        <div class="col-lg-12">
+                            <div>
+                                <label asp-for="@Model.DocumentTLAR" class="form-label">@sharedResource["Document Title Arabic"]</label>
+
+                                <textarea  asp-for="@Model.DocumentTLAR" class="form-control" placeholder="@sharedResource["Enter Document Title Arabic"]" required ></textarea>
+
+                                <span asp-validation-for="@Model.DocumentTLAR" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div>
+                                <label asp-for="@Model.DocumentTLEn" class="form-label">@sharedResource["Document Title English"]</label>
+
+                                <textarea asp-for="@Model.DocumentTLEn" class="form-control" placeholder="@sharedResource["Enter Document Title English"]" required></textarea>
+
+                                <span asp-validation-for="@Model.DocumentTLEn" class="text-danger"></span>
+                            </div>
+                        </div>
+                       
+                      
+                    </div>
+                    <!--end row-->
+                </div>
+         
+                <div class="modal-footer">
+                    <div class="hstack gap-2 justify-content-end">
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">@sharedResource["Close"]</button>
+                        <button class="btn btn-success" id="add-btn">@sharedResource["Add Visa Required Document"]</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

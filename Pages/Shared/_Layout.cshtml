@@ -1,0 +1,228 @@
+﻿@using Microsoft.AspNetCore.Localization;
+@using ManoTourism.Data
+@inject ManoContext _context
+
+@{
+    var locale = Context.Request.HttpContext.Features.Get<IRequestCultureFeature>();
+    var BrowserCulture = locale.RequestCulture.UICulture.ToString();
+    var contacts = _context.ContactSocials.FirstOrDefault();
+}
+<!doctype html>
+<html lang="en" id="htmlRoot">
+<head>
+    <style>
+
+        :root {
+            --primary-color1: #5a98e5 !important;
+        }
+
+
+        .whats-app {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 15px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+        }
+
+        .whatsappIcon {
+            font-size: xxx-large !important;
+            padding-top: 5px !important;
+        }
+
+        @@media (max-width: 1399px) {
+            .footer-section {
+                background-image: url(../img/footer-bg.png), linear-gradient(180deg, #1d231f 0%, #1d231f 100%) !important;
+            }
+        }
+    </style>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="rDXLejqAsZB_2ApnT8klhI0fkMV0OX50wHq9dL84cms" />
+    <meta name="keywords" content="mano,مانو,مانو للسياحة,tourism,mano tourism,visa,تاشيرة,تامينات,insurance,car insurance,life insurance,الامارات العربية المتحدة,و,jobs,jobs in uae,jobs in united arab emirates,وظائف ,وظايف ,وظايف في الامارات ,tourism visa,Zhrt Elnele Booking,Zahrt Elnele Booking,tickets,tickets in uae,tickets in united arab emairate,تذاكر,تذاكر طيران,hotels,hotels in uae" />
+    <meta name="description" 
+    content="تُعد مانو للسياحه واحدة من الشركات الرائدة في مجال الرحلات بدولة الإمارات العربية المتحدة، نقدم خدمات شاملة للأفراد والمجموعات داخل الدولة وخارجها. وتشمل خدماتنا عروض الرحلات الترفيهية وسفريات العمل وتذاكر الطيران والتأمين والرحلات البحرية وخدمات أخرى كثيرة.
+تأسست
+مانو للسياحه
+عام  2024 على يد فريق من ذوي الخبرة المؤهلين الذين عملوا لسنوات طويلة في مجال الرحلات وصناعة السياحة. إن مصدر ثقة عملائنا وفخرهم بنا ينبع من كفاءة المرشدين السياحيين والفنادق العالمية ووسائل النقل المريحة والمطاعم الفاخرة وغير ذلك ممن نتعاون معهم في إسعاد عملائنا">
+    <meta name="author" content="Mano Tourism is one of the leading travel agency in UAE. We provide  comprehensive travel services for both individuals and groups to and from  the country. Our services include exciting holiday packages, cooperate  travel, travel tickets, travel insurance, cruise holiday among other services.Mano Tourism was established in 2024 by a team of qualified professionals  who have years of experience in travel and tourism industry. Our professional guides, quality hotels, modern transportation,   fine restaurants and other key vendors are what has made us gain trust from  our customers.">
+
+    <!-- Bootstrap CSS -->
+    <link href="~/public/RTL-HTML/assets/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link href="~/public/RTL-HTML/assets/css/jquery-ui.css" rel="stylesheet">
+    <!-- Bootstrap Icon CSS -->
+    <link href="~/public/RTL-HTML/assets/css/bootstrap-icons.css" rel="stylesheet">
+    <!-- Fontawesome all CSS -->
+    <link href="~/public/RTL-HTML/assets/css/all.min.css" rel="stylesheet">
+    <!-- Animate CSS -->
+    <link href="~/public/RTL-HTML/assets/css/animate.min.css" rel="stylesheet">
+    <!-- FancyBox CSS -->
+    <link href="~/public/RTL-HTML/assets/css/jquery.fancybox.min.css" rel="stylesheet">
+
+    <!-- Fontawesome CSS -->
+    <link href="~/public/RTL-HTML/assets/css/fontawesome.min.css" rel="stylesheet">
+    <!-- Swiper slider CSS -->
+    <link rel="stylesheet" href="~/public/RTL-HTML/assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="~/public/RTL-HTML/assets/css/daterangepicker.css">
+    <!-- Slick slider CSS -->
+    <link rel="stylesheet" href="~/public/RTL-HTML/assets/css/slick.css">
+    <link rel="stylesheet" href="~/public/RTL-HTML/assets/css/slick-theme.css">
+    <!-- BoxIcon  CSS -->
+    <link href="~/public/RTL-HTML/assets/css/boxicons.min.css" rel="stylesheet">
+    <!-- Select2  CSS -->
+    <link href="~/public/RTL-HTML/assets/css/select2.css" rel="stylesheet">
+    <link href="~/public/RTL-HTML/assets/css/nice-select.css" rel="stylesheet">
+    <!--  Style CSS  -->
+    <link rel="stylesheet" href="~/public/RTL-HTML/assets/css/style.css">
+    <!-- Title -->
+    <!-- Title -->
+    <title>@sharedResource["Mano Tourism"]</title>
+    <link rel="icon" href="~/public/Img/ManoLogo.jpg" type="image/gif" sizes="90x90">
+    @{
+
+        //English
+        if (BrowserCulture == "en-US")
+        {
+            <script>
+                var masterPage = document.getElementById("htmlRoot");
+                masterPage.dir = "ltr";
+            </script>
+
+
+
+        }
+        //Arabic
+
+        //.right-sidebar-menu
+        //{
+        //    width: 740px !important;
+
+
+        //}
+        else
+        {
+            <script>
+                var masterPage = document.getElementById("htmlRoot");
+                masterPage.dir = "rtl";
+            </script>
+            <style>
+                @@media (min-width: 1200px) and (max-width: 1399px) {
+                    .activities-section .activities-tab-with-slider .nav-pills .nav-item .nav-link .details-btn {
+                        right: 18rem !important;
+                    }
+                }
+
+                @@media (min-width: 1025px) and (max-width: 1280px) {
+                    .activities-section .activities-tab-with-slider .nav-pills .nav-item .nav-link .details-btn {
+                        right: 18rem !important;
+                    }
+                }
+
+
+                @@media (min-width: 1281px) {
+                    .activities-section .activities-tab-with-slider .nav-pills .nav-item .nav-link .details-btn {
+                        right: 18rem !important;
+                    }
+                }
+
+                @@media (max-width: 767px) {
+                    .activities-section .activities-tab-with-slider .nav-pills .nav-item .nav-link .details-btn {
+                        right: 18rem !important;
+                    }
+                }
+            </style>
+            <link rel="stylesheet" href="~/public/RTL-HTML/assets/css/style-rtl.css">
+        }
+    }
+
+
+</head>
+<body>
+
+    @Html.Partial("_Header")
+    <!-- End header section -->
+    <!-- Sidebar Menu -->
+    <div>
+
+        @RenderBody()
+
+    </div>
+    @{
+        if (contacts != null)
+        {
+            <a class="whats-app" href="https://wa.me/@contacts.WhatsApp" target="_blank">
+                <i class="bx whatsappIcon bxl-whatsapp"></i>
+            </a>
+        }
+    }
+    <!-- Start Banner3 section section -->
+    @Html.Partial("_BannerThird")
+    <!-- End Banner3 section section -->
+    <!-- Start Footer Section -->
+    @Html.Partial("_Footer")
+    @await Component.InvokeAsync("NToastNotify")
+    <!-- End Footer Section -->
+    <!--  Main jQuery  -->
+
+    <script src="~/public/RTL-HTML/assets/js/jquery-3.7.1.min.js"></script>
+    <script src="~/public/RTL-HTML/assets/js/jquery-ui.js"></script>
+    <script src="~/public/RTL-HTML/assets/js/moment.min.js"></script>
+    <script src="~/public/RTL-HTML/assets/js/daterangepicker.min.js"></script>
+    <!-- Popper and Bootstrap JS -->
+    <script src="~/public/RTL-HTML/assets/js/bootstrap.min.js"></script>
+    <script src="~/public/RTL-HTML/assets/js/popper.min.js"></script>
+    <!-- Swiper slider JS -->
+    <script src="~/public/RTL-HTML/assets/js/swiper-bundle.min.js"></script>
+    <script src="~/public/RTL-HTML/assets/js/slick.js"></script>
+    <!-- Waypoints JS -->
+    <script src="~/public/RTL-HTML/assets/js/waypoints.min.js"></script>
+    <!-- Counterup JS -->
+    <script src="~/public/RTL-HTML/assets/js/jquery.counterup.min.js"></script>
+    <!-- Isotope  JS -->
+    <script src="~/public/RTL-HTML/assets/js/isotope.pkgd.min.js"></script>
+    <!-- Magnific-popup  JS -->
+    <script src="~/public/RTL-HTML/assets/js/jquery.magnific-popup.min.js"></script>
+    <!-- Marquee  JS -->
+    <script src="~/public/RTL-HTML/assets/js/jquery.marquee.min.js"></script>
+    <!-- Select2  JS -->
+    <script src="~/public/RTL-HTML/assets/js/jquery.nice-select.min.js"></script>
+    <!-- Select2  JS -->
+    <script src="~/public/RTL-HTML/assets/js/select2.min.js"></script>
+
+    <script src="~/public/RTL-HTML/assets/js/jquery.fancybox.min.js"></script>
+    <!-- Custom JS -->
+    <script src="~/public/RTL-HTML/assets/js/custom.js"></script>
+
+
+
+    <script>
+        $(".marquee_text").marquee({
+            direction: "left",
+            duration: 25000,
+            gap: 50,
+            delayBeforeStart: 0,
+            duplicated: true,
+            startVisible: true,
+        });
+        $(".marquee_text2").marquee({
+            direction: "left",
+            duration: 25000,
+            gap: 50,
+            delayBeforeStart: 0,
+            duplicated: true,
+            startVisible: true,
+        });
+    </script>
+
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

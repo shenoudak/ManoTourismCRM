@@ -1,0 +1,287 @@
+﻿@page
+@model ManoTourism.Areas.Admin.Pages.Profile.IndexModel
+@Html.AntiForgeryToken()
+@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Xsrf
+@using Microsoft.AspNetCore.Identity
+@using ManoTourism.Data
+@inject UserManager<ManoTourism.Data.ApplicationUser> UserManager
+@{
+    ViewBag.Title = @sharedResource["Profile"];
+    ViewBag.pTitle = @sharedResource["Profile"];
+    ViewBag.pageTitle = @sharedResource["Profile"];
+    var user = await UserManager.GetUserAsync(User);
+    var roleName = await UserManager.GetRolesAsync(user);
+}
+@section styles{
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+}
+
+
+
+<div class="main-content">
+
+    <div class="page-content">
+        <div class="container-fluid">
+
+            <div class="position-relative mx-n4 mt-n4">
+                <div class="profile-wid-bg profile-setting-img">
+                    <img src="~/assets/images/profile-bg.jpg" class="profile-wid-img" alt="">
+                    <div class="overlay-content">
+                        <div class="text-end p-3">
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xxl-3">
+                    <div class="card mt-n5">
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <div class="profile-user position-relative d-inline-block mx-auto  mb-4">
+                                    @if (Model.profileDetails != null)
+                                    {
+                                        if (Model.profileDetails.ProfileImage != null)
+                                        {
+                                            <img src="/@Model.profileDetails.ProfileImage"
+                                                 class="rounded-circle avatar-xl img-thumbnail user-profile-image"
+                                            alt="User Pic Mano Tourism">
+                                        }
+                                        else
+                                        {
+                                            <img src="~/assets/images/users/avatar-1.jpg"
+                                                 class="rounded-circle avatar-xl img-thumbnail user-profile-image"
+                                                 alt="User Pic Mano Tourism">
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <img src="~/assets/images/users/avatar-1.jpg"
+                                             class="rounded-circle avatar-xl img-thumbnail user-profile-image"
+                                             alt="User Pic Mano Tourism">
+                                    }
+                                  
+                                    <div class="avatar-xs p-0 rounded-circle profile-photo-edit">
+                                        
+                                        <label for="profile-img-file-input"
+                                               class="profile-photo-edit avatar-xs">
+                                            <span onclick="editProfilePic()" class="avatar-title rounded-circle bg-light text-body">
+                                                <i class="ri-camera-fill"></i>
+                                            </span>
+                                        </label>
+                                    </div>
+                                   
+                                </div>
+                                @if (user != null)
+                                {
+                                    <h5 class="fs-16 mb-1">@user.FullName</h5>
+                                    <p class="text-muted mb-0">@roleName.FirstOrDefault()</p>
+                                }
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <!--end card-->
+                    <!--end card-->
+                </div>
+                <!--end col-->
+                <div class="col-xxl-9">
+                    <div class="card mt-xxl-n5">
+                        <div class="card-header">
+                            <ul class="nav nav-tabs-custom rounded card-header-tabs border-bottom-0"
+                                role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-bs-toggle="tab" href="#personalDetails"
+                                       role="tab">
+                                        <i class="fas fa-home"></i>
+                                        @sharedResource["Personal Details"]
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#changePassword" role="tab">
+                                        <i class="far fa-user"></i>
+                                        @sharedResource["Change Password"]
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div class="card-body p-4">
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="personalDetails" role="tabpanel">
+                                    <form method="post" asp-area="admin" asp-page="/profile/index" asp-page-handler="EditProfile">
+                                        <input hidden id="ProfilePicId" value="@Model.profileDetails.ProfileImage" asp-for="@Model.profileDetails.ProfileImage" />
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="mb-3">
+                                                    <label for="@Model.profileDetails.FullName" class="form-label">
+                                                        @sharedResource["Full Name"]
+                                                    </label>
+                                                    <input type="text" asp-for="@Model.profileDetails.FullName" class="form-control" 
+                                                            >
+                                                </div>
+                                            </div>
+                                            <!--end col-->
+                                            <div class="col-lg-6">
+                                                <div class="mb-3">
+                                                    <label for="lastnameInput" class="form-label">
+                                                        @sharedResource["Phone Number"]
+                                                    </label>
+                                                    <input asp-for="@Model.profileDetails.PhoneNumber" type="text" class="form-control" 
+                                                            >
+                                                </div>
+                                            </div>
+                                            @*  <!--end col-->
+                                            <div class="col-lg-6">
+                                            <div class="mb-3">
+                                            <label for="phonenumberInput" class="form-label">
+                                            Phone
+                                            Number
+                                            </label>
+                                            <input type="text" class="form-control"
+                                            id="phonenumberInput"
+                                            placeholder="Enter your phone number"
+                                            value="+(1) 987 6543">
+                                            </div>
+                                            </div>
+                                            <!--end col-->
+                                            <div class="col-lg-6">
+                                            <div class="mb-3">
+                                            <label for="emailInput" class="form-label">
+                                            Email
+                                            Address
+                                            </label>
+                                            <input type="email" class="form-control" id="emailInput"
+                                            placeholder="Enter your email"
+                                            value="daveadame@velzon.com">
+                                            </div>
+                                            </div>
+                                            <!--end col-->*@
+
+                                            <!--end col-->
+
+
+                                            <div class="col-lg-12">
+                                                <div class="hstack gap-2 justify-content-end">
+                                                    <button type="submit"
+                                                            class="btn btn-primary">
+                                                        @sharedResource["Edit Profile"]
+                                                    </button>
+
+                                                </div>
+                                            </div>
+                                            <!--end col-->
+                                        </div>
+                                        <!--end row-->
+                                    </form>
+                                </div>
+                                <!--end tab-pane-->
+                                <div class="tab-pane" id="changePassword" role="tabpanel">
+                                   
+                                        <div class="row g-2">
+                                            <h5 class="card-title mb-3">@sharedResource["Change Password"]</h5>
+                                            <form method="post">
+                                                <div asp-validation-summary="ModelOnly" style="color:red;"></div>
+                                                <div class="row g-2">
+                                                    <div class="col-lg-4">
+                                                        <div>
+                                                            <label for="oldpasswordInput" class="form-label">
+                                                                @sharedResource["Old Password"]*
+
+                                                            </label>
+                                                            <input asp-for="@Model.changePasswordVM.CurrentPassword" type="password" class="form-control"
+                                                                   id="oldpasswordInput"
+                                                                   placeholder="@sharedResource["Enter current password"]">
+                                                        </div>
+                                                        <span asp-validation-for="@Model.changePasswordVM.CurrentPassword" style="color:red;"></span>
+
+                                                    </div>
+                                                    <!--end col-->
+                                                    <div class="col-lg-4">
+                                                        <div>
+                                                            <label for="newpasswordInput" class="form-label">
+                                                                @sharedResource["New Password"]*
+
+                                                            </label>
+                                                            <input type="password" class="form-control" asp-for="@Model.changePasswordVM.NewPassword" type="password"
+                                                                   id="newpasswordInput" placeholder="@sharedResource["Enter new password"]">
+                                                        </div>
+                                                        <span asp-validation-for="@Model.changePasswordVM.NewPassword" style="color:red;"></span>
+                                                    </div>
+                                                    <!--end col-->
+                                                    <div class="col-lg-4">
+                                                        <div>
+                                                            <label for="confirmpasswordInput" class="form-label">
+                                                                @sharedResource["Confirm Password"] *
+
+                                                            </label>
+                                                            <input type="password" class="form-control" asp-for="@Model.changePasswordVM.ConfirmPassword" type="password"
+                                                                   id="confirmpasswordInput"
+                                                                   placeholder="@sharedResource["Confirm Password"]">
+                                                        </div>
+                                                        <span asp-validation-for="@Model.changePasswordVM.ConfirmPassword" style="color:red;"></span>
+                                                    </div>
+
+                                                    <!--end col-->
+                                                    <div class="col-lg-12">
+                                                        <div class="text-end">
+                                                            <button type="submit" class="btn btn-success">
+                                                                @sharedResource["Change Password"]
+
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <!--end col-->
+                                                </div>
+                                                <!--end row-->
+                                            </form>
+
+                                        </div>
+                                        <!--end row-->
+                                   
+                                   
+                                </div>
+                                <!--end tab-pane-->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--end col-->
+            </div>
+            <!--end row-->
+
+        </div>
+    </div>
+
+</div>
+<partial name="_EditPopup" model="@Model.profileDetails" view-data="ViewData" />
+@section scripts{
+    <partial name="_ValidationScriptsPartial" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- list.js min js -->
+    <script src="~/assets/libs/list.js/list.min.js"></script>
+    <script src="~/assets/libs/list.pagination.js/list.pagination.min.js"></script>
+    <!-- crm leads init -->
+    <script src="~/assets/js/pages/crm-leads.init.js"></script>
+
+    <script>
+        function editProfilePic() {
+            var ProfilePicId= document.getElementById("ProfilePicId").value;
+            if (ProfilePicId==""){
+                $('#showEditModal').modal('show');
+            }
+            else{
+                document.getElementById("ProPicId").value =ProfilePicId
+                document.getElementById("lead-img").src = "/" + ProfilePicId
+                $('#showEditModal').modal('show');
+            }
+          
+
+            
+          
+        }
+    </script>
+}
+                         

@@ -1,0 +1,86 @@
+﻿@page
+@model ManoTourism.Pages.TermsModel
+@{
+    ViewData["Title"] = @sharedResource["Terms And Conditions"];
+}
+
+<style>
+    .breadcrumb-section {
+        padding: 11rem 1rem !important;
+    }
+
+    @@media (max-width: 1399px) {
+        .breadcrumb-section {
+            padding: 11rem 1rem !important;
+        }
+    }
+
+    @@media (min-width: 1200px) and (max-width: 1399px) {
+        .breadcrumb-section {
+            padding: 11rem 1rem !important;
+        }
+    }
+
+    @@media (min-width: 1025px) and (max-width: 1280px) {
+        .breadcrumb-section {
+            padding: 11rem 1rem !important;
+        }
+    }
+
+
+    @@media (min-width: 1281px) {
+        .breadcrumb-section {
+            padding: 11rem 1rem !important;
+        }
+    }
+
+    @@media (max-width: 767px) {
+        .breadcrumb-section {
+            padding: 6rem 1rem !important;
+        }
+    }
+</style>
+@*<div class="breadcrumb-section updateSize" style="background-image: linear-gradient(270deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, 0.3) 101.02%), url(public/img/TermsNew.jpg);">*@
+<div class="breadcrumb-section updateSize" style="background-image: linear-gradient(270deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, 0.3) 101.02%), url(public/img/Terms_Privacy.jfif);">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 d-flex justify-content-center">
+               @* <div class="banner-content">
+                    <h1>@sharedResource["Terms And Conditions"]</h1>
+                    <ul class="breadcrumb-list">
+                        <li><a href="/">@sharedResource["Home"]</a></li>
+                        <li>@sharedResource["Terms And Conditions"]</li>
+                    </ul>
+                </div>*@
+            </div>
+        </div>
+    </div>
+</div>
+<div class="home2-about-section pt-100 mb-120">
+    <div class="container">
+        <div class="row mb-90">
+            <div class="col-lg-12">
+                <div class="about-content">
+                    <div class="section-title2 mb-30">
+                        <div class="eg-section-tag">
+                            <span>@sharedResource["Terms And Conditions"]</span>
+                        </div>
+                        @if (Model.BrowserCulture == "en-US")
+                        {
+                            <p>@Html.Raw(Model.ContentEn)</p>
+
+
+                        }
+                        else
+                        {
+                            <p>@Html.Raw(Model.ContentAr)</p>
+
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

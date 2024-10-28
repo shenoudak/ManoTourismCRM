@@ -1,0 +1,91 @@
+﻿@{
+}
+
+
+
+<div class="modal fade" id="QuickViewPoup" tabindex="-1"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-light p-3">
+                <h5 class="modal-title" id="exampleModalLabel">@sharedResource["Visa Request Details"]</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close" id="close-modal"></button>
+            </div>
+           
+            <div class="card mb-3">
+                <div class="card-body">
+                    
+               
+                    <div class="table-card">
+                        <table class="table mb-0">
+                            <tbody>
+                                <tr>
+                                    <td class="fw-medium">@sharedResource["Visa Arabic Title"]</td>
+                                    <td id="DVisaTitleArId"></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-medium">@sharedResource["Visa English Title"]</td>
+                                    <td id="DVisaTitleEnId"></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-medium">@sharedResource["Full Name"]</td>
+                                    <td id="DFullNameId"></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-medium">@sharedResource["Phone Number"]</td>
+                                    <td id="DPhoneNumberId"></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-medium">@sharedResource["Email"]</td>
+                                    <td id="DEmailId"></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-medium">@sharedResource["Request Date"]</td>
+                                    <td id="DRequestDateId"></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-medium">@sharedResource["Current Country Arabic Title"]</td>
+                                    <td id="DCountryTLARId"></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-medium">@sharedResource["Current Country English Title"]</td>
+                                    <td id="DCountryTLENId"></td>
+                                </tr>
+                                       <tr>
+                                    <td class="fw-medium">@sharedResource["Nationality Arabic Title"]</td>
+                                    <td id="DNationalityTLARId"></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-medium">@sharedResource["Nationality English Title"]</td>
+                                    <td id="DNationalityTLENId"></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-medium">@sharedResource["Where YouListen To Mano Tourism ?"]</td>
+                                    <td id="DCompanyMarktingTitleEnId"></td>
+                                </tr>
+
+
+                                <tr>
+                                    <td class="fw-medium">@sharedResource["Message"]</td>
+                                    <td id="DMessageId"></td>
+                                </tr>
+                                
+                            </tbody>
+                        </table><!--end table-->
+                    </div>
+                </div>
+            </div><!--end card-->
+            <div class="modal-footer">
+                <div class="hstack gap-2 justify-content-end">
+                    <button type="button" class="btn btn-light"
+                            data-bs-dismiss="modal">
+                        @sharedResource["Close"]
+                    </button>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

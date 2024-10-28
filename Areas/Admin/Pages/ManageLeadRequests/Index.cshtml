@@ -1,0 +1,926 @@
+﻿@page
+@model ManoTourism.Areas.Admin.Pages.ManageLeadRequests.IndexModel
+
+@Html.AntiForgeryToken()
+@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Xsrf
+@using Microsoft.AspNetCore.Identity
+@using ManoTourism.Data
+@inject UserManager<ManoTourism.Data.ApplicationUser> UserManager
+@{
+    ViewBag.Title = @sharedResource["Requests"];
+    ViewBag.pTitle = @sharedResource["Requests"];
+    ViewBag.pageTitle = @sharedResource["Requests"];
+    var user = await UserManager.GetUserAsync(User);
+}
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css" />
+<!--datatable responsive css-->
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap.min.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
+
+<style>
+    .dataTables_filter {
+        display: none;
+    }
+</style>
+
+
+<div class="row">
+    <div class="col">
+
+        <div class="h-100">
+            <div class="row mb-3 pb-1">
+                <div class="col-12">
+                    <div class="d-flex align-items-lg-center flex-lg-row flex-column">
+                        <div class="flex-grow-1">
+                            @if (user != null)
+                            {
+                                <h4 class="fs-16 mb-1">@sharedResource["Welcome"], @user.FullName!</h4>
+                            }
+
+                          
+                        </div>
+
+                    </div><!-- end card header -->
+                </div>
+                <!--end col-->
+            </div>
+            <!--end row-->
+            <div class="row">
+                <div class="col-xl-4 col-md-6">
+                    <!-- card -->
+                    <div class="card card-animate">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <div class="flex-grow-1 overflow-hidden">
+                                    <p class="text-uppercase fw-medium text-muted text-truncate mb-0">
+                                        @sharedResource["Total Requests Count"]
+                                    </p>
+                                </div>
+
+                            </div>
+                        
+                            <div class="d-flex align-items-end justify-content-between mt-4">
+                                <div>
+                                    <h4 class="fs-22 fw-semibold ff-secondary mb-4">
+                                        <span class="counter-value" data-target="@Model.TotalRequestsCount">0</span>
+                                    </h4>
+
+                                </div>
+                                <div class="avatar-sm flex-shrink-0">
+                                    <span class="avatar-title bg-soft-success rounded fs-3">
+                                        <i class="bx bx-border-inner text-info"></i>
+
+                                    </span>
+                                </div>
+                            </div>
+                        </div><!-- end card body -->
+                    </div><!-- end card -->
+                </div><!-- end col -->
+
+                <div class="col-xl-4 col-md-6">
+                    <!-- card -->
+                    <div class="card card-animate">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <div class="flex-grow-1 overflow-hidden">
+                                    <p class="text-uppercase fw-medium text-muted text-truncate mb-0">
+                                        @sharedResource["New Total Requests Count"]
+                                    </p>
+                                </div>
+
+
+                            </div>
+                            <div class="d-flex align-items-end justify-content-between mt-4">
+                                <div>
+                                    <h4 class="fs-22 fw-semibold ff-secondary mb-4">
+                                        <span class="counter-value" data-target="@Model.NewRequestsCount">0</span>
+                                    </h4>
+
+                                </div>
+                                <div class="avatar-sm flex-shrink-0">
+                                    <span class="avatar-title bg-soft-info rounded fs-3">
+                                        <i data-feather="activity" class="icon-dual-clock text-info"></i>.
+                                    </span>
+                                </div>
+                            </div>
+                        </div><!-- end card body -->
+                    </div><!-- end card -->
+                </div><!-- end col -->
+                <div class="col-xl-4 col-md-6">
+                    <!-- card -->
+                    <div class="card card-animate">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <div class="flex-grow-1 overflow-hidden">
+                                    <p class="text-uppercase fw-medium text-muted text-truncate mb-0">
+                                        @sharedResource["Processing Requests Count"]
+                                    </p>
+                                </div>
+
+                            </div>
+                            <div class="d-flex align-items-end justify-content-between mt-4">
+                                <div>
+                                    <h4 class="fs-22 fw-semibold ff-secondary mb-4">
+                                        <span class="counter-value" data-target="@Model.ProcessingRequestsCount">0</span>
+                                    </h4>
+                                </div>
+                                <div class="avatar-sm flex-shrink-0">
+                                    <span class="avatar-title bg-soft-primary rounded fs-3">
+                                        <i class="bx bx-highlight text-success"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div><!-- end card body -->
+                    </div><!-- end card -->
+                </div><!-- end col -->
+            </div>
+            <div class="row">
+                <div class="col-xl-4 col-md-6">
+
+                    <!-- card -->
+                    <div class="card card-animate">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <div class="flex-grow-1 overflow-hidden">
+                                    <p class="text-uppercase fw-medium text-muted text-truncate mb-0">
+                                        @sharedResource["Rejected Requests Count"]
+                                    </p>
+                                </div>
+
+                            </div>
+                            <div class="d-flex align-items-end justify-content-between mt-4">
+                                <div>
+                                    <h4 class="fs-22 fw-semibold ff-secondary mb-4">
+                                        <span class="counter-value" data-target="@Model.RejectedRequestsCount">0</span>
+                                    </h4>
+                                </div>
+                                <div class="avatar-sm flex-shrink-0">
+                                    <span class="avatar-title bg-soft-warning rounded fs-3">
+                                        <i class="bx bx-task-x text-success"></i>
+
+
+                                    </span>
+                                </div>
+                            </div>
+                        </div><!-- end card body -->
+                    </div><!-- end card -->
+                </div><!-- end col -->
+                <div class="col-xl-4 col-md-6">
+
+                    <!-- card -->
+                    <div class="card card-animate">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <div class="flex-grow-1 overflow-hidden">
+                                    <p class="text-uppercase fw-medium text-muted text-truncate mb-0">
+                                        @sharedResource["Finished Requests Count"]
+                                    </p>
+                                </div>
+
+                            </div>
+                            <div class="d-flex align-items-end justify-content-between mt-4">
+                                <div>
+                                    <h4 class="fs-22 fw-semibold ff-secondary mb-4">
+                                        <span class="counter-value" data-target="@Model.FinishedRequestsCount">0</span>
+                                    </h4>
+                                </div>
+                                <div class="avatar-sm flex-shrink-0">
+                                    <span class="avatar-title bg-soft-warning rounded fs-3">
+                                        <i class="bx bxs-plane-take-off text-success"></i>
+
+                                    </span>
+                                </div>
+                            </div>
+                        </div><!-- end card body -->
+                    </div><!-- end card -->
+                </div><!-- end col -->
+
+                <div class="col-xl-4 col-md-6">
+
+                    <!-- card -->
+                    <div class="card card-animate">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <div class="flex-grow-1 overflow-hidden">
+                                    <p class="text-uppercase fw-medium text-muted text-truncate mb-0">
+                                        @sharedResource["Canceled Requests"]
+                                    </p>
+                                </div>
+
+                            </div>
+                            <div class="d-flex align-items-end justify-content-between mt-4">
+                                <div>
+                                    <h4 class="fs-22 fw-semibold ff-secondary mb-4">
+                                        <span class="counter-value" data-target="@Model.CanceledRequests">0</span>
+                                    </h4>
+                                </div>
+                                <div class="avatar-sm flex-shrink-0">
+                                    <span class="avatar-title bg-soft-warning rounded fs-3">
+                                        <i class="mdi mdi-gesture-tap-button text-success"></i>
+
+                                    </span>
+                                </div>
+                            </div>
+                        </div><!-- end card body -->
+                    </div><!-- end card -->
+                </div><!-- end col -->
+            </div> <!-- end row-->
+          
+            <div class="row">
+                <div class="col-xl-8">
+                    <div class="card">
+                        <div class="card-header border-0 align-items-center d-flex">
+                            <h4 class="card-title mb-0 flex-grow-1">@sharedResource["Request Per Types"]</h4>
+
+                        </div><!-- end card header -->
+
+                        <div class="card-header p-0 border-0 bg-soft-light">
+                            <div class="row g-0 text-center">
+                                <div class="col-6 col-sm-3">
+                                    <div class="p-3 border border-dashed border-start-0">
+                                        <h5 class="mb-1">
+                                            <span class="counter-value"
+                                                  data-target="@Model.VisaCount">0</span>
+                                        </h5>
+                                        <p class="text-muted mb-0">@sharedResource["Visas Requests Count"] </p>
+                                    </div>
+                                </div>
+                                <!--end col-->
+                                <div class="col-6 col-sm-3">
+                                    <div class="p-3 border border-dashed border-start-0">
+                                        <h5 class="mb-1">
+                                            <span class="counter-value"
+                                                  data-target="@Model.TripCount">0</span>
+                                        </h5>
+                                        <p class="text-muted mb-0">@sharedResource["Tours Requests Count"]</p>
+                                    </div>
+                                </div>
+                                <!--end col-->
+                                <div class="col-6 col-sm-3">
+                                    <div class="p-3 border border-dashed border-start-0">
+                                        <h5 class="mb-1">
+                                            <span class="counter-value"
+                                                  data-target="@Model.InsuranceCount">0</span>
+                                        </h5>
+                                        <p class="text-muted mb-0">@sharedResource["Insurances Requests Count"]</p>
+                                    </div>
+                                </div>
+                                <!--end col-->
+                                <div class="col-6 col-sm-3">
+                                    <div class="p-3 border border-dashed border-start-0 border-end-0">
+                                        <h5 class="mb-1 text-success">
+                                            <span class="counter-value"
+                                                  data-target="@Model.TicketCount">0</span>
+                                        </h5>
+                                        <p class="text-muted mb-0"> @sharedResource["Tickets Requests Count"]</p>
+                                    </div>
+                                </div>
+                                <!--end col-->
+                            </div>
+                        </div><!-- end card header -->
+
+                        <div class="card-body p-0 pb-2">
+                            <div class="w-100">
+                                <div id="Newcustomer_impression_charts"
+                                     data-colors='["--vz-primary", "--vz-success", "--vz-danger"]'
+                                     class="apex-charts" dir="ltr"></div>
+                            </div>
+                        </div><!-- end card body -->
+                    </div><!-- end card -->
+                </div><!-- end col -->
+                <div class="col-xl-4">
+                    <div class="card card-height-100">
+                        <div class="card-header align-items-center d-flex">
+                            <h4 class="card-title mb-0 flex-grow-1"> @sharedResource["Requests Per Status"]</h4>
+
+                        </div><!-- end card header -->
+
+                        <div class="card-body">
+                            <div id="store-visits-source"
+                                 data-colors='["--vz-primary", "--vz-success", "--vz-warning", "--vz-danger", "--vz-info"]'
+                                 class="apex-charts" dir="ltr"></div>
+                        </div>
+                    </div> <!-- .card-->
+                </div> <!-- .col-->
+
+
+            </div> <!-- end row-->
+        </div>
+    </div>
+</div>
+<!--datatable css-->
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card" id="List">
+            <div class="card-header border-0">
+                <input type="text" asp-for="@Model.url" value="@Model.url" hidden id="UrlId" />
+
+                <div class="row g-4 align-items-center">
+                    <div class="col-sm-3">
+                        <div class="search-box">
+                            <input type="text" class="form-control search" id="txtSearch"
+                                   placeholder="@sharedResource["Search for..."]">
+                            <i class="ri-search-line search-icon"></i>
+                        </div>
+                    </div>
+                    <div class="col-sm-auto ms-auto">
+                    <div class="hstack gap-2">
+
+                            <a class="btn btn-success add-btn" asp-area="Admin" asp-page="/ManageLeadRequests/AddRequest">
+                                <i class="mdi mdi-airplane-plus"></i> @sharedResource["Add Request"]
+                    </a>
+
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div>
+                    <div class="table-responsive table-card">
+                        <table id="myTable" class="table  dt-responsive nowrap  align-middle" style="width:100%">
+                            <thead class="table-light">
+                                <tr>
+
+
+                                    <th data-ordering="false">@sharedResource["Full Name"]</th>
+                                    <th data-ordering="false">@sharedResource["Phone Number"]</th>
+                                    @*  <th data-ordering="false">@sharedResource["Email"]</th>*@
+                                    <th data-ordering="false">@sharedResource["Current Country"]</th>
+                                    <th data-ordering="false">@sharedResource["Request Service"]</th>
+                                    <th data-ordering="false">@sharedResource["Status"]</th>
+                                    <th data-ordering="false">@sharedResource["Added By"]</th>
+                                    <th data-ordering="false">@sharedResource["Request Date"]</th>
+                                    <th data-ordering="false">@sharedResource["Actions"]</th>
+                                </tr>
+                            </thead>
+
+
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!--end modal-->
+        </div>
+    </div>
+    <!--end col-->
+</div>
+
+<partial name="_ViewPopup" view-data="ViewData" />
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+@section scripts{
+    <!-- list.js min js -->
+    <script src="~/assets/libs/list.js/list.min.js"></script>
+    <script src="~/assets/libs/list.pagination.js/list.pagination.min.js"></script>
+    <!-- crm leads init -->
+    <script src="~/assets/js/pages/crm-leads.init.js"></script>
+  
+
+}
+<!--list pagination js-->
+<!-- apexcharts -->
+<script src="~/assets/libs/apexcharts/apexcharts.min.js"></script>
+
+<!-- Vector map-->
+<!--Swiper slider js-->
+<script src="~/assets/libs/swiper/swiper-bundle.min.js"></script>
+<!-- Dashboard init -->
+<script>
+
+
+
+
+    $(document).ready(function () {
+        $("#myTable").DataTable({
+            "proccessing": true,
+            "serverSide": true,
+            "ajax": {
+
+                url: "/Admin/ManageLeadRequests/Index",
+                type: 'POST',
+                headers: { 'XSRF-TOKEN': $('@Html.AntiForgeryToken()').val() }
+            },
+            "columnDefs": [
+                {
+                    "targets": -1,
+                    "data": null,
+                    "render": function (data, type, row, meta) {
+
+
+                        let linkHtml = ` <ul class="list-inline hstack gap-2 mb-0">
+
+                                         <li class="list-inline-item" data-bs-toggle="tooltip"
+                                                                                        data-bs-trigger="hover" data-bs-placement="top"
+                                                                                            title=@sharedResource["View"]>
+                                                                                        <a href="javascript:void(0)" data-bs-toggle="modal">
+                                                                                                        <i class="ri-eye-fill align-bottom text-muted" onclick="ShowViewPopUp(${row.RequestId})"></i>
+                                                                                        </a>
+                                                                                    </li>
+
+
+                                               </ul>`
+
+
+                        return linkHtml;
+
+
+                    },
+                    "sortable": false
+                },
+
+
+                { "name": "FullName", "data": "FullName", "targets": 0, "visible": true },
+                { "name": "PhoneNumber", "data": "PhoneNumber", "targets": 1 },
+
+                {
+                    "name": "CountryTLEN", "data": "CountryTLEN", "targets": 2,
+                    "render": function (data, type, row, meta) {
+                        if (row.BrowserCulture == "en-US") {
+
+                            return `<span >${row.CountryTLEN}</span>`;
+                        } else {
+                            return `<span >${row.CountryTLAR}</span>`;
+                        }
+                    }
+
+                },
+                {
+                    "name": "ManoEntityTitleEn", "data": "ManoEntityTitleEn", "targets": 3,
+
+                    "render": function (data, type, row, meta) {
+                        if (row.BrowserCulture == "en-US") {
+
+                            return `<span ><strong>${row.ManoEntityTitleEn}</strong></span>`;
+                        } else {
+                            return `<span ><strong>${row.ManoEntityTitleAr}</strong></span>`;
+                        }
+                    }
+                },
+                {
+                    "name": "StatusTitleEn", "data": "StatusTitleEn", "targets": 4,
+                    "render": function (data, type, row, meta) {
+                        if (row.RequestStatusId == 1) {
+
+                            return `<span class="badge badge-soft-danger text-uppercase">@sharedResource["New"]</span>`;
+                        }
+                        else if (row.RequestStatusId == 2) {
+                            return `<span class="badge badge-soft-primary text-uppercase">@sharedResource["Processing"]</span>`;
+
+                        }
+                        else if (row.RequestStatusId == 3) {
+                            return `<span class="badge badge-soft-success text-uppercase">@sharedResource["Finished"]</span>`;
+
+                        }
+                        else if (row.RequestStatusId == 4) {
+                            return `<span class="badge badge-soft-warning text-uppercase">@sharedResource["Rejected"]</span>`;
+
+                        }
+                        else {
+
+                            return `<span class="badge badge-soft-Dark text-uppercase">@sharedResource["Canceled"]</span>`;
+
+                        }
+                    }
+                },
+
+
+               
+                { "name": "AffiliateName", "data": "AffiliateName", "targets": 5 },
+                { "name": "RequestDate", "data": "RequestDate", "targets": 6 },
+
+
+
+
+
+
+            ],
+            "order": [[1, "desc"]],
+            "language": {
+                "lengthMenu": "Show _MENU_",
+            },
+            "dom":
+                "<'row'" +
+                "<'col-sm-6 d-flex align-items-center justify-conten-start'l>" +
+                "<'col-sm-6 d-flex align-items-center justify-content-end'f>" +
+                ">" +
+
+                "<'table-responsive'tr>" +
+
+                "<'row'" +
+                "<'col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start'i>" +
+                "<'col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end'p>" +
+                ">",
+            "createdRow": function (row, data, dataIndex) {
+                var tdElements = $(row).find('td');
+                $(tdElements[tdElements.length - 1]).addClass('text-end');
+            }
+        });
+    });
+    $('#txtSearch').keyup(function () {
+        var table = $('#myTable').DataTable();
+        table.search($(this).val()).draw();
+    });
+
+
+    function ShowViewPopUp(RequestId) {
+
+        $.ajax({
+            type: "GET",
+            url: "/Admin/ManageLeadRequests/Index?handler=SingleRequestDetailsForView",
+            data: { "RequestId": RequestId },
+            contentType: "application/json",
+            dataType: "json",
+            success: function (response) {
+
+                if (response.BrowserCulture == "en-US") {
+                    document.getElementById("DEntityTitleId").innerHTML = response.EntityTitleEn
+                    document.getElementById("DFullNameId").innerHTML = response.FullName
+                    document.getElementById("DPhoneNumberId").innerHTML = response.PhoneNumber
+                    document.getElementById("DEmailId").innerHTML = response.Email
+                    document.getElementById("DManoEntityTitle").innerHTML = response.ManoEntityTitleEn
+                    document.getElementById("DRequestDateId").innerHTML = response.RequestDate
+                    document.getElementById("DAffiliateNameId").innerHTML = response.AffiliateName
+                    document.getElementById("DCountryTLId").innerHTML = response.CountryTLEN
+                    document.getElementById("DNationalityTLId").innerHTML = response.NationalityTLEN
+                    document.getElementById("DCompanyMarktingTitle").innerHTML = response.CompanyMarktingTitleEn
+                    document.getElementById("DMessageId").innerHTML = response.Message
+                    document.getElementById("DActivityTypeId").innerHTML = response.ActivityType
+                    document.getElementById("DHotelArrivedDateId").innerHTML = response.HotelArrivedDate
+                    document.getElementById("DHotelDepartureDateId").innerHTML = response.HotelDepartureDate
+                    document.getElementById("DOneWayDateId").innerHTML = response.OneWayDate
+                    document.getElementById("DBeturnedDateId").innerHTML = response.BeturnedDate
+                    if (response.ManoEntityTypeId == 4) {
+                        document.getElementById("DisplayActivityTypeId").style.display = "block";
+                    }
+                    else {
+                        document.getElementById("DisplayActivityTypeId").style.display = "none";
+                    }
+                    if (response.ManoEntityTypeId == 5) {
+                        document.getElementById("DisplayHotelArrivedDateId").style.display = "block";
+                        document.getElementById("DisplayHotelDepartureDateId").style.display = "block";
+                    }
+                    else {
+                        document.getElementById("DisplayHotelArrivedDateId").style.display = "none";
+                        document.getElementById("DisplayHotelDepartureDateId").style.display = "none";
+                    }
+                    if (response.ManoEntityTypeId == 6) {
+                        if (response.OneWay == true) {
+                            document.getElementById("DisplayOneWayId").style.display = "revert";
+                            document.getElementById("DOneWayId").innerHTML = "One-Way"
+                            document.getElementById("DisplayOneWayDateId").style.display = "revert";
+                            document.getElementById("DisplayBeturnedDateId").style.display = "none";
+                        }
+                        else {
+                            document.getElementById("DisplayOneWayId").style.display = "revert";
+                            document.getElementById("DOneWayId").innerHTML = "Going and Coming back"
+                            document.getElementById("DisplayOneWayDateId").style.display = "revert";
+                            document.getElementById("DisplayBeturnedDateId").style.display = "revert";
+                        }
+
+                    }
+                    else {
+                        document.getElementById("DisplayOneWayDateId").style.display = "none";
+                        document.getElementById("DisplayBeturnedDateId").style.display = "none";
+                    }
+
+                }
+                else {
+                    document.getElementById("DEntityTitleId").innerHTML = response.EntityTitleAr
+                    document.getElementById("DFullNameId").innerHTML = response.FullName
+                    document.getElementById("DPhoneNumberId").innerHTML = response.PhoneNumber
+                    document.getElementById("DEmailId").innerHTML = response.Email
+                    document.getElementById("DManoEntityTitle").innerHTML = response.ManoEntityTitleAr
+                    document.getElementById("DRequestDateId").innerHTML = response.RequestDate
+                    document.getElementById("DAffiliateNameId").innerHTML = response.AffiliateName
+                    document.getElementById("DCountryTLId").innerHTML = response.CountryTLAR
+                    document.getElementById("DNationalityTLId").innerHTML = response.NationalityTLAR
+                    document.getElementById("DCompanyMarktingTitle").innerHTML = response.CompanyMarktingTitleAr
+                    document.getElementById("DMessageId").innerHTML = response.Message
+                    document.getElementById("DActivityTypeId").innerHTML = response.ActivityType
+                    document.getElementById("DHotelArrivedDateId").innerHTML = response.HotelArrivedDate
+                    document.getElementById("DHotelDepartureDateId").innerHTML = response.HotelDepartureDate
+                    document.getElementById("DOneWayDateId").innerHTML = response.OneWayDate
+                    document.getElementById("DBeturnedDateId").innerHTML = response.BeturnedDate
+                    if (response.ManoEntityTypeId == 4) {
+                        document.getElementById("DisplayActivityTypeId").style.display = "revert";
+                    }
+                    else {
+                        document.getElementById("DisplayActivityTypeId").style.display = "none";
+                    }
+                    if (response.ManoEntityTypeId == 5) {
+                        document.getElementById("DisplayHotelArrivedDateId").style.display = "revert";
+                        document.getElementById("DisplayHotelDepartureDateId").style.display = "revert";
+                    }
+                    else {
+                        document.getElementById("DisplayHotelArrivedDateId").style.display = "none";
+                        document.getElementById("DisplayHotelDepartureDateId").style.display = "none";
+                    }
+                    if (response.ManoEntityTypeId == 6) {
+                        if (response.OneWay == true) {
+
+                            document.getElementById("DisplayOneWayId").style.display = "revert";
+                            document.getElementById("DOneWayId").innerHTML = "ذهاب فقط"
+                            document.getElementById("DisplayOneWayDateId").style.display = "revert";
+                            document.getElementById("DisplayBeturnedDateId").style.display = "none";
+                        }
+                        else {
+                            document.getElementById("DisplayOneWayId").style.display = "revert";
+
+                            document.getElementById("DOneWayId").innerHTML = "ذهاب وعوده"
+                            document.getElementById("DisplayOneWayDateId").style.display = "revert";
+                            document.getElementById("DisplayBeturnedDateId").style.display = "revert";
+                        }
+
+                    }
+                    else {
+                        document.getElementById("DisplayOneWayDateId").style.display = "none";
+                        document.getElementById("DisplayBeturnedDateId").style.display = "none";
+                    }
+
+                }
+
+                $('#QuickViewPoup').modal('show');
+
+            },
+            failure: function (response) {
+                alert(response);
+            }
+        });
+
+    }
+  
+    //////////////////////////////////////////
+    // get colors array from the string
+    jQuery(document).ready(function () {
+       
+        var Newdata = NewgetData();
+      
+        NewAutoFollow(Newdata);
+        getSeries();
+
+
+    }
+    )
+
+    function getChartColorsArray(chartId) {
+        if (document.getElementById(chartId) !== null) {
+            var colors = document.getElementById(chartId).getAttribute("data-colors");
+            if (colors) {
+                colors = JSON.parse(colors);
+                return colors.map(function (value) {
+                    var newValue = value.replace(" ", "");
+                    if (newValue.indexOf(",") === -1) {
+                        var color = getComputedStyle(document.documentElement).getPropertyValue(
+                            newValue
+                        );
+                        if (color) return color;
+                        else return newValue;
+                    } else {
+                        var val = value.split(",");
+                        if (val.length == 2) {
+                            var rgbaColor = getComputedStyle(
+                                document.documentElement
+                            ).getPropertyValue(val[0]);
+                            rgbaColor = "rgba(" + rgbaColor + "," + val[1] + ")";
+                            return rgbaColor;
+                        } else {
+                            return newValue;
+                        }
+                    }
+                });
+            } else {
+                console.warn('data-colors atributes not found on', chartId);
+            }
+        }
+    }
+  
+    function NewgetData() {
+        var dateValue = [];
+        var countValue = [];
+        //var sumValue = [];
+        $.ajax({
+            type: "GET",
+            url: "/api/Statistics/GetRequestsPerTypeForLead/",
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("XSRF-TOKEN",
+                    $('input:hidden[name="__RequestVerificationToken"]').val());
+            }
+            ,
+            dataType: 'json',
+            contentType: "application/json",
+
+            async: false
+        }).done(function (data) {
+            data.forEach(function (obj) {
+                dateValue.push(obj.Lable);
+                countValue.push(obj.Count);
+                //sumValue.push(obj.Sum);
+            });
+        });
+        return {
+            dateValue: dateValue,
+            countValue: countValue,
+            //sumValue: sumValue
+        };
+    }
+
+   
+    ///////////////////////////////////
+    var NewlinechartcustomerColors = getChartColorsArray("Newcustomer_impression_charts");
+    function NewAutoFollow(data) {
+        if (NewlinechartcustomerColors) {
+            var options = {
+                series: [{
+                    name: "@sharedResource["Request Count"]",
+                    type: "area",
+                    data: data.countValue,
+                },
+                    //{
+                    //    name: "Amount",
+                    //    type: "bar",
+                    //    data: data.sumValue,
+                    //}
+
+                ],
+                chart: {
+                    height: 370,
+                    type: "line",
+                    toolbar: {
+                        show: true,
+                    },
+                },
+                stroke: {
+                    curve: "straight",
+                    dashArray: [0, 0, 8],
+                    width: [2, 0, 2.2],
+                },
+                fill: {
+                    opacity: [0.1, 0.9, 1],
+                },
+                markers: {
+                    size: [0, 0, 0],
+                    strokeWidth: 2,
+                    hover: {
+                        size: 4,
+                    },
+                },
+                xaxis: {
+                    categories: data.dateValue
+
+                    ,
+                    axisTicks: {
+                        show: true,
+                    },
+                    axisBorder: {
+                        show: true,
+                    },
+                },
+                grid: {
+                    show: true,
+                    xaxis: {
+                        lines: {
+                            show: true,
+                        },
+                    },
+                    yaxis: {
+                        lines: {
+                            show: true,
+                        },
+                    },
+                    padding: {
+                        top: 0,
+                        right: -2,
+                        bottom: 15,
+                        left: 10,
+                    },
+                },
+                legend: {
+                    show: true,
+                    horizontalAlign: "center",
+                    offsetX: 0,
+                    offsetY: -5,
+                    markers: {
+                        width: 9,
+                        height: 9,
+                        radius: 6,
+                    },
+                    itemMargin: {
+                        horizontal: 10,
+                        vertical: 0,
+                    },
+                },
+                plotOptions: {
+                    bar: {
+                        columnWidth: "30%",
+                        barHeight: "70%",
+                    },
+                },
+                colors: NewlinechartcustomerColors,
+                tooltip: {
+                    shared: true,
+
+
+                    y: [{
+                        formatter: function (y) {
+                            if (typeof y !== "undefined") {
+                                return y.toFixed(0);
+                            }
+                            return y;
+                        },
+                    },
+
+                    ],
+                },
+            };
+            var chart = new ApexCharts(
+                document.querySelector("#Newcustomer_impression_charts"),
+                options
+            );
+            chart.render();
+
+
+        }
+    }
+
+
+
+    let dountchart;
+    function getSeries() {
+
+        $.ajax({
+            type: "GET",
+            url: "/api/Statistics/GetDountChartForLead/",
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("XSRF-TOKEN",
+                    $('input:hidden[name="__RequestVerificationToken"]').val());
+            }
+            ,
+            dataType: 'json',
+            contentType: "application/json",
+
+            async: false
+        }).done(function (dataDount) {
+            var _data = dataDount;
+            var _chartLabels = _data[0];
+            var _chartData = _data[1];
+            var chartDonutBasicColors = getChartColorsArray("store-visits-source");
+            if (chartDonutBasicColors) {
+                var options = {
+                    series: _chartData,
+                    labels: _chartLabels,
+                    chart: {
+                        height: 333,
+                        type: "donut",
+                        toolbar: {
+                            show: true,
+                        },
+                    },
+
+                    legend: {
+                        position: "bottom",
+                    },
+                    stroke: {
+                        show: false
+                    },
+                    dataLabels: {
+                        enabled: true,
+                        dropShadow: {
+                            enabled: true,
+                        },
+                    },
+                    colors: chartDonutBasicColors,
+                };
+
+                dountchart = new ApexCharts(
+                    document.querySelector("#store-visits-source"),
+                    options
+                );
+                dountchart.render();
+
+            }
+
+        });
+
+    }
+
+
+</script>
+
+
+
+
+   

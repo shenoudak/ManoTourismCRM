@@ -1,0 +1,625 @@
+is_global = true
+build_property.RootNamespace = ManoTourism
+build_property.RootNamespace = ManoTourism
+build_property.ProjectDir = F:\ManoTourismAdmin\ManoTourismCRM\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
+build_property.MSBuildProjectDirectory = F:\ManoTourismAdmin\ManoTourismCRM
+build_property._RazorSourceGeneratorDebug = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/AccessDenied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWNjZXNzRGVuaWVkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/Lead.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTGVhZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageAboutSection/EditAboutSection.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlQWJvdXRTZWN0aW9uXEVkaXRBYm91dFNlY3Rpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageAboutSection/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlQWJvdXRTZWN0aW9uXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageAboutSection/_EditPopup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlQWJvdXRTZWN0aW9uXF9FZGl0UG9wdXAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageAboutSection/_ViewPopup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlQWJvdXRTZWN0aW9uXF9WaWV3UG9wdXAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageCompleteTransaction/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlQ29tcGxldGVUcmFuc2FjdGlvblxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageCompleteTransaction/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlQ29tcGxldGVUcmFuc2FjdGlvblxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageCompleteTransaction/Requests.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlQ29tcGxldGVUcmFuc2FjdGlvblxSZXF1ZXN0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageCompleteTransaction/_ViewPopup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlQ29tcGxldGVUcmFuc2FjdGlvblxfVmlld1BvcHVwLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageEmployeeRequests/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlRW1wbG95ZWVSZXF1ZXN0c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageEmployeeRequests/_UpdateRequestFromEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlRW1wbG95ZWVSZXF1ZXN0c1xfVXBkYXRlUmVxdWVzdEZyb21FbXBsb3llZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageEmployeeRequests/_ViewPopup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlRW1wbG95ZWVSZXF1ZXN0c1xfVmlld1BvcHVwLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageEmployee/AddEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlRW1wbG95ZWVcQWRkRW1wbG95ZWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageEmployee/AssignedRequests.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlRW1wbG95ZWVcQXNzaWduZWRSZXF1ZXN0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageEmployee/EditEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlRW1wbG95ZWVcRWRpdEVtcGxveWVlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageEmployee/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlRW1wbG95ZWVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageEmployee/_EmpRequestsViewPopup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlRW1wbG95ZWVcX0VtcFJlcXVlc3RzVmlld1BvcHVwLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageEmployee/_ViewPopup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlRW1wbG95ZWVcX1ZpZXdQb3B1cC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageEstablishCompanies/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlRXN0YWJsaXNoQ29tcGFuaWVzXEFkZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageEstablishCompanies/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlRXN0YWJsaXNoQ29tcGFuaWVzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageEstablishCompanies/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlRXN0YWJsaXNoQ29tcGFuaWVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageEstablishCompanies/_ViewPopup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlRXN0YWJsaXNoQ29tcGFuaWVzXF9WaWV3UG9wdXAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageEstCompanyRequests/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlRXN0Q29tcGFueVJlcXVlc3RzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageEstCompanyRequests/_ViewPopup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlRXN0Q29tcGFueVJlcXVlc3RzXF9WaWV3UG9wdXAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageHotelRequests/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlSG90ZWxSZXF1ZXN0c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageHotelRequests/_ViewPopup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlSG90ZWxSZXF1ZXN0c1xfVmlld1BvcHVwLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageHotelReview/AddHotelReview.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlSG90ZWxSZXZpZXdcQWRkSG90ZWxSZXZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageHotelReview/EditHotelReview.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlSG90ZWxSZXZpZXdcRWRpdEhvdGVsUmV2aWV3LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageHotelReview/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlSG90ZWxSZXZpZXdcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageHotel/AddHotel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlSG90ZWxcQWRkSG90ZWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageHotel/EditHotel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlSG90ZWxcRWRpdEhvdGVsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageHotel/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlSG90ZWxcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageInsuranceRequests/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlSW5zdXJhbmNlUmVxdWVzdHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageInsuranceRequests/_ViewPopup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlSW5zdXJhbmNlUmVxdWVzdHNcX1ZpZXdQb3B1cC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageInsurance/AddInsurance.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlSW5zdXJhbmNlXEFkZEluc3VyYW5jZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageInsurance/EditInsurance.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlSW5zdXJhbmNlXEVkaXRJbnN1cmFuY2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageInsurance/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlSW5zdXJhbmNlXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageInsurance/_ViewPopup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlSW5zdXJhbmNlXF9WaWV3UG9wdXAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageLeadRequests/AddRequest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlTGVhZFJlcXVlc3RzXEFkZFJlcXVlc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageLeadRequests/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlTGVhZFJlcXVlc3RzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageLeadRequests/_ViewPopup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlTGVhZFJlcXVlc3RzXF9WaWV3UG9wdXAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageLead/AddAffiliate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlTGVhZFxBZGRBZmZpbGlhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageLead/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlTGVhZFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageLead/Requests.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlTGVhZFxSZXF1ZXN0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageLead/_ViewPopup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlTGVhZFxfVmlld1BvcHVwLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageOffers/EditOffer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlT2ZmZXJzXEVkaXRPZmZlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageOffers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlT2ZmZXJzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManagePageContent/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlUGFnZUNvbnRlbnRcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManagePageContent/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlUGFnZUNvbnRlbnRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManagePageContent/_EmpRequestsViewPopup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlUGFnZUNvbnRlbnRcX0VtcFJlcXVlc3RzVmlld1BvcHVwLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManagePublicSlider/EditPublicSlider.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlUHVibGljU2xpZGVyXEVkaXRQdWJsaWNTbGlkZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManagePublicSlider/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlUHVibGljU2xpZGVyXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManagePublicSlider/_ViewPopup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlUHVibGljU2xpZGVyXF9WaWV3UG9wdXAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageRejectReason/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlUmVqZWN0UmVhc29uXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageRejectReason/_AddPopup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlUmVqZWN0UmVhc29uXF9BZGRQb3B1cC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageRejectReason/_EditPopup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlUmVqZWN0UmVhc29uXF9FZGl0UG9wdXAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageRequests/CanceledRequests.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlUmVxdWVzdHNcQ2FuY2VsZWRSZXF1ZXN0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageRequests/FinishedRequests.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlUmVxdWVzdHNcRmluaXNoZWRSZXF1ZXN0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageRequests/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlUmVxdWVzdHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageRequests/NewRequests.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlUmVxdWVzdHNcTmV3UmVxdWVzdHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageRequests/ProcessingRequest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlUmVxdWVzdHNcUHJvY2Vzc2luZ1JlcXVlc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageRequests/RejectRequests.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlUmVxdWVzdHNcUmVqZWN0UmVxdWVzdHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageRequests/_AssignToEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlUmVxdWVzdHNcX0Fzc2lnblRvRW1wbG95ZWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageRequests/_ReAssignToEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlUmVxdWVzdHNcX1JlQXNzaWduVG9FbXBsb3llZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageRequests/_ViewPopup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlUmVxdWVzdHNcX1ZpZXdQb3B1cC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageRequests/_ViewPopupReject.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlUmVxdWVzdHNcX1ZpZXdQb3B1cFJlamVjdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageRequests/_ViewPopupReturnCancelToNew.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlUmVxdWVzdHNcX1ZpZXdQb3B1cFJldHVybkNhbmNlbFRvTmV3LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageRequests/_ViewPopupReturnRejectToNew.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlUmVxdWVzdHNcX1ZpZXdQb3B1cFJldHVyblJlamVjdFRvTmV3LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageSocialContact/EditSocialContact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlU29jaWFsQ29udGFjdFxFZGl0U29jaWFsQ29udGFjdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageSocialContact/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlU29jaWFsQ29udGFjdFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageSocialContact/_ViewPopup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlU29jaWFsQ29udGFjdFxfVmlld1BvcHVwLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageTestimonial/AddTestimonial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlVGVzdGltb25pYWxcQWRkVGVzdGltb25pYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageTestimonial/EditTestimonial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlVGVzdGltb25pYWxcRWRpdFRlc3RpbW9uaWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageTestimonial/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlVGVzdGltb25pYWxcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageTestimonial/_ViewPopup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlVGVzdGltb25pYWxcX1ZpZXdQb3B1cC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageTicketRequests/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlVGlja2V0UmVxdWVzdHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageTicketRequests/_ViewPopup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlVGlja2V0UmVxdWVzdHNcX1ZpZXdQb3B1cC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageTickets/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlVGlja2V0c1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageTickets/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlVGlja2V0c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageToursOutUAE/AddTour.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlVG91cnNPdXRVQUVcQWRkVG91ci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageToursOutUAE/EditTour.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlVG91cnNPdXRVQUVcRWRpdFRvdXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageToursOutUAE/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlVG91cnNPdXRVQUVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageTripProgram/AddProgramDay.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlVHJpcFByb2dyYW1cQWRkUHJvZ3JhbURheS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageTripProgram/EditProgramDay.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlVHJpcFByb2dyYW1cRWRpdFByb2dyYW1EYXkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageTripProgram/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlVHJpcFByb2dyYW1cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageTripRequest/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlVHJpcFJlcXVlc3RcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageTripRequest/_ViewPopup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlVHJpcFJlcXVlc3RcX1ZpZXdQb3B1cC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageTrip/AddTour.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlVHJpcFxBZGRUb3VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageTrip/EditTour.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlVHJpcFxFZGl0VG91ci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageTrip/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlVHJpcFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageUserMessages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlVXNlck1lc3NhZ2VzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageUserMessages/_DatchDelete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlVXNlck1lc3NhZ2VzXF9EYXRjaERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageUserMessages/_ViewPopup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlVXNlck1lc3NhZ2VzXF9WaWV3UG9wdXAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageUserSubscriptionNewsLetters/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlVXNlclN1YnNjcmlwdGlvbk5ld3NMZXR0ZXJzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageUserSubscriptionNewsLetters/_DatchDelete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlVXNlclN1YnNjcmlwdGlvbk5ld3NMZXR0ZXJzXF9EYXRjaERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageVisaOutUAE/AddVisa.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlVmlzYU91dFVBRVxBZGRWaXNhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageVisaOutUAE/EditVisa.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlVmlzYU91dFVBRVxFZGl0VmlzYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageVisaOutUAE/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlVmlzYU91dFVBRVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageVisaOutUAE/_ViewPopup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlVmlzYU91dFVBRVxfVmlld1BvcHVwLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageVisaRequests/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlVmlzYVJlcXVlc3RzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageVisaRequests/_AssignToEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlVmlzYVJlcXVlc3RzXF9Bc3NpZ25Ub0VtcGxveWVlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageVisaRequests/_ViewPopup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlVmlzYVJlcXVlc3RzXF9WaWV3UG9wdXAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageVisaRequiredDocument/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlVmlzYVJlcXVpcmVkRG9jdW1lbnRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageVisaRequiredDocument/_AddPopup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlVmlzYVJlcXVpcmVkRG9jdW1lbnRcX0FkZFBvcHVwLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageVisaRequiredDocument/_DatchDelete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlVmlzYVJlcXVpcmVkRG9jdW1lbnRcX0RhdGNoRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageVisaRequiredDocument/_EditPopup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlVmlzYVJlcXVpcmVkRG9jdW1lbnRcX0VkaXRQb3B1cC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageVisaRequiredDocument/_ViewPopup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlVmlzYVJlcXVpcmVkRG9jdW1lbnRcX1ZpZXdQb3B1cC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageVisa/AddVisa.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlVmlzYVxBZGRWaXNhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageVisa/EditVisa.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlVmlzYVxFZGl0VmlzYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageVisa/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlVmlzYVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/ManageVisa/_ViewPopup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWFuYWdlVmlzYVxfVmlld1BvcHVwLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/PageNotFound.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcUGFnZU5vdEZvdW5kLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/Profile/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcUHJvZmlsZVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/Profile/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcUHJvZmlsZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/Profile/_EditPopup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcUHJvZmlsZVxfRWRpdFBvcHVwLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/Reports/EmployeeReport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcUmVwb3J0c1xFbXBsb3llZVJlcG9ydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/Reports/LeadReport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcUmVwb3J0c1xMZWFkUmVwb3J0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/Reports/RequestsReport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcUmVwb3J0c1xSZXF1ZXN0c1JlcG9ydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/Shared/_customizer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcU2hhcmVkXF9jdXN0b21pemVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/Shared/_footer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcU2hhcmVkXF9mb290ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/Shared/_head_css.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcU2hhcmVkXF9oZWFkX2Nzcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/Shared/_head_css_ar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcU2hhcmVkXF9oZWFkX2Nzc19hci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/Shared/_Language.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcU2hhcmVkXF9MYW5ndWFnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/Shared/_menu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcU2hhcmVkXF9tZW51LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/Shared/_page_title.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcU2hhcmVkXF9wYWdlX3RpdGxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/Shared/_sidebar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcU2hhcmVkXF9zaWRlYmFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/Shared/_title_meta.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcU2hhcmVkXF90aXRsZV9tZXRhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/Shared/_topbar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcU2hhcmVkXF90b3BiYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/Shared/_vendor_scripts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcU2hhcmVkXF92ZW5kb3Jfc2NyaXB0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/_UpdateRequestFromEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcX1VwZGF0ZVJlcXVlc3RGcm9tRW1wbG95ZWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/_ViewPopup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcX1ZpZXdQb3B1cC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Identity/Pages/Account/AccessDenied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxBY2Nlc3NEZW5pZWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Identity/Pages/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Identity/Pages/Account/Logout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Identity/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Identity/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Pages/PageNotFound.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFnZU5vdEZvdW5kLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Pages/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Pages/Terms.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVybXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Areas/Admin/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-p4vqegny2u
+
+[F:/ManoTourismAdmin/ManoTourismCRM/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-tod99g6yue

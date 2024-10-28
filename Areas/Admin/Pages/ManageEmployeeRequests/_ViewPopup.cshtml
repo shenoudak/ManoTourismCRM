@@ -1,0 +1,115 @@
+﻿@{
+}
+
+
+
+<div class="modal fade" id="QuickViewPoup" tabindex="-1"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-light p-3">
+                <h5 class="modal-title" id="exampleModalLabel">@sharedResource["Request Details"]</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close" id="close-modal"></button>
+            </div>
+
+            <div class="card mb-3">
+                <div class="card-body">
+
+                    <div class="table-card">
+                        <table class="table mb-0">
+                            <tbody>
+
+                                <tr>
+                                    <td class="fw-medium">@sharedResource["Selected Request Service"]</td>
+                                    <td id="DEntityTitleId"></td>
+                                </tr>
+
+                                <tr>
+                                    <td class="fw-medium">@sharedResource["Full Name"]</td>
+                                    <td id="DFullNameId"></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-medium">@sharedResource["Phone Number"]</td>
+                                    <td id="DPhoneNumberId"></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-medium">@sharedResource["Email"]</td>
+                                    <td id="DEmailId"></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-medium">@sharedResource["Type Request Service"]</td>
+                                    <td id="DManoEntityTitle"></td>
+                                </tr>
+                                <tr style="display:none" id="DisplayOneWayId">
+                                    <td class="fw-medium">@sharedResource["Going and Coming back Or One-Way"]</td>
+                                    <td id="DOneWayId"></td>
+                                </tr>
+                                <tr style="display:none" id="DisplayOneWayDateId">
+                                    <td class="fw-medium">@sharedResource["Departure Date"]</td>
+                                    <td id="DOneWayDateId"></td>
+                                </tr>
+                                <tr style="display:none" id="DisplayBeturnedDateId">
+                                    <td class="fw-medium">@sharedResource["Return Date"]</td>
+                                    <td id="DBeturnedDateId"></td>
+                                </tr>
+                                <tr style="display:none" id="DisplayHotelArrivedDateId">
+                                    <td class="fw-medium">@sharedResource["Arrival Date"]</td>
+                                    <td id="DHotelArrivedDateId"></td>
+                                </tr>
+                                <tr style="display:none" id="DisplayHotelDepartureDateId">
+                                    <td class="fw-medium">@sharedResource["Departure Date"]</td>
+                                    <td id="DHotelDepartureDateId"></td>
+                                </tr>
+                                <tr style="display:none" id="DisplayActivityTypeId">
+                                    <td class="fw-medium">@sharedResource["Activity Type"]</td>
+                                    <td id="DActivityTypeId"></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-medium">@sharedResource["Added By"]</td>
+                                    <td id="DAffiliateNameId"></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-medium">@sharedResource["Request Date"]</td>
+                                    <td id="DRequestDateId"></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-medium">@sharedResource["Current Country"]</td>
+                                    <td id="DCountryTLId"></td>
+                                </tr>
+
+                                <tr>
+                                    <td class="fw-medium">@sharedResource["Nationality"]</td>
+                                    <td id="DNationalityTLId"></td>
+                                </tr>
+
+                                <tr>
+                                    <td class="fw-medium">@sharedResource["Where YouListen To Mano Tourism ?"]</td>
+                                    <td id="DCompanyMarktingTitle"></td>
+                                </tr>
+
+
+                                <tr>
+                                    <td class="fw-medium">@sharedResource["Message"]</td>
+                                    <td id="DMessageId"></td>
+                                </tr>
+
+
+                            </tbody>
+                        </table><!--end table-->
+                    </div>
+                </div>
+            </div><!--end card-->
+            <div class="modal-footer">
+                <div class="hstack gap-2 justify-content-end">
+                    <button type="button" class="btn btn-light"
+                            data-bs-dismiss="modal">
+                        @sharedResource["Close"]
+                    </button>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

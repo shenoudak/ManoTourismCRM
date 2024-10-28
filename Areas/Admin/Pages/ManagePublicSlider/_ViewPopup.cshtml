@@ -1,0 +1,75 @@
+﻿@{
+}
+
+
+@model ManoTourism.Models.PublicSlider
+
+<div class="modal fade" id="QuickViewPoup" tabindex="-1"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-light p-3">
+                <h5 class="modal-title" id="exampleModalLabel">@sharedResource["Public Slider Details"]</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close" id="close-modal"></button>
+            </div>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="col-lg-12">
+                        <div class="text-center">
+                            <div class="position-relative d-inline-block">
+
+                                <div class="avatar-lg p-1">
+                                    <div class="avatar-title bg-light rounded-circle">
+                                        <img src="~/assets/images/users/multi-user.jpg" id="DBackgroundId" class="avatar-md rounded-circle object-cover" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <br />
+                    <div class="table-card">
+                        <table class="table mb-0">
+                            <tbody>
+                                                                <tr>
+                                    <td class="fw-medium">@sharedResource["Header Arabic Title"]</td>
+                                    <td id="DHeaderArId"></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-medium">@sharedResource["Header English Title"]</td>
+                                    <td id="DHeaderEnId"></td>
+                                </tr>
+                                 <tr>
+                                    <td class="fw-medium">@sharedResource["Caption Arabic Title"]</td>
+                                    <td id="DCaptionArId"></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-medium">@sharedResource["Caption English Title"]</td>
+                                    <td id="DCaptionEnId"></td>
+                                </tr>
+                               
+                               
+                                <tr>
+                                <td class="fw-medium">@sharedResource["Is Active ?"]</td>
+                                    <td id="DIsActiveId"></td>
+                                </tr>
+
+                            </tbody>
+                        </table><!--end table-->
+                    </div>
+                </div>
+            </div><!--end card-->
+            <div class="modal-footer">
+                <div class="hstack gap-2 justify-content-end">
+                    <button type="button" class="btn btn-light"
+                            data-bs-dismiss="modal">
+                        @sharedResource["Close"]
+                    </button>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

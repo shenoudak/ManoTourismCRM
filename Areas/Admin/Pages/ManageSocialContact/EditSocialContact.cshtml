@@ -1,0 +1,218 @@
+﻿@page
+@model ManoTourism.Areas.Admin.Pages.ManageSocialContact.EditSocialContactModel
+
+@{
+    ViewBag.Title = @sharedResource["Edit Social Contacts"];
+    ViewBag.pTitle = @sharedResource["Edit Social Contacts"];
+    ViewBag.pageTitle = @sharedResource["Edit Social Contacts"];
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header align-items-center d-flex">
+                <h4 class="card-title mb-0 flex-grow-1">@sharedResource["Edit Social Contacts"]</h4>
+
+            </div><!-- end card header -->
+            <div class="card-body">
+                <div class="live-preview">
+                    <div class="row gy-4">
+
+                        <!--end col-->
+                        <input type="text" asp-for="@Model.url" value="@Model.url" hidden id="UrlId" />
+                        <form method="post" enctype="multipart/form-data">
+                            <div class="modal-body">
+                                <input type="hidden" id="id-field" />
+                                <div class="row g-3">
+                                    <input asp-for="EditContactSocial.ContactSocialId"  hidden>
+                                    <input asp-for="EditContactSocial.ContactUsImage" id="PicHiddenId" hidden>
+                                    <div class="col-lg-12">
+                                        <div class="text-center col-lg-12">
+                                            <div class="position-relative d-inline-block">
+                                                <div class="position-absolute bottom-0 end-0">
+                                                    <label for="file" class="mb-0" data-bs-toggle="tooltip" data-bs-placement="right" title=@sharedResource["Select Image"]>
+                                                        <div class="avatar-xs cursor-pointer">
+                                                            <div class="avatar-title bg-light border rounded-circle text-muted">
+                                                                <i class="ri-image-fill"></i>
+                                                            </div>
+                                                        </div>
+                                                    </label>
+                                                    <input class="form-control d-none" name="file" id="file" type="file"
+                                                           accept="image/*">
+                                                </div>
+                                                <div class="avatar-lg p-1">
+                                                    <div class="avatar-title bg-light rounded-circle">
+                                                        <img src="~/assets/images/users/user-dummy-img.jpg" id="lead-img" class="avatar-md rounded-circle object-cover removeFromHere itemImgCla" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <h5 class="fs-13 mt-3">@sharedResource["Image"] </h5>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                     
+                                        <div>
+                                            <label asp-for="EditContactSocial.FirstPhoneNumber" class="form-label">@sharedResource["First Phone Number"]</label>
+
+                                            <input type="text"  asp-for="EditContactSocial.FirstPhoneNumber" class="form-control" placeholder="@sharedResource["Enter First Phone Number"]" required />
+
+                                            <span asp-validation-for="EditContactSocial.FirstPhoneNumber" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div>
+                                            <label for="EditContactSocial.SecondPhoneNumber" class="form-label">@sharedResource["Second Phone Number"]</label>
+                                            <input type="text"  asp-for="EditContactSocial.SecondPhoneNumber" class="form-control" placeholder="@sharedResource["Enter Second Phone Number"]" required />
+                                            <span asp-validation-for="EditContactSocial.SecondPhoneNumber" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div>
+                                            <label asp-for="EditContactSocial.FirstEmail" class="form-label">@sharedResource["First Email"]</label>
+
+                                            <input type="email"  asp-for="EditContactSocial.FirstEmail" class="form-control" placeholder="@sharedResource["Enter First Email"]" required />
+
+                                            <span asp-validation-for="EditContactSocial.FirstEmail" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div>
+                                            <label for="EditContactSocial.SecondEmail" class="form-label">@sharedResource["Second Email"]</label>
+                                            <input type="email"  asp-for="EditContactSocial.SecondEmail" class="form-control" placeholder="@sharedResource["Enter Second Email"]" required />
+                                            <span asp-validation-for="EditContactSocial.SecondEmail" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div>
+                                            <label asp-for="EditContactSocial.LocationTitleAr" class="form-label">@sharedResource["Location Arabic Title"]</label>
+
+                                            <input type="text"  asp-for="EditContactSocial.LocationTitleAr" class="form-control" placeholder="@sharedResource["Enter Location Arabic Title"]" required />
+
+                                            <span asp-validation-for="EditContactSocial.LocationTitleAr" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div>
+                                            <label for="EditContactSocial.LocationTitleEn" class="form-label">@sharedResource["Location English Title"]</label>
+                                            <input type="text"  asp-for="EditContactSocial.LocationTitleEn" class="form-control" placeholder="@sharedResource["Enter Location English Title"]" required />
+                                            <span asp-validation-for="EditContactSocial.LocationTitleEn" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div>
+                                            <label asp-for="EditContactSocial.OpentingTimeAr" class="form-label">@sharedResource["Openting Time Arabic Title"]</label>
+
+                                            <input type="text"  asp-for="EditContactSocial.OpentingTimeAr" class="form-control" placeholder="@sharedResource["Enter Openting Time Arabic Title"]" required />
+
+                                            <span asp-validation-for="EditContactSocial.OpentingTimeAr" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div>
+                                            <label for="EditContactSocial.OpentingTimeEn" class="form-label">@sharedResource["Openting Time English Title"]</label>
+                                            <input type="text"  asp-for="EditContactSocial.OpentingTimeEn" class="form-control" placeholder="@sharedResource["Enter Openting Time English Title"]" required />
+                                            <span asp-validation-for="EditContactSocial.OpentingTimeEn" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div>
+                                            <label asp-for="EditContactSocial.Facebook" class="form-label">@sharedResource["Facebook"]</label>
+
+                                            <input type="url"  asp-for="EditContactSocial.Facebook" class="form-control" placeholder="@sharedResource["Enter Facebook URL"]" required />
+
+                                            <span asp-validation-for="EditContactSocial.Facebook" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div>
+                                            <label for="EditContactSocial.Instagram" class="form-label">@sharedResource["Instagram"]</label>
+                                            <input type="url"  asp-for="EditContactSocial.Instagram" class="form-control" placeholder="@sharedResource["Enter Instagram URL"]" required />
+                                            <span asp-validation-for="EditContactSocial.Instagram" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div>
+                                            <label asp-for="EditContactSocial.Twiter" class="form-label">@sharedResource["Twiter"]</label>
+
+                                            <input type="url"  asp-for="EditContactSocial.Twiter" class="form-control" placeholder="@sharedResource["Enter Twiter URL"]" required />
+
+                                            <span asp-validation-for="EditContactSocial.Twiter" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div>
+                                            <label for="EditContactSocial.Youtube" class="form-label">@sharedResource["Youtube"]</label>
+                                            <input type="url"  asp-for="EditContactSocial.Youtube" class="form-control" placeholder="@sharedResource["Enter Youtube URL"]" required />
+                                            <span asp-validation-for="EditContactSocial.Youtube" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div>
+                                            <label asp-for="EditContactSocial.WhatsApp" class="form-label">@sharedResource["WhatsApp"]</label>
+
+                                            <input type="text"  asp-for="EditContactSocial.WhatsApp" class="form-control" placeholder="@sharedResource["Enter WhatsApp Number"]" required />
+
+                                            <span asp-validation-for="EditContactSocial.WhatsApp" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div>
+                                            <label for="EditContactSocial.Telegram" class="form-label">@sharedResource["Telegram"]</label>
+                                            <input type="text"  asp-for="EditContactSocial.Telegram" class="form-control" placeholder="@sharedResource["Enter Telegram Number"]" required />
+                                            <span asp-validation-for="EditContactSocial.Telegram" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+
+
+
+                                </div>
+
+
+
+                                <!--end row-->
+                            </div>
+
+                            <div class="modal-footer pt-2">
+                                <div class="hstack gap-2 justify-content-end">
+                                    <button class="btn btn-success" id="add-btn">@sharedResource["Edit Social Contacts"]</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                    <!--end row-->
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--end col-->
+</div>
+<!--end row-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+@section scripts{
+    <!-- list.js min js -->
+    <script src="~/assets/libs/list.js/list.min.js"></script>
+    <script src="~/assets/libs/list.pagination.js/list.pagination.min.js"></script>
+    <!-- crm leads init -->
+    <script src="~/assets/js/pages/crm-leads.init.js"></script>
+}
+<script>
+    window.addEventListener('load', (event) => {
+        console.log('page is fully loaded');
+        console.log(event);
+        var ProdPic = document.getElementById("PicHiddenId").value;
+        document.getElementsByClassName('itemImgCla')[0].src = "/" + ProdPic
+
+    });
+
+</script>
+

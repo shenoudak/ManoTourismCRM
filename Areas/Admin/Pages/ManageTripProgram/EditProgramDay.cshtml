@@ -1,0 +1,133 @@
+﻿@page
+@model ManoTourism.Areas.Admin.Pages.ManageTripProgram.EditProgramDayModel
+@{
+}
+@{
+    ViewBag.Title = @sharedResource["Edit Program Day"];
+    ViewBag.pTitle = @sharedResource["Edit Program Day"];
+    ViewBag.pageTitle = @sharedResource["Edit Program Day"];
+}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header align-items-center d-flex">
+                <h4 class="card-title mb-0 flex-grow-1">@sharedResource["Edit Program Day"]</h4>
+
+            </div><!-- end card header -->
+            <div class="card-body">
+                <div class="live-preview">
+                    <div class="row gy-4">
+
+                        <!--end col-->
+                        <input type="text" asp-for="@Model.url" value="@Model.url" hidden id="UrlId" />
+
+                        <form method="post" enctype="multipart/form-data" >
+                            <input asp-for="EditTripProgram.TripProgramId" id="HiddenId" hidden>
+                            <input asp-for="EditTripProgram.TripId" id="PicHiddenId" hidden>
+                            <div class="modal-body">
+                                <input type="hidden" id="id-field" />
+                                <div class="row g-3">
+                                    <div class="col-lg-12">
+                                        <div>
+                                            <label asp-for="EditTripProgram.DayNumber" class="form-label">@sharedResource["Day Number"]</label>
+
+                                            <input type="text" asp-for="EditTripProgram.DayNumber" class="form-control" placeholder="@sharedResource["Enter Day Number"]" required />
+
+                                            <span asp-validation-for="EditTripProgram.DayNumber" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div>
+                                            <label asp-for="EditTripProgram.HeaderAr" class="form-label">@sharedResource["Day Header Arabic Title"]</label>
+
+                                            <input type="text" asp-for="EditTripProgram.HeaderAr" class="form-control" placeholder="@sharedResource["Enter Day Header Arabic Title"]" required />
+
+                                            <span asp-validation-for="EditTripProgram.HeaderAr" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div>
+                                            <label for="EditTripProgram.HeaderEn" class="form-label">@sharedResource["Day Header English Title"]</label>
+                                            <input type="text" asp-for="EditTripProgram.HeaderEn" class="form-control" placeholder="@sharedResource["Enter Day Header English Title"]" required />
+                                            <span asp-validation-for="EditTripProgram.HeaderEn" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="col-lg-6">
+                                        <div>
+                                            <label for="EditTripProgram.DescriptionAr" class="form-label">@sharedResource["Description In Arabic"]</label>
+                                            <textarea id="textareacontent" asp-for="EditTripProgram.DescriptionAr" class="form-control textAreaCl" placeholder="@sharedResource["Enter Description In Arabic"]"></textarea>
+                                            <span asp-validation-for="EditTripProgram.DescriptionAr" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-lg-6">
+                                        <div>
+                                            <label for="EditTripProgram.DescriptionEn" class="form-label">@sharedResource["Description In English"]</label>
+                                            <textarea id="textareacontent" asp-for="EditTripProgram.DescriptionEn" class="form-control textAreaCl" placeholder="@sharedResource["Enter Description In English"]"></textarea>
+                                            <span asp-validation-for="EditTripProgram.DescriptionEn" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+
+
+
+
+
+                                </div>
+
+                            </div>
+
+                            <div class="modal-footer pt-2">
+                                <div class="hstack gap-2 justify-content-end">
+                                    <button class="btn btn-success" id="add-btn">@sharedResource["Edit Day"]</button>
+                                </div>
+                            </div>
+                        </form>
+
+
+                    </div>
+                    <!--end row-->
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--end col-->
+</div>
+<!--end row-->
+<!--datatable js-->
+@*<partial name="_AddPopup" model="@Model.addSubProduct" view-data="ViewData" />*@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+@section scripts{
+    <!-- list.js min js -->
+    <script src="~/assets/libs/list.js/list.min.js"></script>
+    <script src="~/assets/libs/list.pagination.js/list.pagination.min.js"></script>
+    <!-- crm leads init -->
+    <script src="~/assets/js/pages/crm-leads.init.js"></script>
+    <script src="~/js/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
+
+    <script>
+        tinymce.init({
+            selector: '.textAreaCl',
+            statusbar: false,
+            promotion: false,
+            branding: false,
+
+        });
+
+      
+
+    </script>
+
+}
+
