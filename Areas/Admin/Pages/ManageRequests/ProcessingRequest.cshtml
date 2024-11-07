@@ -60,6 +60,8 @@
                                     @*<th data-ordering="false">@sharedResource["Current Country"]</th>*@
                                     <th data-ordering="false">@sharedResource["Request Service"]</th>
                                     <th data-ordering="false">@sharedResource["Status"]</th>
+                                    <th data-ordering="false">@sharedResource["Is Paid ?"]</th>
+                                    
                                     <th data-ordering="false">@sharedResource["Added By"]</th>
                                     <th data-ordering="false">@sharedResource["Request Date"]</th>
                                     <th data-ordering="false">@sharedResource["Responsible Employee"]</th>
@@ -83,6 +85,7 @@
 </div>
 
 <partial name="_ViewPopup" view-data="ViewData" />
+<partial name="_ViewPopupRequestToPaid" view-data="ViewData" />
 <partial name="_ReAssignToEmployee" model="@Model.assignRequestVM" view-data="ViewData" />
 
 @*<partial name="_UpdateRequestFromEmployee" model="@Model.updateRequestStatusVM" view-data="ViewData" />*@
@@ -139,25 +142,51 @@
                     "targets": -1,
                     "data": null,
                     "render": function (data, type, row, meta) {
+                        let linkHtml=""
+                        if (row.isAccountant==true) {
+                             linkHtml = ` <ul class="list-inline hstack gap-2 mb-0">
+
+                                             <li class="list-inline-item" data-bs-toggle="tooltip"
+                                                                                            data-bs-trigger="hover" data-bs-placement="top"
+                                                                                                title=@sharedResource["View"]>
+                                                                                            <a href="javascript:void(0)" data-bs-toggle="modal">
+                                                                                                            <i class="ri-eye-fill align-bottom text-muted" onclick="ShowViewPopUp(${row.RequestId})"></i>
+                                                                                            </a>
+                                                                                        </li>
 
 
-                        let linkHtml = ` <ul class="list-inline hstack gap-2 mb-0">
 
-                                         <li class="list-inline-item" data-bs-toggle="tooltip"
-                                                                                        data-bs-trigger="hover" data-bs-placement="top"
-                                                                                            title=@sharedResource["View"]>
-                                                                                        <a href="javascript:void(0)" data-bs-toggle="modal">
-                                                                                                        <i class="ri-eye-fill align-bottom text-muted" onclick="ShowViewPopUp(${row.RequestId})"></i>
-                                                                                        </a>
-                                                                                    </li>
-                                                                                         <li class="list-inline-item" data-bs-toggle="tooltip"
+                                                                                             <li class="list-inline-item" data-bs-toggle="tooltip"
                                                                                                 data-bs-trigger="hover" data-bs-placement="top" >
 
-                                                                        <a class="btn btn-success btn-sm" href="javascript:void(0)" data-bs-toggle="modal" onclick="ReAssignToEmplyee(${row.RequestId})">@sharedResource["ReAssign To Employee"] </a></li>
+                                                                            <a class="btn btn-primary btn-sm" href="javascript:void(0)" data-bs-toggle="modal" onclick="AssignRequestToPaid(${row.RequestId})">@sharedResource["Update payment Status"] </a></li>
+
+                                                   </ul>`
+
+
+                            return linkHtml;
+
+                        }
+                        else{
+                            linkHtml = ` <ul class="list-inline hstack gap-2 mb-0">
+
+                                             <li class="list-inline-item" data-bs-toggle="tooltip"
+                                                                                            data-bs-trigger="hover" data-bs-placement="top"
+                                                                                                title=@sharedResource["View"]>
+                                                                                            <a href="javascript:void(0)" data-bs-toggle="modal">
+                                                                                                            <i class="ri-eye-fill align-bottom text-muted" onclick="ShowViewPopUp(${row.RequestId})"></i>
+                                                                                            </a>
+                                                                                        </li>
+                                                                                             <li class="list-inline-item" data-bs-toggle="tooltip"
+                                                                                                    data-bs-trigger="hover" data-bs-placement="top" >
+
+                                                                            <a class="btn btn-success btn-sm" href="javascript:void(0)" data-bs-toggle="modal" onclick="ReAssignToEmplyee(${row.RequestId})">@sharedResource["ReAssign To Employee"] </a></li>
 
 
 
-                                               </ul>`
+                                                   </ul>`
+                        }
+                        
 
 
                         return linkHtml;
@@ -194,10 +223,25 @@
 
 
                 },
-                { "name": "AffiliateName", "data": "AffiliateName", "targets": 4 },
-                { "name": "RequestDate", "data": "RequestDate", "targets": 5 },
-                { "name": "EmployeeName", "data": "EmployeeName", "targets": 6 },
-                { "name": "AssignedDateToEmployee", "data": "AssignedDateToEmployee", "targets": 7 },
+                {
+                    "name": "IsPaid", "data": "IsPaid", "targets": 4,
+                    "render": function (data, type, row, meta) {
+                        if (row.IsPaid == true) {
+
+                            return `<span class="badge badge-soft-danger text-uppercase">@sharedResource["Paid"]</span>`;
+                        }
+                    
+                        else {
+
+                            return `<span class="badge badge-soft-success text-uppercase">@sharedResource["Not Paid"]</span>`;
+
+                        }
+                    }
+                },
+                { "name": "AffiliateName", "data": "AffiliateName", "targets": 5 },
+                { "name": "RequestDate", "data": "RequestDate", "targets": 6 },
+                { "name": "EmployeeName", "data": "EmployeeName", "targets": 7 },
+                { "name": "AssignedDateToEmployee", "data": "AssignedDateToEmployee", "targets": 8 },
 
 
 
@@ -375,9 +419,30 @@
         });
 
     }
-   
+    function AssignRequestToPaid(RequestId) {
+        console.log(RequestId);
+        document.getElementById("DPaidRequestId").value = RequestId
 
+        $('#showRequestToPaidModal').modal('show');
+    }
+    
+    //function AssignRequestToPaid(RequestId) {
 
+    //    $.ajax({
+    //        type: "GET",
+    //        url: "/Admin/ManageRequests/ProcessingRequest?handler=SingleRequestForAssignToPaid",
+    //        data: { "RequestId": RequestId },
+    //        contentType: "application/json",
+    //        dataType: "json",
+    //        success: function (response) {
+               
+    //        },
+    //        failure: function (response) {
+    //            alert(response);
+    //        }
+    //    });
+
+    //}
     function ReAssignToEmplyee(RequestId) {
 
         $.ajax({

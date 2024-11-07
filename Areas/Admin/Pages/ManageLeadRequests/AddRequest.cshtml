@@ -31,7 +31,7 @@
 
                                     <div class="col-lg-6">
                                         <div>
-                                            <label asp-for="AddNewRequest.FullName" class="form-label">@sharedResource["Full Name"]</label>
+                                            <label asp-for="AddNewRequest.FullName" class="form-label">@sharedResource["Full Name"] <small class="text-danger">*</small></label>
 
                                             <input type="text" asp-for="AddNewRequest.FullName" class="form-control" placeholder="@sharedResource["Full Name"]" required />
 
@@ -41,22 +41,22 @@
                                     <div class="col-lg-6">
                                         <div>
                                             <label for="AddNewRequest.Email" class="form-label">@sharedResource["Email"]</label>
-                                            <input type="email" asp-for="AddNewRequest.Email" class="form-control" placeholder="@sharedResource["Enter Your Email"]" required />
+                                            <input type="email" asp-for="AddNewRequest.Email" class="form-control" placeholder="@sharedResource["Enter Your Email"]" />
                                             <span asp-validation-for="AddNewRequest.Email" class="text-danger"></span>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-6">
                                         <div>
-                                            <label for="AddNewRequest.PhoneNumber" class="form-label">@sharedResource["Phone Number"]</label>
+                                            <label for="AddNewRequest.PhoneNumber" class="form-label">@sharedResource["Phone Number"] <small class="text-danger">*</small></label>
                                             <input type="text" asp-for="AddNewRequest.PhoneNumber" id="company_name-field" class="form-control" placeholder="@sharedResource["Enter your phone number"]" required />
                                             <span asp-validation-for="AddNewRequest.PhoneNumber" class="text-danger"></span>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
-                                        <label asp-for="AddNewRequest.CountryId" for="car-rental-name">@sharedResource["Current Country"] <small class="text-danger">*</small></label>
+                                        <label asp-for="AddNewRequest.CountryId" for="car-rental-name">@sharedResource["Current Country"] </label>
 
-                                        <select data-val="true" data-val-required="@sharedResource["Please choose Current Country"]" id="countryId" asp-for="AddNewRequest.CountryId" class="form-select required" aria-label="Default select example" required>
+                                        <select data-val="true" data-val-required="@sharedResource["Please choose Current Country"]" id="countryId" asp-for="AddNewRequest.CountryId" class="form-select required" aria-label="Default select example">
 
 
                                             @{
@@ -85,9 +85,9 @@
                                         <span asp-validation-for="AddNewRequest.CountryId" class="text-alert"></span>
                                     </div>
                                     <div class="col-lg-6">
-                                        <label asp-for="AddNewRequest.NationalityId" for="car-rental-name">@sharedResource["Nationality"] <small class="text-danger">*</small></label>
+                                        <label asp-for="AddNewRequest.NationalityId" for="car-rental-name">@sharedResource["Nationality"] </label>
 
-                                        <select data-val="true" data-val-required="@sharedResource["Nationality"]" id="NationalityId" asp-for="AddNewRequest.NationalityId" class="form-select required" aria-label="Default select example" required>
+                                        <select data-val="true" data-val-required="@sharedResource["Nationality"]" id="NationalityId" asp-for="AddNewRequest.NationalityId" class="form-select required" aria-label="Default select example">
 
 
                                             @{
@@ -117,9 +117,9 @@
                                     </div>
 
                                     <div class="col-lg-6">
-                                        <label asp-for="AddNewRequest.CompanyMarktingId" for="car-rental-name">@sharedResource["How do you know Mano Tourism?"] <small class="text-danger">*</small></label>
+                                        <label asp-for="AddNewRequest.CompanyMarktingId" for="car-rental-name">@sharedResource["How do you know Mano Tourism?"]</label>
 
-                                        <select data-val="true" data-val-required="@sharedResource["How do you know Mano Tourism?"]" id="CompanyMarktingId" asp-for="AddNewRequest.CompanyMarktingId" class="form-select required" aria-label="Default select example" required>
+                                        <select data-val="true" data-val-required="@sharedResource["How do you know Mano Tourism?"]" id="CompanyMarktingId" asp-for="AddNewRequest.CompanyMarktingId" class="form-select required" aria-label="Default select example">
 
                                             @{
                                                 if (Model.CompanyMarktings != null)

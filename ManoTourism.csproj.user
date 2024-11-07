@@ -5,7 +5,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <ActiveDebugProfile>IIS Express</ActiveDebugProfile>
-    <NameOfLastUsedPublishProfile>F:\ManoooTourism\ManoTourism\ManoTourism\Properties\PublishProfiles\shenoudakaram-001-site3 - Web Deploy.pubxml</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>F:\ManoTourismAdmin\ManoTourismCRM\Properties\PublishProfiles\shenoudakaram-001-site2 - Web Deploy.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <ItemGroup>
     <Compile Update="Report\EmployeeReport.cs">

@@ -82,6 +82,19 @@ namespace ManoTourism.Controllers
             return id;
         }
         [HttpGet]
+        public async Task<IActionResult> EmployeeUserLookup(DataSourceLoadOptions loadOptions)
+        {
+
+            var lookup = from i in _userManager.Users.Where(e => e.RoleId == (int)UserRole.Employee)
+                         orderby i.FullName
+                         select new
+                         {
+                             Value = i.Id,
+                             Text = i.FullName
+                         };
+            return Json(await DataSourceLoader.LoadAsync(lookup, loadOptions));
+        }
+        [HttpGet]
         
         public async Task<IActionResult> EmployeeLookup(DataSourceLoadOptions loadOptions)
         {
@@ -108,7 +121,21 @@ namespace ManoTourism.Controllers
                          };
             return Json(await DataSourceLoader.LoadAsync(lookup, loadOptions));
         }
-        [HttpGet]
+        //[HttpGet]
+        //public async Task<IActionResult> AllStatusLookup(DataSourceLoadOptions loadOptions)
+        //{
+        //    locale = Request.HttpContext.Features.Get<IRequestCultureFeature>();
+        //    BrowserCulture = locale.RequestCulture.UICulture.ToString();
+        //    var lookup = from i in _context.VisaRequestStatuses.Where(e => e.VisaRequestStatusId != 1)
+        //                 orderby i.VisaRequestStatusId
+        //                 select new
+        //                 {
+        //                     Value = i.VisaRequestStatusId,
+        //                     Text = BrowserCulture == "en-US" ? i.StatusTitleEn : i.StatusTitleAr
+        //                 };
+        //    return Json(await DataSourceLoader.LoadAsync(lookup, loadOptions));
+        //}
+        //[HttpGet]
         public async Task<IActionResult> AllStatusLookup(DataSourceLoadOptions loadOptions)
         {
             locale = Request.HttpContext.Features.Get<IRequestCultureFeature>();
@@ -142,7 +169,7 @@ namespace ManoTourism.Controllers
         public async Task<IActionResult> UserLookup(DataSourceLoadOptions loadOptions)
         {
             
-            var lookup = from i in  _userManager.Users
+            var lookup = from i in  _userManager.Users.Where(e=>e.EntityId==0)
                          orderby i.FullName
                          select new
                          {
@@ -152,6 +179,39 @@ namespace ManoTourism.Controllers
             return Json(await DataSourceLoader.LoadAsync(lookup, loadOptions));
         }
         
+            [HttpGet]
+        public async Task<IActionResult> SellerEmployeeLookup(DataSourceLoadOptions loadOptions)
+        {
+            List<int> ListSeller = new List<int>();
+            var user = await _userManager.GetUserAsync(User);
+            ListSeller = _context.Sales.Where(e => e.Employee.EmployeeEmail == user.Email).Select(e => e.SalesId).ToList();
+
+            var lookup = from i in _userManager.Users.Where(e => ListSeller.Contains(e.EntityId))
+                         orderby i.FullName
+                         select new
+                         {
+                             Value = i.Id,
+                             Text = i.FullName
+                         };
+            return Json(await DataSourceLoader.LoadAsync(lookup, loadOptions));
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> SellerLookup(DataSourceLoadOptions loadOptions)
+        {
+           
+
+            var lookup = from i in _userManager.Users.Where(e => e.RoleId == (int)UserRole.Seller)
+                         orderby i.FullName
+                         select new
+                         {
+                             Value = i.Id,
+                             Text = i.FullName
+                         };
+            return Json(await DataSourceLoader.LoadAsync(lookup, loadOptions));
+        }
+        
+
               [HttpGet]
         public object GetImagesForHotel([FromQuery] int id)
         {

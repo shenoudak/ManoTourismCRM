@@ -66,7 +66,7 @@ namespace ManoTourism.Areas.Admin.Pages.ManageLead
                         string folder = "Images/Employee/";
                         AffiliateImage = UploadImage(folder, file);
                     }
-                    var user = new ApplicationUser { UserName = AddLead.AffiliateEmail, Email = AddLead.AffiliateEmail, FullName = AddLead.AffiliateName, Pic = AffiliateImage };
+                    var user = new ApplicationUser { UserName = AddLead.AffiliateEmail, Email = AddLead.AffiliateEmail, FullName = AddLead.AffiliateName, Pic = AffiliateImage,RoleId=4 };
                     var result = await _userManager.CreateAsync(user, AddLead.AffiliatePassword);
 
                     if (result.Succeeded)

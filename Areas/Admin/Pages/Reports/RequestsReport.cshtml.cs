@@ -58,13 +58,13 @@ namespace ManoTourism.Areas.Admin.Pages.Reports
                     StatusId = i.VisaRequestStatusId,
                     EntityTitle = BrowserCulture == "en-US" ? i.ManoEntityType.EntityTitleEn : i.ManoEntityType.EntityTitleAr,
                     StatusTitle = BrowserCulture == "en-US" ? i.VisaRequestStatus.StatusTitleEn : i.VisaRequestStatus.StatusTitleAr,
-                    AssignedDateToEmployee = i.AssignedDateToEmployee,
+                    AssignedDateToEmployee = i.AssignedDateToEmployee.Value,
                     AffiliateName = i.AffiliateName,
                     UserId = i.UserId,
                     EmployeeImg = i.Employee == null ? "" : i.Employee.EmployeePic,
                     EmployeeName = i.Employee == null ? " Not Assigned" : i.Employee.EmployeeName,
                     RequestDate = i.RequestDate,
-                    EmployeeRequestUpdateDate = i.EmployeeRequestUpdateDate,
+                    EmployeeRequestUpdateDate = i.EmployeeRequestUpdateDate.Value,
 
                 }).ToList();
 
@@ -87,7 +87,7 @@ namespace ManoTourism.Areas.Admin.Pages.Reports
                 if (filterModel.FromDate != null && filterModel.ToDate != null)
 
                 {
-                    ds = ds.Where(i => i.AssignedDateToEmployee.Date >= filterModel.FromDate.Value.Date && i.AssignedDateToEmployee <= filterModel.ToDate.Value.Date).ToList();
+                    ds = ds.Where(i => i.AssignedDateToEmployee.Value.Date >= filterModel.FromDate.Value.Date && i.AssignedDateToEmployee <= filterModel.ToDate.Value.Date).ToList();
                 }
                
                 Report = new ManoTourism.Report.RequestReport(BrowserCulture);

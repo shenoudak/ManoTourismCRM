@@ -33,13 +33,14 @@ namespace ManoTourism.Areas.Admin.Pages.ManageRequests
             assignRequestVM = new AssignRequestVM();
             _toastNotification = toastNotification;
             _userManager = userManager;
-           
+
         }
         public async Task<IActionResult> OnGet()
         {
-            bool aleadyAuthorized = false;
+
             try
             {
+                bool aleadyAuthorized = false;
                 url = $"{this.Request.Scheme}://{this.Request.Host}";
                 var user = await _userManager.GetUserAsync(User);
                 if (user == null)
@@ -48,12 +49,18 @@ namespace ManoTourism.Areas.Admin.Pages.ManageRequests
 
                 }
                 var roleName = await _userManager.GetRolesAsync(user);
-                if (roleName.FirstOrDefault() == "admin" || roleName.FirstOrDefault() == "employee")
+                if (roleName.FirstOrDefault() == "admin" || roleName.FirstOrDefault() == "employee" || roleName.FirstOrDefault() == "accountant")
                 {
                     if (roleName.FirstOrDefault() == "admin")
                     {
                         aleadyAuthorized = true;
                     }
+                    if (roleName.FirstOrDefault() == "accountant")
+                    {
+                        aleadyAuthorized = true;
+                        //isAccountant = true;
+                    }
+
                     if (roleName.FirstOrDefault() == "employee")
                     {
                         var employee = _context.Employees.Where(e => e.EmployeeEmail == user.Email).FirstOrDefault();
@@ -94,7 +101,7 @@ namespace ManoTourism.Areas.Admin.Pages.ManageRequests
             }
 
 
-           
+
 
             return Page();
         }
@@ -103,7 +110,18 @@ namespace ManoTourism.Areas.Admin.Pages.ManageRequests
 
         public async Task<JsonResult> OnPostAsync()
         {
+            bool isAccountant = false;
+            var user = await _userManager.GetUserAsync(User);
+            if (user != null)
+            {
+                var roleName = await _userManager.GetRolesAsync(user);
 
+                if (roleName.FirstOrDefault() == "accountant")
+                {
+                    isAccountant = true;
+                }
+
+            }
 
             locale = Request.HttpContext.Features.Get<IRequestCultureFeature>();
             BrowserCulture = locale.RequestCulture.UICulture.ToString();
@@ -127,12 +145,13 @@ namespace ManoTourism.Areas.Admin.Pages.ManageRequests
                 StatusTitleEn = i.VisaRequestStatus.StatusTitleEn,
                 ManoEntityTitleEn = i.ManoEntityType.EntityTitleEn,
                 EmployeeName = i.Employee.EmployeeName,
-                AssignedDateToEmployee = i.AssignedDateToEmployee.ToString("dddd, dd MMMM yyyy"),
+                AssignedDateToEmployee = i.AssignedDateToEmployee.Value.ToString("dddd, dd MMMM yyyy"),
                 RequestStatusId = i.VisaRequestStatusId,
                 AffiliateName = i.AffiliateName,
+                IsPaid = i.IsPaid,
                 ManoEntityTitleAr = i.ManoEntityType.EntityTitleAr,
                 BrowserCulture = BrowserCulture,
-                
+                isAccountant = isAccountant,
 
 
             }).AsQueryable();
@@ -211,6 +230,44 @@ namespace ManoTourism.Areas.Admin.Pages.ManageRequests
             }).FirstOrDefault();
             return new JsonResult(Result);
         }
+
+        public IActionResult OnGetSingleRequestForAssignToPaid(int RequestId)
+        {
+            try
+            {
+                var model = _context.Requests.Where(c => c.RequestId == RequestId).FirstOrDefault();
+                if (model == null)
+                {
+                    _toastNotification.AddErrorToastMessage("Object Not Found");
+
+                    return Redirect("/Admin/ManageRequests/ProcessingRequest");
+                }
+
+
+
+
+                model.IsPaid = true;
+
+
+
+                var UpdatedRequest = _context.Requests.Attach(model);
+
+                UpdatedRequest.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+
+                _context.SaveChanges();
+
+                _toastNotification.AddSuccessToastMessage("Request Updated Successfully");
+
+
+
+            }
+            catch (Exception)
+            {
+                _toastNotification.AddErrorToastMessage("Something went Error");
+
+            }
+            return Redirect("/Admin/ManageRequests/ProcessingRequest");
+        }
         public IActionResult OnGetSingleRequestForAssign(int RequestId)
         {
             var Result = _context.Requests.Where(c => c.RequestId == RequestId).Select(i => new
@@ -258,6 +315,44 @@ namespace ManoTourism.Areas.Admin.Pages.ManageRequests
             catch (Exception)
             {
                 _toastNotification.AddErrorToastMessage("Something went Error");
+
+            }
+            return Redirect("/Admin/ManageRequests/ProcessingRequest");
+        }
+        public async Task<IActionResult> OnPostMakeRequestToPaid(int RequestId)
+        {
+
+            try
+            {
+                var model = _context.Requests.Where(c => c.RequestId == RequestId).FirstOrDefault();
+                if (model == null)
+                {
+                    _toastNotification.AddErrorToastMessage("Object Not Found");
+
+                    return Redirect("/Admin/ManageRequests/ProcessingRequest");
+                }
+
+
+
+
+                model.IsPaid = true;
+
+
+
+                var UpdatedRequest = _context.Requests.Attach(model);
+
+                UpdatedRequest.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+
+                _context.SaveChanges();
+
+                _toastNotification.AddSuccessToastMessage("Request Returned As New Request Successfully");
+
+
+
+            }
+            catch (Exception)
+            {
+                _toastNotification.AddErrorToastMessage("Request Is Paid Successfully");
 
             }
             return Redirect("/Admin/ManageRequests/ProcessingRequest");

@@ -79,11 +79,12 @@
 
 
                                     <th data-ordering="false">@sharedResource["Full Name"]</th>
-                                    <th data-ordering="false">@sharedResource["Phone Number"]</th>
+                                    @*<th data-ordering="false">@sharedResource["Phone Number"]</th>*@
                                     @*<th data-ordering="false">@sharedResource["Email"]</th>*@
                                     @*<th data-ordering="false">@sharedResource["Current Country"]</th>*@
                                     <th data-ordering="false">@sharedResource["Request Service"]</th>
                                     <th data-ordering="false">@sharedResource["Status"]</th>
+                                    <th data-ordering="false">@sharedResource["Is Paid ?"]</th>
                                     <th data-ordering="false">@sharedResource["Added By"]</th>
                                     <th data-ordering="false">@sharedResource["Request Date"]</th>
                                     <th data-ordering="false">@sharedResource["Responsible Employee"]</th>
@@ -177,9 +178,9 @@
 
 
                 { "name": "FullName", "data": "FullName", "targets": 0, "visible": true },
-                { "name": "PhoneNumber", "data": "PhoneNumber", "targets": 1 },
+                //{ "name": "PhoneNumber", "data": "PhoneNumber", "targets": 1 },
                 {
-                    "name": "ManoEntityTitleEn", "data": "ManoEntityTitleEn", "targets": 2,
+                    "name": "ManoEntityTitleEn", "data": "ManoEntityTitleEn", "targets": 1,
 
                     "render": function (data, type, row, meta) {
                         if (row.BrowserCulture == "en-US") {
@@ -191,7 +192,7 @@
                     }
                 },
                 {
-                    "name": "StatusTitleEn", "data": "StatusTitleEn", "targets": 3,
+                    "name": "StatusTitleEn", "data": "StatusTitleEn", "targets": 2,
                     "render": function (data, type, row, meta) {
 
                         return `<span class="badge badge-soft-primary text-uppercase">@sharedResource["Processing"]</span>`;
@@ -200,6 +201,21 @@
 
 
 
+                },
+                {
+                    "name": "IsPaid", "data": "IsPaid", "targets": 3,
+                    "render": function (data, type, row, meta) {
+                        if (row.IsPaid == true) {
+
+                            return `<span class="badge badge-soft-danger text-uppercase">@sharedResource["Paid"]</span>`;
+                        }
+
+                        else {
+
+                            return `<span class="badge badge-soft-success text-uppercase">@sharedResource["Not Paid"]</span>`;
+
+                        }
+                    }
                 },
                 { "name": "AffiliateName", "data": "AffiliateName", "targets": 4 },
                 { "name": "RequestDate", "data": "RequestDate", "targets": 5 },

@@ -53,10 +53,10 @@
                                 items.AddSimpleFor(m => m.OnDay).IsRequired(false).Label(l => l.Text(sharedResource["OnDay"]));*@
                                             items.AddSimpleFor(m => m.FromDate).IsRequired(false).Label(l => l.Text(sharedResource["From"]));
                                             items.AddSimpleFor(m => m.ToDate).IsRequired(false).Label(l => l.Text(sharedResource["To"]));
-                                            items.AddSimpleFor(m => m.EmployeeId).IsRequired(false).Label(l => l.Text(sharedResource["Select Employee"]))
+                                            items.AddSimpleFor(m => m.UserId).IsRequired(false).Label(l => l.Text(sharedResource["Select Employee"]))
                                             .Editor(e => e
                                             .Lookup()
-                                            .DataSource(ds => ds.WebApi().Controller("Lists").LoadAction("EmployeeLookup").Key("Value"))
+                                            .DataSource(ds => ds.WebApi().Controller("Lists").LoadAction("EmployeeUserLookup").Key("Value"))
                                             .ValueExpr("Value").RtlEnabled(true)
                                             .DisplayExpr("Text").Placeholder(sharedResource["Select Employee"])
                                             .ShowClearButton(true)
@@ -67,7 +67,7 @@
                                             items.AddSimpleFor(m => m.StatusId).IsRequired(false).Label(l => l.Text(sharedResource["Select Request Status"]))
                                             .Editor(e => e
                                             .Lookup()
-                                            .DataSource(ds => ds.WebApi().Controller("Lists").LoadAction("StatusLookup").Key("Value"))
+                                            .DataSource(ds => ds.WebApi().Controller("Lists").LoadAction("AllStatusLookup").Key("Value"))
                                             .ValueExpr("Value").RtlEnabled(true)
                                             .DisplayExpr("Text").Placeholder(sharedResource["Select Request Status"])
                                             .ShowClearButton(true)

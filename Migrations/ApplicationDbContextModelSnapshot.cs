@@ -76,6 +76,13 @@ namespace ManoTourism.Migrations
                             ConcurrencyStamp = "b5a68ed4-507a-48f6-8347-ba7c2c840518",
                             Name = "accountant",
                             NormalizedName = "accountant"
+                        },
+                        new
+                        {
+                            Id = "7031feee-d1ce-4941-8cd3-61f4c30ca256",
+                            ConcurrencyStamp = "7031feee-d1ce-4941-8cd3-61f4c30ca256",
+                            Name = "selles",
+                            NormalizedName = "selles"
                         });
                 });
 
@@ -292,6 +299,9 @@ namespace ManoTourism.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
+
                     b.HasDiscriminator().HasValue("ApplicationUser");
 
                     b.HasData(
@@ -299,61 +309,64 @@ namespace ManoTourism.Migrations
                         {
                             Id = "a0325d4b-2a04-4d33-8e01-6f6f3afb3d8f",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d8b2860d-e6cd-4f1e-aa34-210695509530",
+                            ConcurrencyStamp = "1facd508-e79c-4ed2-b89c-573f628d9fe2",
                             Email = "sitedesign@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "SITEDESIGN@GMAIL.COM",
                             NormalizedUserName = "SITEDESIGN@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEHDQ/dA9O5pnmB0hWdgYVh5Wb2aff3nn6oFyoL/nHXb4huEge7FJf0wmQmDD2aMEkQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEbK15qDo19NZ0LrI7403qg8Zddo+KbFBKd6Ham4BPGY3TV9eWxudmjxKLsgA15k2g==",
                             PhoneNumber = "9080706050",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "9ed22287-6347-47ae-b226-e08702f1d8dc",
+                            SecurityStamp = "5b66c382-9cb8-4f4d-9563-5c10d6bd26d6",
                             TwoFactorEnabled = false,
                             UserName = "sitedesign@gmail.com",
                             EntityId = 0,
                             FullName = "Shenouda && Mary",
-                            Pic = "Pic1.png"
+                            Pic = "Pic1.png",
+                            RoleId = 6
                         },
                         new
                         {
                             Id = "acd2498f-9519-400d-b43d-5a8ea7308cd5",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2c3ac319-076b-4ea3-8bc4-034906a164c4",
+                            ConcurrencyStamp = "f3003a9e-866f-4a9c-942b-d9741831604d",
                             Email = "manoadmin@info.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "MANOADMIN@INFO.COM",
                             NormalizedUserName = "MANOADMIN@INFO.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEF+tZ705pCOpzmCmDGX41JjhJRnmCtXJ//Yz8qZFwmgStLIr6jHA4qBcM67JTLv2yQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJta+Qg/r16lfHQmRmoRJfOhWc6cnh3mCw6C3qKmpRvQaMu2XcdC8hGST5fgwrSomg==",
                             PhoneNumber = "9080706050",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ac287ef7-b80c-4905-8424-9a29769e3f81",
+                            SecurityStamp = "c0c7fee9-309a-4737-9bae-664468165f38",
                             TwoFactorEnabled = false,
                             UserName = "manoadmin@info.com",
                             EntityId = 0,
                             FullName = "admin",
-                            Pic = "Pic1.png"
+                            Pic = "Pic1.png",
+                            RoleId = 1
                         },
                         new
                         {
                             Id = "5e479daa-e034-4990-acf0-c3245efc4584",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "aadbe1ce-e1cd-4c3b-9cf0-b0ceb268ccf6",
+                            ConcurrencyStamp = "073a213d-5737-48d4-ab30-7eb807aa30e9",
                             Email = "accountant@info.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "ACCOUNTANT@INFO.COM",
                             NormalizedUserName = "ACCOUNTANT@INFO.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPyVEbwkGiWuwk6tOMUNKS1fuX0ycASLNvDlINHG2S4+bRwv+OusJu31asbHDHL5qA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHH5iUnAbG68nQh2bqBNSR+IE5Kx/jc8m5+05T/f4U+LNPF8PLk7wZ+BzzC/rZAaDg==",
                             PhoneNumber = "6040302010",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "83dbe2bf-5b8a-44fb-a3db-8d4a26d0152c",
+                            SecurityStamp = "09d130d9-3832-4d9c-9c53-5b9036a14f6b",
                             TwoFactorEnabled = false,
                             UserName = "accountant@info.com",
                             EntityId = 0,
                             FullName = "Accountant",
-                            Pic = "Pic1.png"
+                            Pic = "Pic1.png",
+                            RoleId = 3
                         });
                 });
 

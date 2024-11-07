@@ -75,6 +75,11 @@ namespace ManoTourism.Areas.Admin.Pages.ManageLeadRequests
 
                 }
                 AddNewRequest.RequestDate = DateTime.Now;
+                AddNewRequest.AssignedDateToEmployee = null;
+                AddNewRequest.EmployeeRequestUpdateDate = null;
+                AddNewRequest.OneWayDate = null;
+                AddNewRequest.BeturnedDate = null;
+                AddNewRequest.FinishedDate = null;
                 AddNewRequest.VisaRequestStatusId = 1;
                 if (AddNewRequest.ManoEntityTypeId == 1)
                 {

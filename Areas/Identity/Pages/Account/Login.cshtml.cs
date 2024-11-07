@@ -101,6 +101,10 @@ namespace ManoTourism.Areas.Identity.Pages.Account
                     {
                         return LocalRedirect("/Admin/Reports/EmployeeReport");
                     }
+                    else if (await _userManager.IsInRoleAsync(user, "selles"))
+                    {
+                        return LocalRedirect("/Admin/ManageSellesRequest");
+                    }
                     else
                     {
 

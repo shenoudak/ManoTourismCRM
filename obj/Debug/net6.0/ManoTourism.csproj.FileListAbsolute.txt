@@ -512,7 +512,9 @@ F:\ManoTourismAdmin\ManoTourismCRM\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3
 F:\ManoTourismAdmin\ManoTourismCRM\obj\Debug\net6.0\ManoTourism.csproj.AssemblyReference.cache
 F:\ManoTourismAdmin\ManoTourismCRM\obj\Debug\net6.0\ManoTourism.Report.AffiliateReport.resources
 F:\ManoTourismAdmin\ManoTourismCRM\obj\Debug\net6.0\ManoTourism.Report.EmployeeReport.resources
+F:\ManoTourismAdmin\ManoTourismCRM\obj\Debug\net6.0\ManoTourism.Report.EmpSellerRptReport.resources
 F:\ManoTourismAdmin\ManoTourismCRM\obj\Debug\net6.0\ManoTourism.Report.RequestReport.resources
+F:\ManoTourismAdmin\ManoTourismCRM\obj\Debug\net6.0\ManoTourism.Report.SellerRptReport.resources
 F:\ManoTourismAdmin\ManoTourismCRM\obj\Debug\net6.0\ManoTourism.Resources.SharedResource.ar-EG.resources
 F:\ManoTourismAdmin\ManoTourismCRM\obj\Debug\net6.0\ManoTourism.Resources.SharedResource.en-US.resources
 F:\ManoTourismAdmin\ManoTourismCRM\obj\Debug\net6.0\ManoTourism.csproj.GenerateResource.cache
@@ -543,3 +545,5 @@ F:\ManoTourismAdmin\ManoTourismCRM\obj\Debug\net6.0\refint\ManoTourism.dll
 F:\ManoTourismAdmin\ManoTourismCRM\obj\Debug\net6.0\ManoTourism.pdb
 F:\ManoTourismAdmin\ManoTourismCRM\obj\Debug\net6.0\ManoTourism.genruntimeconfig.cache
 F:\ManoTourismAdmin\ManoTourismCRM\obj\Debug\net6.0\ref\ManoTourism.dll
+F:\ManoTourismAdmin\ManoTourismCRM\obj\Debug\net6.0\ManoTourism.Report.EmployeeTransactionRpt.resources
+F:\ManoTourismAdmin\ManoTourismCRM\obj\Debug\net6.0\ManoTourism.Report.AllRequestsTransactionRpt.resources

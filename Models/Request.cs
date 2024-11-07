@@ -14,19 +14,24 @@ namespace ManoTourism.Models
         public string Message { get; set; }
         public string? RejectRequestReason { get; set; }
         public DateTime RequestDate { get; set; }
-        public DateTime EmployeeRequestUpdateDate { get; set; }
-        public DateTime AssignedDateToEmployee { get; set; }
+        public DateTime? EmployeeRequestUpdateDate { get; set; }
+        public DateTime? AssignedDateToEmployee { get; set; }
         public DateTime? HotelArrivedDate { get; set; }
         public DateTime? HotelDepartureDate { get; set; }
         public DateTime? OneWayDate { get; set; }
         public DateTime? BeturnedDate { get; set; }
+        public DateTime? FinishedDate { get; set; }
         public bool OneWay { get; set; }
         public bool IsDeleted { get; set; }
+        public bool IsPaid { get; set; }
         public int EntityId { get; set; }
         public string EntityTitleAr { get; set; }
         public string EntityTitleEn { get; set; }
         public string? UserId { get; set; }
         public string? AffiliateName { get; set; }
+        public string? SharedEmployeeeName { get; set; }
+        public int? SharedEmployeeeId { get; set; }
+        public int? SellesId { get; set; }
         public int ManoEntityTypeId { get; set; }
         public int CompanyMarktingId { get; set; }
         public int? EmployeeId { get; set; }

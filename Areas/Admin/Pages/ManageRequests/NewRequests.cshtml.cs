@@ -130,6 +130,7 @@ namespace ManoTourism.Areas.Admin.Pages.ManageRequests
                 ManoEntityTitleAr = i.ManoEntityType.EntityTitleAr,
                 BrowserCulture = BrowserCulture,
                 AffiliateName = i.AffiliateName,
+                SharedEmployeeeName = i.SharedEmployeeeName,
 
 
             }).AsQueryable();

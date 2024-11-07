@@ -15,6 +15,7 @@ namespace ManoTourism.Models
         public bool IsDeleted { get; set; }
         //public virtual ICollection<VisaRequest> VisaRequests { get; set; }
         public virtual ICollection<Request> Requests { get; set; }
+        public virtual ICollection<Sales> Sales { get; set; }
         public virtual ICollection<AssignEmployeeRoles> AssignEmployeeRoles { get; set; }
     }
 }

@@ -72,7 +72,7 @@ namespace ManoTourism.Areas.Admin.Pages.ManageEmployee
                         string folder = "Images/Employee/";
                         EmployeeImage = UploadImage(folder, file);
                     }
-                    var user = new ApplicationUser { UserName = AddEmployee.EmployeeEmail, Email = AddEmployee.EmployeeEmail, FullName = AddEmployee.EmployeeName, Pic = EmployeeImage, PhoneNumber = AddEmployee.EmployeePhoneNumber };
+                    var user = new ApplicationUser { UserName = AddEmployee.EmployeeEmail, Email = AddEmployee.EmployeeEmail, FullName = AddEmployee.EmployeeName, Pic = EmployeeImage, PhoneNumber = AddEmployee.EmployeePhoneNumber,RoleId=2 };
                     var result = await _userManager.CreateAsync(user, AddEmployee.EmployeePassword);
                     string RolesEmpList = Request.Form["EmpRoleList"];
                     List<AssignEmployeeRoles> assignEmployeeRoles = new List<AssignEmployeeRoles>();

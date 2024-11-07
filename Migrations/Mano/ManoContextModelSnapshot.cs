@@ -2453,7 +2453,7 @@ namespace ManoTourism.Migrations.Mano
                     b.Property<string>("AffiliateName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("AssignedDateToEmployee")
+                    b.Property<DateTime?>("AssignedDateToEmployee")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("BeturnedDate")
@@ -2472,7 +2472,7 @@ namespace ManoTourism.Migrations.Mano
                     b.Property<int?>("EmployeeId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("EmployeeRequestUpdateDate")
+                    b.Property<DateTime?>("EmployeeRequestUpdateDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("EntityId")
@@ -2486,6 +2486,9 @@ namespace ManoTourism.Migrations.Mano
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime?>("FinishedDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("FullName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -2497,6 +2500,9 @@ namespace ManoTourism.Migrations.Mano
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsPaid")
                         .HasColumnType("bit");
 
                     b.Property<int>("ManoEntityTypeId")
@@ -2531,6 +2537,15 @@ namespace ManoTourism.Migrations.Mano
                     b.Property<DateTime>("RequestDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int?>("SellesId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SharedEmployeeeId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SharedEmployeeeName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("TransactionType")
                         .HasColumnType("nvarchar(max)");
 
@@ -2557,6 +2572,50 @@ namespace ManoTourism.Migrations.Mano
                     b.HasIndex("VisaRequestStatusId");
 
                     b.ToTable("Requests");
+                });
+
+            modelBuilder.Entity("ManoTourism.Models.Sales", b =>
+                {
+                    b.Property<int>("SalesId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SalesId"), 1L, 1);
+
+                    b.Property<int>("EmployeeId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("PassportPic")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SalesEmail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SalesName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SalesPassword")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SalesPhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("SalesId");
+
+                    b.HasIndex("EmployeeId");
+
+                    b.ToTable("Sales");
                 });
 
             modelBuilder.Entity("ManoTourism.Models.SubscribeNewsLetter", b =>
@@ -3262,6 +3321,17 @@ namespace ManoTourism.Migrations.Mano
                     b.Navigation("VisaRequestStatus");
                 });
 
+            modelBuilder.Entity("ManoTourism.Models.Sales", b =>
+                {
+                    b.HasOne("ManoTourism.Models.Employee", "Employee")
+                        .WithMany("Sales")
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Employee");
+                });
+
             modelBuilder.Entity("ManoTourism.Models.Trip", b =>
                 {
                     b.HasOne("ManoTourism.Models.Country", "Country")
@@ -3354,6 +3424,8 @@ namespace ManoTourism.Migrations.Mano
                     b.Navigation("AssignEmployeeRoles");
 
                     b.Navigation("Requests");
+
+                    b.Navigation("Sales");
                 });
 
             modelBuilder.Entity("ManoTourism.Models.EmployeeRole", b =>

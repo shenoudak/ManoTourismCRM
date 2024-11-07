@@ -96,6 +96,10 @@
 
                                     </li>
                                     <li class="nav-item">
+                                        <a asp-area="Admin" asp-page="/ManageSales/index" class="nav-link">@sharedResource["Manage Sellers"]</a>
+
+                                    </li>
+                                    <li class="nav-item">
                                         <a asp-area="Admin" asp-page="/ManageRejectReason/Index" class="nav-link">@sharedResource["Manage Reject Reasons"]</a>
                                     </li>
                                        
@@ -105,42 +109,42 @@
                             </div>
                         </li> <!-- end Dashboard Menu -->
 
-                        <li class="nav-item">
-                            <a class="nav-link menu-link" href="#ReportsLayouts" data-bs-toggle="collapse" role="button"
-                               aria-expanded="false" aria-controls="sidebarLayouts">
-                                <i class="mdi mdi-wrench"></i> <span>@sharedResource["System Configurations"]</span>
-                            </a>
-                            <div class="collapse menu-dropdown" id="ReportsLayouts">
-                                <ul class="nav nav-sm flex-column">
-                                    <li class="nav-item">
-                                        <a asp-area="Admin" asp-page="/ManagePublicSlider/index" class="nav-link">@sharedResource["Manage Public Slider"]</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a asp-area="Admin" asp-page="/ManageAboutSection/index" class="nav-link">@sharedResource["Manage About Section"]</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a asp-area="Admin" asp-page="/ManageSocialContact/index" class="nav-link">@sharedResource["Manage Social Contacts"]</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a asp-area="Admin" asp-page="/ManageTestimonial/index" class="nav-link">@sharedResource["Manage User Reviews"]</a>
-                                        <a asp-area="Admin" asp-page="/ManageOffers/index" class="nav-link">@sharedResource["Manage Offers"]</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a asp-area="Admin" asp-page="/ManagePageContent/index" class="nav-link"> @sharedResource["Manage Page Content"]</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a asp-area="Admin" asp-page="/ManageUserMessages/index" class="nav-link">@sharedResource["Manage User Messages"]</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a asp-area="Admin" asp-page="/ManageUserSubscriptionNewsLetters/index" class="nav-link">@sharedResource["Manage User Subscription News Letters"]</a>
-                                    </li>
+                        //<li class="nav-item">
+                        //    <a class="nav-link menu-link" href="#ReportsLayouts" data-bs-toggle="collapse" role="button"
+                        //       aria-expanded="false" aria-controls="sidebarLayouts">
+                        //        <i class="mdi mdi-wrench"></i> <span>@sharedResource["System Configurations"]</span>
+                        //    </a>
+                        //    <div class="collapse menu-dropdown" id="ReportsLayouts">
+                        //        <ul class="nav nav-sm flex-column">
+                        //            <li class="nav-item">
+                        //                <a asp-area="Admin" asp-page="/ManagePublicSlider/index" class="nav-link">@sharedResource["Manage Public Slider"]</a>
+                        //            </li>
+                        //            <li class="nav-item">
+                        //                <a asp-area="Admin" asp-page="/ManageAboutSection/index" class="nav-link">@sharedResource["Manage About Section"]</a>
+                        //            </li>
+                        //            <li class="nav-item">
+                        //                <a asp-area="Admin" asp-page="/ManageSocialContact/index" class="nav-link">@sharedResource["Manage Social Contacts"]</a>
+                        //            </li>
+                        //            <li class="nav-item">
+                        //                <a asp-area="Admin" asp-page="/ManageTestimonial/index" class="nav-link">@sharedResource["Manage User Reviews"]</a>
+                        //                <a asp-area="Admin" asp-page="/ManageOffers/index" class="nav-link">@sharedResource["Manage Offers"]</a>
+                        //            </li>
+                        //            <li class="nav-item">
+                        //                <a asp-area="Admin" asp-page="/ManagePageContent/index" class="nav-link"> @sharedResource["Manage Page Content"]</a>
+                        //            </li>
+                        //            <li class="nav-item">
+                        //                <a asp-area="Admin" asp-page="/ManageUserMessages/index" class="nav-link">@sharedResource["Manage User Messages"]</a>
+                        //            </li>
+                        //            <li class="nav-item">
+                        //                <a asp-area="Admin" asp-page="/ManageUserSubscriptionNewsLetters/index" class="nav-link">@sharedResource["Manage User Subscription News Letters"]</a>
+                        //            </li>
 
 
 
 
-                                </ul>
-                            </div>
-                        </li> <!-- end Dashboard Menu -->
+                        //        </ul>
+                        //    </div>
+                        //</li> <!-- end Dashboard Menu -->
                         <li class="nav-item">
                             <a class="nav-link menu-link" href="#RquestLayouts" data-bs-toggle="collapse" role="button"
                                aria-expanded="false" aria-controls="RquestLayouts">
@@ -179,8 +183,9 @@
                                 <ul class="nav nav-sm flex-column">
 
                                     <li class="nav-item">
-                                        <a asp-area="Admin" asp-page="/Reports/EmployeeReport" class="nav-link">@sharedResource["Employees Report"]</a>
+                                        <a asp-area="Admin" asp-page="/Reports/EmployeeReport" class="nav-link">@sharedResource["Employees Report As Lead"]</a>
                                         <a asp-area="Admin" asp-page="/Reports/LeadReport" class="nav-link">@sharedResource["Affiliate Report"]</a>
+                                        <a asp-area="Admin" asp-page="/Reports/SellerReport" class="nav-link">@sharedResource["Seller Report As Lead"]</a>
                                     </li>
                                     @* <li class="nav-item">
                             <a asp-area="Admin" asp-page="/Configurations/ManageCity/index" class="nav-link">@sharedResource["Today Orders"]</a>
@@ -209,40 +214,40 @@
                                 Boolean checkPublicSite = RoleList.Any(o => o.EmployeeRoleId == (int)EmpRoles.ManagePublicSite);
                                 Boolean checkConfig = RoleList.Any(o => o.EmployeeRoleId == (int)EmpRoles.TripsManagement || o.EmployeeRoleId == (int)EmpRoles.VisasManagement);
                                 Boolean checkRequest = RoleList.Any(o => o.EmployeeRoleId == (int)EmpRoles.NewRequests || o.EmployeeRoleId == (int)EmpRoles.ProcessingRequests);
-                                if (checkPublicSite)
-                                {
-                                    <li class="nav-item">
-                                        <a class="nav-link menu-link" href="#ReportsLayouts" data-bs-toggle="collapse" role="button"
-                                           aria-expanded="false" aria-controls="sidebarLayouts">
-                                            <i class="mdi mdi-wrench"></i> <span>@sharedResource["System Configurations"]</span>
-                                        </a>
-                                        <div class="collapse menu-dropdown" id="ReportsLayouts">
-                                            <ul class="nav nav-sm flex-column">
-                                                <li class="nav-item">
-                                                    <a asp-area="Admin" asp-page="/ManagePublicSlider/index" class="nav-link">@sharedResource["Manage Public Slider"]</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a asp-area="Admin" asp-page="/ManageAboutSection/index" class="nav-link">@sharedResource["Manage About Section"]</a>
-                                                </li>
-                                                @* <li class="nav-item">
-                            <a asp-area="Admin" asp-page="/ManageSocialContact/index" class="nav-link">@sharedResource["Manage Social Contacts"]</a>
-                            </li> *@
+                            //    if (checkPublicSite)
+                            //    {
+                            //        <li class="nav-item">
+                            //            <a class="nav-link menu-link" href="#ReportsLayouts" data-bs-toggle="collapse" role="button"
+                            //               aria-expanded="false" aria-controls="sidebarLayouts">
+                            //                <i class="mdi mdi-wrench"></i> <span>@sharedResource["System Configurations"]</span>
+                            //            </a>
+                            //            <div class="collapse menu-dropdown" id="ReportsLayouts">
+                            //                <ul class="nav nav-sm flex-column">
+                            //                    <li class="nav-item">
+                            //                        <a asp-area="Admin" asp-page="/ManagePublicSlider/index" class="nav-link">@sharedResource["Manage Public Slider"]</a>
+                            //                    </li>
+                            //                    <li class="nav-item">
+                            //                        <a asp-area="Admin" asp-page="/ManageAboutSection/index" class="nav-link">@sharedResource["Manage About Section"]</a>
+                            //                    </li>
+                            //                    @* <li class="nav-item">
+                            //<a asp-area="Admin" asp-page="/ManageSocialContact/index" class="nav-link">@sharedResource["Manage Social Contacts"]</a>
+                            //</li> *@
 
-                                                <li class="nav-item">
-                                                    <a asp-area="Admin" asp-page="/ManageTestimonial/index" class="nav-link">@sharedResource["Manage User Reviews"]</a>
-                                                </li>
-                                                @*<li class="nav-item">
-                            <a asp-area="Admin" asp-page="/ManagePageContent/index" class="nav-link"> @sharedResource["Manage Page Content"]</a>
-                            </li>*@
-
-
+                            //                    <li class="nav-item">
+                            //                        <a asp-area="Admin" asp-page="/ManageTestimonial/index" class="nav-link">@sharedResource["Manage User Reviews"]</a>
+                            //                    </li>
+                            //                    @*<li class="nav-item">
+                            //<a asp-area="Admin" asp-page="/ManagePageContent/index" class="nav-link"> @sharedResource["Manage Page Content"]</a>
+                            //</li>*@
 
 
 
-                                            </ul>
-                                        </div>
-                                    </li> <!-- end Dashboard Menu -->
-                                }
+
+
+                            //                </ul>
+                            //            </div>
+                            //        </li> <!-- end Dashboard Menu -->
+                            //    }
                                 if (checkConfig)
                                 {
                                     <li class="nav-item">
@@ -482,6 +487,10 @@
 
                             </li>
                             <li class="nav-item">
+                                <a asp-area="Admin" asp-page="/EmployeeSharedSellers/Index" class="nav-link menu-link" aria-expanded="false"><i class="mdi mdi-account-group"></i> <span>@sharedResource["Sellers"]</span> </a>
+                            </li>
+                            
+                            <li class="nav-item">
                                 <a asp-area="Admin" asp-page="/ManageEmployeeRequests/Index" class="nav-link menu-link" aria-expanded="false"><i class="ri-layout-3-line"></i> <span>@sharedResource["New Requests"]</span> </a>
                             </li>
                             <li class="nav-item">
@@ -512,6 +521,9 @@
                             <a asp-area="Admin" asp-page="/Profile/Index" class="nav-link menu-link" aria-expanded="false"><i class="ri-account-circle-line"></i> <span>@sharedResource["Profile"]</span> </a>
                         </li>
                         <li class="nav-item">
+                            <a asp-area="Admin" asp-page="/ManageRequests/ProcessingRequest" class="nav-link menu-link" aria-expanded="false"> <i class="bx bx-dollar"></i> <span>@sharedResource["Processing Requests"]</span> </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link menu-link" href="#reportsLayout" data-bs-toggle="collapse" role="button"
                                aria-expanded="false" aria-controls="reportsLayout">
                                 <i class="mdi mdi-apple-keyboard-command"></i> <span>@sharedResource["Reports"]</span>
@@ -522,6 +534,8 @@
                                     <li class="nav-item">
                                         <a asp-area="Admin" asp-page="/Reports/EmployeeReport" class="nav-link">@sharedResource["Employees Report"]</a>
                                         <a asp-area="Admin" asp-page="/Reports/LeadReport" class="nav-link">@sharedResource["Affiliate Report"]</a>
+                                        <a asp-area="Admin" asp-page="/Reports/SellerReport" class="nav-link">@sharedResource["Seller Report"]</a>
+
                                     </li>
                                     @* <li class="nav-item">
                             <a asp-area="Admin" asp-page="/Configurations/ManageCity/index" class="nav-link">@sharedResource["Today Orders"]</a>

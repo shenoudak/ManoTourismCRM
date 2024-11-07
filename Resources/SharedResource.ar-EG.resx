@@ -300,6 +300,9 @@
   <data name="Add Request" xml:space="preserve">
     <value>إضافه طلب</value>
   </data>
+  <data name="Add Sales" xml:space="preserve">
+    <value>إضافة بائع</value>
+  </data>
   <data name="Add Tour" xml:space="preserve">
     <value>إضافة رحله</value>
   </data>
@@ -420,6 +423,9 @@
   </data>
   <data name="Arabic Title" xml:space="preserve">
     <value>الاسم باللغة العربية</value>
+  </data>
+  <data name="Are you sure you want to update your payment status?" xml:space="preserve">
+    <value>هل انت متأكد انك تريد تحديث حالة الدفع ؟</value>
   </data>
   <data name="Arrival Date" xml:space="preserve">
     <value>تاريخ الوصول </value>
@@ -718,6 +724,9 @@
   <data name="Edit Reject Reason" xml:space="preserve">
     <value>تعديل سبب الرفض</value>
   </data>
+  <data name="Edit Selles" xml:space="preserve">
+    <value>تعديل البائع</value>
+  </data>
   <data name="Edit Social Contacts" xml:space="preserve">
     <value>تعديل وسائل الاتصال</value>
   </data>
@@ -777,6 +786,9 @@
   </data>
   <data name="Employees Report" xml:space="preserve">
     <value>تقرير الموظفين</value>
+  </data>
+  <data name="Employees Report As Lead" xml:space="preserve">
+    <value>تقرير الموظفين كليد</value>
   </data>
   <data name="English Description" xml:space="preserve">
     <value>الوصف باللغة الانجليزية</value>
@@ -942,6 +954,15 @@
   </data>
   <data name="Enter Review writer Name In English" xml:space="preserve">
     <value>إدخل اسم كاتب المراجعة باللغة الإنجليزية</value>
+  </data>
+  <data name="Enter Sales Email" xml:space="preserve">
+    <value>إدخل البريد الألكتروني للبائع</value>
+  </data>
+  <data name="Enter Sales Name" xml:space="preserve">
+    <value>إدخل اسم البائع</value>
+  </data>
+  <data name="Enter Sales Password" xml:space="preserve">
+    <value>إدخل كلمة السر للبائع</value>
   </data>
   <data name="Enter Second Email" xml:space="preserve">
     <value>إدخل البريد الإلكتروني الثاني</value>
@@ -1206,6 +1227,9 @@
   <data name="Is Active?" xml:space="preserve">
     <value>نشط ؟</value>
   </data>
+  <data name="Is Paid ?" xml:space="preserve">
+    <value>تم الدفع ؟</value>
+  </data>
   <data name="Is valid for 60 days from the date of issuance, except for 48-hour and 96-hour category visas, which are valid for one month.  Only from the release date" xml:space="preserve">
     <value>تكون صالح لمده ٦٠ يوم من تاريخ الاصدار ماعدا تاشيرات فئة ٤٨ ساعه و ٩٦ ساعه تكون صلاحيتها شهر واحد فقط من تاريخ الاصدار</value>
   </data>
@@ -1307,6 +1331,12 @@
   </data>
   <data name="Manage Reject Reasons" xml:space="preserve">
     <value>إدارة اسباب الرفض</value>
+  </data>
+  <data name="Manage Sales" xml:space="preserve">
+    <value>إدارة البائعين</value>
+  </data>
+  <data name="Manage Sellers" xml:space="preserve">
+    <value>إدارة البائعين</value>
   </data>
   <data name="Manage Social Contacts" xml:space="preserve">
     <value>إدارة وسائل الاتصال</value>
@@ -1498,6 +1528,9 @@
   <data name="Not Active" xml:space="preserve">
     <value>غير نشط</value>
   </data>
+  <data name="Not Paid" xml:space="preserve">
+    <value>لم يتم الدفع</value>
+  </data>
   <data name="Notes" xml:space="preserve">
     <value>ملاحظات</value>
   </data>
@@ -1573,11 +1606,17 @@
   <data name="Page Not Found" xml:space="preserve">
     <value>الصفحة غير موجودة</value>
   </data>
+  <data name="Paid" xml:space="preserve">
+    <value>تم الدفع</value>
+  </data>
   <data name="Parking" xml:space="preserve">
     <value>موقف سيارات</value>
   </data>
   <data name="Passport Copy: required Clearly copy Passport copy . Minimum of 6 months validity required from the arrival date." xml:space="preserve">
     <value>نسخة من جواز السفر: مطلوب نسخة واضحة من جواز السفر. يشترط صلاحية لا تقل عن 6 أشهر من تاريخ الوصول.</value>
+  </data>
+  <data name="Passport Image" xml:space="preserve">
+    <value>صورة جواز السفر</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>كلمه السر</value>
@@ -1618,6 +1657,9 @@
   </data>
   <data name="Please choose a Visa Type" xml:space="preserve">
     <value>من فضلك اختر نوع الفيزا</value>
+  </data>
+  <data name="Please choose An Employee" xml:space="preserve">
+    <value>من فضلك اختر موظف</value>
   </data>
   <data name="Positives Review" xml:space="preserve">
     <value>مراجعات الإيجابيه </value>
@@ -1706,6 +1748,9 @@
   <data name="Request Details" xml:space="preserve">
     <value>تفاصيل الطلب</value>
   </data>
+  <data name="Request Is Paid" xml:space="preserve">
+    <value>تم دفع الطلب</value>
+  </data>
   <data name="Request Per Types" xml:space="preserve">
     <value>الطلبات لكل نوع</value>
   </data>
@@ -1775,6 +1820,21 @@
   <data name="Road Trips" xml:space="preserve">
     <value>رحلات برية</value>
   </data>
+  <data name="Sales" xml:space="preserve">
+    <value>البائعين</value>
+  </data>
+  <data name="Sales Email" xml:space="preserve">
+    <value>البريد الألكتروني للبائع</value>
+  </data>
+  <data name="Sales Name" xml:space="preserve">
+    <value>اسم البائع</value>
+  </data>
+  <data name="Sales Password" xml:space="preserve">
+    <value>كلمة السر للبائع</value>
+  </data>
+  <data name="Salles" xml:space="preserve">
+    <value>البائعين</value>
+  </data>
   <data name="Saudi Arab" xml:space="preserve">
     <value>المملكه العربية السعوديه</value>
   </data>
@@ -1829,11 +1889,17 @@
   <data name="Select Insurance Type" xml:space="preserve">
     <value> إختر نوع التأمين</value>
   </data>
+  <data name="Select Passport Image" xml:space="preserve">
+    <value>إختر صورة جواز السفر</value>
+  </data>
   <data name="Select Rejected Reason" xml:space="preserve">
     <value>إختر سبب الرفض</value>
   </data>
   <data name="Select Request Status" xml:space="preserve">
     <value>إختر حاله الطلب</value>
+  </data>
+  <data name="Select Seller" xml:space="preserve">
+    <value>إختر البائع</value>
   </data>
   <data name="Select Status" xml:space="preserve">
     <value>إختر الحالة</value>
@@ -1855,6 +1921,15 @@
   </data>
   <data name="Selected Request Service" xml:space="preserve">
     <value>اسم الخدمه المطلوبه</value>
+  </data>
+  <data name="Seller Report" xml:space="preserve">
+    <value>تقرير البائعين</value>
+  </data>
+  <data name="Seller Report As Lead" xml:space="preserve">
+    <value>تقرير البائعين كليد</value>
+  </data>
+  <data name="Sellers" xml:space="preserve">
+    <value>البائعين</value>
   </data>
   <data name="Send Mail" xml:space="preserve">
     <value>راسلنا عبر البريد الإلكتروني</value>
@@ -1905,6 +1980,9 @@
 ادخال رقم الوثيقة
 ادخال رقم الهوية
 الاستعلام وعرض النتائج</value>
+  </data>
+  <data name="Shared Employee" xml:space="preserve">
+    <value>الموظف المشارك</value>
   </data>
   <data name="Shenouda Karam" xml:space="preserve">
     <value>شنوده كرم</value>
@@ -2122,6 +2200,9 @@
   </data>
   <data name="UAE Tours" xml:space="preserve">
     <value>رحلات داخل دوله الإمارات العربية المتحده</value>
+  </data>
+  <data name="Update payment Status" xml:space="preserve">
+    <value>تحديث حالة الدفع</value>
   </data>
   <data name="Update Request Status" xml:space="preserve">
     <value>تعديل حاله الطلب</value>

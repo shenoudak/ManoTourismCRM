@@ -126,7 +126,7 @@ namespace ManoTourism.Areas.Admin.Pages.ManageRequests
                 StatusTitleEn = i.VisaRequestStatus.StatusTitleEn,
                 ManoEntityTitleEn = i.ManoEntityType.EntityTitleEn,
                 EmployeeName = i.Employee.EmployeeName,
-                AssignedDateToEmployee = i.AssignedDateToEmployee.ToString("dddd, dd MMMM yyyy"),
+                AssignedDateToEmployee = i.AssignedDateToEmployee.Value.ToString("dddd, dd MMMM yyyy"),
                 RequestStatusId = i.VisaRequestStatusId,
                 AffiliateName = i.AffiliateName,
                 ManoEntityTitleAr = i.ManoEntityType.EntityTitleAr,

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using ManoTourism.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -35,7 +36,8 @@ namespace ManoTourism.Data
                 new IdentityRole() { Id = "897f7c7a-cce6-4503-a3f9-aee92acc8d33", Name = "admin", ConcurrencyStamp = "897f7c7a-cce6-4503-a3f9-aee92acc8d33", NormalizedName = "admin" },
                 new IdentityRole() { Id = "6f826707-3414-46e3-b80c-0bc28f310dbb", Name = "employee", ConcurrencyStamp = "6f826707-3414-46e3-b80c-0bc28f310dbb", NormalizedName = "employee" },
                 new IdentityRole() { Id = "6407b04c-cf88-4cb0-847e-d5d88340da0c", Name = "lead", ConcurrencyStamp = "6407b04c-cf88-4cb0-847e-d5d88340da0c", NormalizedName = "lead" },
-                new IdentityRole() { Id = "b5a68ed4-507a-48f6-8347-ba7c2c840518", Name = "accountant", ConcurrencyStamp = "b5a68ed4-507a-48f6-8347-ba7c2c840518", NormalizedName = "accountant" }
+                new IdentityRole() { Id = "b5a68ed4-507a-48f6-8347-ba7c2c840518", Name = "accountant", ConcurrencyStamp = "b5a68ed4-507a-48f6-8347-ba7c2c840518", NormalizedName = "accountant" },
+                new IdentityRole() { Id = "7031feee-d1ce-4941-8cd3-61f4c30ca256", Name = "selles", ConcurrencyStamp = "7031feee-d1ce-4941-8cd3-61f4c30ca256", NormalizedName = "selles" }
                 );
         }
         private void SeedUsers(ModelBuilder builder)
@@ -45,6 +47,7 @@ namespace ManoTourism.Data
             //6f826707-3414-46e3-b80c-0bc28f310dbb      emp
             //897f7c7a-cce6-4503-a3f9-aee92acc8d33      adm
             //b5a68ed4-507a-48f6-8347-ba7c2c840518      acc
+          
             ApplicationUser user = new ApplicationUser()
             {
                 Id = "a0325d4b-2a04-4d33-8e01-6f6f3afb3d8f",
@@ -55,7 +58,8 @@ namespace ManoTourism.Data
                 FullName = "Shenouda && Mary",
                 Pic = "Pic1.png",
                 LockoutEnabled = false,
-                PhoneNumber = "9080706050"
+                PhoneNumber = "9080706050",
+                RoleId=6
             };
 
             PasswordHasher<ApplicationUser> passwordHasher = new PasswordHasher<ApplicationUser>();
@@ -72,7 +76,8 @@ namespace ManoTourism.Data
                 FullName = "admin",
                 Pic = "Pic1.png",
                 LockoutEnabled = false,
-                PhoneNumber = "9080706050"
+                PhoneNumber = "9080706050",
+                RoleId = 1
             };
             var adminHashed = passwordHasher.HashPassword(admin, "P@ssw0rd");
             admin.PasswordHash = adminHashed;
@@ -87,7 +92,8 @@ namespace ManoTourism.Data
                 FullName = "Accountant",
                 Pic = "Pic1.png",
                 LockoutEnabled = false,
-                PhoneNumber = "6040302010"
+                PhoneNumber = "6040302010",
+                RoleId = 3
             };
             var AccountantHashed = passwordHasher.HashPassword(Accountant, "Accountant@123");
             Accountant.PasswordHash = AccountantHashed;

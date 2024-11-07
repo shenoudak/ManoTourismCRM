@@ -87,9 +87,10 @@ namespace ManoTourism.Areas.Admin.Pages.ManageEmployeeRequests
                 StatusTitleEn = i.VisaRequestStatus.StatusTitleEn,
                 ManoEntityTitleEn = i.ManoEntityType.EntityTitleEn,
                 EmployeeName = i.Employee.EmployeeName,
-                AssignedDateToEmployee = i.AssignedDateToEmployee.ToString("dddd, dd MMMM yyyy"),
+                AssignedDateToEmployee = i.AssignedDateToEmployee.Value.ToString("dddd, dd MMMM yyyy"),
                 RequestStatusId = i.VisaRequestStatusId,
                 AffiliateName = i.AffiliateName,
+                IsPaid = i.IsPaid,
                 ManoEntityTitleAr = i.ManoEntityType.EntityTitleAr,
                 BrowserCulture = BrowserCulture,
 
@@ -188,6 +189,17 @@ namespace ManoTourism.Areas.Admin.Pages.ManageEmployeeRequests
 
                 model.VisaRequestStatusId = updateRequestStatusVM.VisaRequestStatusId;
                 model.EmployeeRequestUpdateDate = DateTime.Now;
+                if (updateRequestStatusVM.VisaRequestStatusId == 3)
+                {
+                    if (model.IsPaid==false)
+                    {
+                        _toastNotification.AddErrorToastMessage("You cannot Finished This request because the payment has not been completed");
+
+                        return Redirect("/Admin/ManageEmployeeRequests/Index");
+                    }
+                    model.FinishedDate= DateTime.Now;
+
+                }
                 if (updateRequestStatusVM.VisaRequestStatusId == 4)
                 {
                     //model.RejectRequestReason = updateRequestStatusVM.RejectReason;

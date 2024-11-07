@@ -167,6 +167,7 @@
     <Folder Include="wwwroot\Images\Insurance\" />
     <Folder Include="wwwroot\Images\EsCompany\" />
     <Folder Include="wwwroot\Images\Hotel\" />
+    <Folder Include="wwwroot\Images\Sales\" />
     <Folder Include="wwwroot\Images\Ticket\" />
     <Folder Include="wwwroot\Images\Offer\" />
     <Folder Include="wwwroot\Images\Trip\" />
@@ -180,6 +181,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Report\AllRequestsTransactionRpt.cs">
+      <SubType>XtraReport</SubType>
+    </Compile>
+    <Compile Update="Report\EmpSellerRptReport.cs">
+      <SubType>XtraReport</SubType>
+    </Compile>
+    <Compile Update="Report\EmployeeTransactionRpt.cs">
+      <SubType>XtraReport</SubType>
+    </Compile>
+    <Compile Update="Report\SellerRptReport.cs">
+      <SubType>XtraReport</SubType>
+    </Compile>
     <Compile Update="Report\AffiliateReport.cs">
       <SubType>XtraReport</SubType>
     </Compile>

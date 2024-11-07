@@ -97,12 +97,20 @@
       "PackagePath": "staticwebassets\\Images\\Employee\\4c7f8ddb-2828-4081-80c3-fe7c0089b3b0_Design.png"
     },
     {
+      "Id": "F:\\ManoTourismAdmin\\ManoTourismCRM\\wwwroot\\Images\\Employee\\526aa6dc-b86b-4770-9bb4-d28bbcf95360_brety.jpg",
+      "PackagePath": "staticwebassets\\Images\\Employee\\526aa6dc-b86b-4770-9bb4-d28bbcf95360_brety.jpg"
+    },
+    {
       "Id": "F:\\ManoTourismAdmin\\ManoTourismCRM\\wwwroot\\Images\\Employee\\57ea213b-d4f0-42c5-ae4e-8f83d649dc40_avatar-8.jpg",
       "PackagePath": "staticwebassets\\Images\\Employee\\57ea213b-d4f0-42c5-ae4e-8f83d649dc40_avatar-8.jpg"
     },
     {
       "Id": "F:\\ManoTourismAdmin\\ManoTourismCRM\\wwwroot\\Images\\Employee\\5e43319f-c9e4-49f6-a4da-a135054adba2_avatar-2.jpg",
       "PackagePath": "staticwebassets\\Images\\Employee\\5e43319f-c9e4-49f6-a4da-a135054adba2_avatar-2.jpg"
+    },
+    {
+      "Id": "F:\\ManoTourismAdmin\\ManoTourismCRM\\wwwroot\\Images\\Employee\\61246dca-a196-456a-b544-b2cedd01a486_brety.jpg",
+      "PackagePath": "staticwebassets\\Images\\Employee\\61246dca-a196-456a-b544-b2cedd01a486_brety.jpg"
     },
     {
       "Id": "F:\\ManoTourismAdmin\\ManoTourismCRM\\wwwroot\\Images\\Employee\\6b15f83e-35d8-4f95-b865-81ab5a731a4b_MANO.png",
@@ -133,6 +141,10 @@
       "PackagePath": "staticwebassets\\Images\\Employee\\b6a67fde-960f-4bde-af60-153581fa3936_Design.png"
     },
     {
+      "Id": "F:\\ManoTourismAdmin\\ManoTourismCRM\\wwwroot\\Images\\Employee\\be299ae7-3630-473b-b8b4-5b0fb381eb7e_brety.jpg",
+      "PackagePath": "staticwebassets\\Images\\Employee\\be299ae7-3630-473b-b8b4-5b0fb381eb7e_brety.jpg"
+    },
+    {
       "Id": "F:\\ManoTourismAdmin\\ManoTourismCRM\\wwwroot\\Images\\Employee\\c79f0008-a1c8-4254-9ca4-544c2734f4b5_avatar-3.jpg",
       "PackagePath": "staticwebassets\\Images\\Employee\\c79f0008-a1c8-4254-9ca4-544c2734f4b5_avatar-3.jpg"
     },
@@ -143,6 +155,10 @@
     {
       "Id": "F:\\ManoTourismAdmin\\ManoTourismCRM\\wwwroot\\Images\\Employee\\d1d90257-aa24-4c7d-850f-7eb46266be17_LogoNew.jpg",
       "PackagePath": "staticwebassets\\Images\\Employee\\d1d90257-aa24-4c7d-850f-7eb46266be17_LogoNew.jpg"
+    },
+    {
+      "Id": "F:\\ManoTourismAdmin\\ManoTourismCRM\\wwwroot\\Images\\Employee\\d57235e9-f231-47c4-9743-ccc9b5bb1117_brety.jpg",
+      "PackagePath": "staticwebassets\\Images\\Employee\\d57235e9-f231-47c4-9743-ccc9b5bb1117_brety.jpg"
     },
     {
       "Id": "F:\\ManoTourismAdmin\\ManoTourismCRM\\wwwroot\\Images\\Employee\\d5e6c67a-3d19-41b2-a206-6862d834d82b_outUaeVisa.jpg",
@@ -159,6 +175,14 @@
     {
       "Id": "F:\\ManoTourismAdmin\\ManoTourismCRM\\wwwroot\\Images\\Employee\\dd859b63-14bf-4ac1-9c9a-7675092ac133_avatar-3.jpg",
       "PackagePath": "staticwebassets\\Images\\Employee\\dd859b63-14bf-4ac1-9c9a-7675092ac133_avatar-3.jpg"
+    },
+    {
+      "Id": "F:\\ManoTourismAdmin\\ManoTourismCRM\\wwwroot\\Images\\Employee\\e5ca2a4d-1b29-4f21-98ab-9ee10dc9aefb_brety.jpg",
+      "PackagePath": "staticwebassets\\Images\\Employee\\e5ca2a4d-1b29-4f21-98ab-9ee10dc9aefb_brety.jpg"
+    },
+    {
+      "Id": "F:\\ManoTourismAdmin\\ManoTourismCRM\\wwwroot\\Images\\Employee\\e8fb95b5-aef4-4473-ade1-67afe9473e51_brety.jpg",
+      "PackagePath": "staticwebassets\\Images\\Employee\\e8fb95b5-aef4-4473-ade1-67afe9473e51_brety.jpg"
     },
     {
       "Id": "F:\\ManoTourismAdmin\\ManoTourismCRM\\wwwroot\\Images\\EsCompany\\0d9319a1-26e6-41ff-bee7-666f2f0fda5f_Simple United Arab Emirates National Day Instagram Post.jpg",
@@ -299,6 +323,38 @@
     {
       "Id": "F:\\ManoTourismAdmin\\ManoTourismCRM\\wwwroot\\Images\\PublicSlider\\fc9af4a8-ae80-470e-a4bf-4c06fba139b5_home1-banner-img2.png",
       "PackagePath": "staticwebassets\\Images\\PublicSlider\\fc9af4a8-ae80-470e-a4bf-4c06fba139b5_home1-banner-img2.png"
+    },
+    {
+      "Id": "F:\\ManoTourismAdmin\\ManoTourismCRM\\wwwroot\\Images\\Sales\\18443b38-92f6-4f70-bb0f-c6b6214142f1_brety.jpg",
+      "PackagePath": "staticwebassets\\Images\\Sales\\18443b38-92f6-4f70-bb0f-c6b6214142f1_brety.jpg"
+    },
+    {
+      "Id": "F:\\ManoTourismAdmin\\ManoTourismCRM\\wwwroot\\Images\\Sales\\60af4286-f155-400c-b086-06f37fc8d6d8_brety.jpg",
+      "PackagePath": "staticwebassets\\Images\\Sales\\60af4286-f155-400c-b086-06f37fc8d6d8_brety.jpg"
+    },
+    {
+      "Id": "F:\\ManoTourismAdmin\\ManoTourismCRM\\wwwroot\\Images\\Sales\\671e919f-e0ad-4477-8ebe-8f3cfe074a79_brety.jpg",
+      "PackagePath": "staticwebassets\\Images\\Sales\\671e919f-e0ad-4477-8ebe-8f3cfe074a79_brety.jpg"
+    },
+    {
+      "Id": "F:\\ManoTourismAdmin\\ManoTourismCRM\\wwwroot\\Images\\Sales\\795d4589-2273-47e1-b3bf-b360b198d0fe_brety.jpg",
+      "PackagePath": "staticwebassets\\Images\\Sales\\795d4589-2273-47e1-b3bf-b360b198d0fe_brety.jpg"
+    },
+    {
+      "Id": "F:\\ManoTourismAdmin\\ManoTourismCRM\\wwwroot\\Images\\Sales\\7fe72ef7-be4f-4188-a118-5050eb907ec0_brety.jpg",
+      "PackagePath": "staticwebassets\\Images\\Sales\\7fe72ef7-be4f-4188-a118-5050eb907ec0_brety.jpg"
+    },
+    {
+      "Id": "F:\\ManoTourismAdmin\\ManoTourismCRM\\wwwroot\\Images\\Sales\\ac207dd9-93e7-4f8a-baa3-33e00eadde18_brety.jpg",
+      "PackagePath": "staticwebassets\\Images\\Sales\\ac207dd9-93e7-4f8a-baa3-33e00eadde18_brety.jpg"
+    },
+    {
+      "Id": "F:\\ManoTourismAdmin\\ManoTourismCRM\\wwwroot\\Images\\Sales\\be0c2327-1d79-4ba2-96a4-a3af7d43a448_u1.jpg",
+      "PackagePath": "staticwebassets\\Images\\Sales\\be0c2327-1d79-4ba2-96a4-a3af7d43a448_u1.jpg"
+    },
+    {
+      "Id": "F:\\ManoTourismAdmin\\ManoTourismCRM\\wwwroot\\Images\\Sales\\d40b7e57-c22a-49ce-8f74-0704066def0b_brety.jpg",
+      "PackagePath": "staticwebassets\\Images\\Sales\\d40b7e57-c22a-49ce-8f74-0704066def0b_brety.jpg"
     },
     {
       "Id": "F:\\ManoTourismAdmin\\ManoTourismCRM\\wwwroot\\Images\\Testimonial\\6f919d23-566f-4c75-80d9-2767aa3d892b_Simple United Arab Emirates National Day Instagram Post.jpg",
@@ -467,6 +523,10 @@
     {
       "Id": "F:\\ManoTourismAdmin\\ManoTourismCRM\\wwwroot\\Public\\Img\\DarkLo.jpg",
       "PackagePath": "staticwebassets\\Public\\Img\\DarkLo.jpg"
+    },
+    {
+      "Id": "F:\\ManoTourismAdmin\\ManoTourismCRM\\wwwroot\\Public\\Img\\DarkMano.jfif",
+      "PackagePath": "staticwebassets\\Public\\Img\\DarkMano.jfif"
     },
     {
       "Id": "F:\\ManoTourismAdmin\\ManoTourismCRM\\wwwroot\\Public\\Img\\Dubi.jpg",

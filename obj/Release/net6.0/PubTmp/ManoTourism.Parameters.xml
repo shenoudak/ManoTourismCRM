@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <parameter name="IIS Web Application Name" description="" value="shenoudakaram-001-site3" tags="IisApp">
-    <parameterEntry kind="ProviderPath" scope="IisApp" match="^F:\\ManoooTourism\\ManoTourism\\ManoTourism\\obj\\Release\\net6\.0\\PubTmp\\Out\\$" />
+  <parameter name="IIS Web Application Name" description="" value="shenoudakaram-001-site2" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^F:\\ManoTourismAdmin\\ManoTourismCRM\\obj\\Release\\net6\.0\\PubTmp\\Out\\$" />
   </parameter>
 </parameters>

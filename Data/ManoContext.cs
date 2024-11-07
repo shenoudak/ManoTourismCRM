@@ -50,6 +50,7 @@ namespace ManoTourism.Data
         public virtual DbSet<Insurance> Insurances { get; set; }
         public virtual DbSet<InsuranceType> InsuranceTypes { get; set; }
         public virtual DbSet<Offer> Offers { get; set; }
+        public virtual DbSet<Sales> Sales { get; set; }
         public virtual DbSet<OfferImage> OfferImages { get; set; }
         /// <summary>
         /// <summary>

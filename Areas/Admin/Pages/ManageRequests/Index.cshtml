@@ -271,11 +271,56 @@
                     document.getElementById("DNationalityTLId").innerHTML = response.NationalityTLEN
                     document.getElementById("DCompanyMarktingTitle").innerHTML = response.CompanyMarktingTitleEn
                     document.getElementById("DMessageId").innerHTML = response.Message
-                    document.getElementById("DNotesId").innerHTML = response.Notes
-                
+                    document.getElementById("DActivityTypeId").innerHTML = response.ActivityType
+                    document.getElementById("DTransactionTypeId").innerHTML = response.TransactionType
+                    document.getElementById("DHotelArrivedDateId").innerHTML = response.HotelArrivedDate
+                    document.getElementById("DHotelDepartureDateId").innerHTML = response.HotelDepartureDate
+                    document.getElementById("DOneWayDateId").innerHTML = response.OneWayDate
+                    document.getElementById("DBeturnedDateId").innerHTML = response.BeturnedDate
+                    if (response.ManoEntityTypeId == 4) {
+                        document.getElementById("DisplayActivityTypeId").style.display = "revert";
+                    }
+                    else {
+                        document.getElementById("DisplayActivityTypeId").style.display = "none";
+                    }
+
+                    if (response.ManoEntityTypeId == 5) {
+                        document.getElementById("DisplayHotelArrivedDateId").style.display = "revert";
+                        document.getElementById("DisplayHotelDepartureDateId").style.display = "revert";
+                    }
+                    else {
+                        document.getElementById("DisplayHotelArrivedDateId").style.display = "none";
+                        document.getElementById("DisplayHotelDepartureDateId").style.display = "none";
+                    }
+                    if (response.ManoEntityTypeId == 6) {
+                        if (response.OneWay == true) {
+                            document.getElementById("DisplayOneWayId").style.display = "revert";
+                            document.getElementById("DOneWayId").innerHTML = "One-Way"
+                            document.getElementById("DisplayOneWayDateId").style.display = "revert";
+                            document.getElementById("DisplayBeturnedDateId").style.display = "none";
+                        }
+                        else {
+                            document.getElementById("DisplayOneWayId").style.display = "revert";
+                            document.getElementById("DOneWayId").innerHTML = "Going and Coming back"
+                            document.getElementById("DisplayOneWayDateId").style.display = "revert";
+                            document.getElementById("DisplayBeturnedDateId").style.display = "revert";
+                        }
+
+                    }
+                    else {
+                        document.getElementById("DisplayOneWayDateId").style.display = "none";
+                        document.getElementById("DisplayBeturnedDateId").style.display = "none";
+                    }
+                    if (response.ManoEntityTypeId == 7) {
+
+                        document.getElementById("DisplayTransactionTypeId").style.display = "revert";
+                    }
+                    else {
+                        document.getElementById("DisplayTransactionTypeId").style.display = "none";
+                    }
+
                 }
-                else
-                {
+                else {
                     document.getElementById("DEntityTitleId").innerHTML = response.EntityTitleAr
                     document.getElementById("DFullNameId").innerHTML = response.FullName
                     document.getElementById("DPhoneNumberId").innerHTML = response.PhoneNumber
@@ -287,9 +332,57 @@
                     document.getElementById("DNationalityTLId").innerHTML = response.NationalityTLAR
                     document.getElementById("DCompanyMarktingTitle").innerHTML = response.CompanyMarktingTitleAr
                     document.getElementById("DMessageId").innerHTML = response.Message
-                    document.getElementById("DNotesId").innerHTML = response.Notes
+                    document.getElementById("DActivityTypeId").innerHTML = response.ActivityType
+                    document.getElementById("DTransactionTypeId").innerHTML = response.TransactionType
+                    document.getElementById("DHotelArrivedDateId").innerHTML = response.HotelArrivedDate
+                    document.getElementById("DHotelDepartureDateId").innerHTML = response.HotelDepartureDate
+                    document.getElementById("DOneWayDateId").innerHTML = response.OneWayDate
+                    document.getElementById("DBeturnedDateId").innerHTML = response.BeturnedDate
+                    if (response.ManoEntityTypeId == 4) {
+                        document.getElementById("DisplayActivityTypeId").style.display = "revert";
+                    }
+                    else {
+                        document.getElementById("DisplayActivityTypeId").style.display = "none";
+                    }
+                    if (response.ManoEntityTypeId == 5) {
+                        document.getElementById("DisplayHotelArrivedDateId").style.display = "revert";
+                        document.getElementById("DisplayHotelDepartureDateId").style.display = "revert";
+                    }
+                    else {
+                        document.getElementById("DisplayHotelArrivedDateId").style.display = "none";
+                        document.getElementById("DisplayHotelDepartureDateId").style.display = "none";
+                    }
+                    if (response.ManoEntityTypeId == 6) {
+                        if (response.OneWay == true) {
+
+                            document.getElementById("DisplayOneWayId").style.display = "revert";
+                            document.getElementById("DOneWayId").innerHTML = "ذهاب فقط"
+                            document.getElementById("DisplayOneWayDateId").style.display = "revert";
+                            document.getElementById("DisplayBeturnedDateId").style.display = "none";
+                        }
+                        else {
+                            document.getElementById("DisplayOneWayId").style.display = "revert";
+
+                            document.getElementById("DOneWayId").innerHTML = "ذهاب وعوده"
+                            document.getElementById("DisplayOneWayDateId").style.display = "revert";
+                            document.getElementById("DisplayBeturnedDateId").style.display = "revert";
+                        }
+
+                    }
+                    else {
+                        document.getElementById("DisplayOneWayDateId").style.display = "none";
+                        document.getElementById("DisplayBeturnedDateId").style.display = "none";
+                    }
+                    if (response.ManoEntityTypeId == 7) {
+
+                        document.getElementById("DisplayTransactionTypeId").style.display = "revert";
+                    }
+                    else {
+                        document.getElementById("DisplayTransactionTypeId").style.display = "none";
+                    }
 
                 }
+
                
 
                 $('#QuickViewPoup').modal('show');
